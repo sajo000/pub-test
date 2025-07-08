@@ -1,0 +1,219 @@
+// row padding 디폴트값 수정
+// $grid-gutter-width: 2rem;
+// row padding 디폴트값 수정
+
+// 색상 변수 지정
+$primary: #00c2de;
+$primary2: #00CFE8;
+$primary-lite: #D6F7FF;
+$primary-lite2: #ECFBFF;
+
+$danger: #FF3558;
+$warning: #FF8000;
+$notice: #344FFF;
+
+$black: #000000;
+$white: #ffffff;
+
+$gray-f7: #f7f7f7;
+$gray-ee: #eeeeee;
+$gray-ef: #efefef;
+$gray-e6: #E6E6E6;
+$gray-d6: #d6d6d6;
+$gray-dd: #dddddd;
+$gray-99: #999999;
+$gray-94: #949494;
+$gray-88: #888888;
+$gray-66: #666666;
+$gray-55: #555555;
+$gray-33: #333333;
+$gray-1e: #1E1E1E;
+$gray-35: #353535;
+$gray-9a: #9a9c9c;
+// 색상 변수 지정
+
+// 페이지별 상단 메뉴영역 .menu-row 설정
+.menu-row {
+  @include make-row();
+  --bs-gutter-x: 24px;
+
+  > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+  }
+}
+
+// 페이지별 상단 메뉴영역 .menu-row 설정
+
+// 박스 섀도우
+$custom-shadow: 0px 16px 44px 0px rgba(0, 0, 0, 0.07); // 피그마에서 이름 -> shadow1
+$custom-shadow2: 0px 3px 10px 0px rgba(0, 0, 0, 0.16); // 피그마에서 이름 -> shadow2
+// 박스 섀도우
+
+// 마진, 패딩 간격 재정의
+$spacer: 1rem !default;
+
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: 0.375rem,
+    10: 0.625rem,
+    12: 0.75rem,
+    18: 1.125rem,
+    20: 1.25rem,
+    30: 1.875rem,
+    32: 2rem,
+    40: 2.5rem,
+    56: 3.5rem,
+    60: 3.75rem,
+    80: 5rem,
+    160: 10rem
+);
+// 마진, 패딩 간격 재정의
+
+// border-radius 재정의
+$border-radius-sm: 0.375rem !important; // 6px -> .rounded-1
+$border-radius: 0.625rem !important; // 10px -> .rounded-2
+$border-radius-lg: 0.5rem !important; // 8px -> .rounded-3
+$border-radius-xl: 1.25rem !important; // 20px -> .rounded-4
+$border-radius-xxl: 2rem !important; // 32px -> .rounded-5
+$border-radius-pill: 50rem;
+// border-radius 재정의
+
+// container max-width 재정의
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1248px,
+  // xxl: 1400px
+);
+// container max-width 재정의
+
+// 폰트사이즈 생성
+$custom-font-size: 1rem !default;
+
+$custom-font-size: (
+    44: 2.75rem,
+    38: 2.375rem,
+    36: 2.25rem,
+    32: 2rem,
+    22: 1.375rem,
+    24: 1.5rem,
+    26: 1.625rem,
+    20: 1.25rem,
+    18: 1.125rem,
+    16: 1rem,
+    14: 0.875rem,
+    12: 0.75rem,
+    11: 0.688rem
+);
+
+@each $key, $value in $custom-font-size {
+  .fs-#{$key} {
+    font-size: $value !important;
+  }
+}
+
+// 폰트사이즈 생성
+
+// 아이콘 사이즈 생성
+$custom-icon-size: 24px !default;
+
+$custom-icon-size: (
+    16: 1rem,
+    20: 1.25rem,
+    24: 1.5rem,
+    30: 1.875rem,
+    32: 2rem,
+    48: 3rem
+);
+
+@each $key, $value in $custom-icon-size {
+  .is-#{$key} {
+    width: $value !important;
+    height: $value !important;
+  }
+}
+
+// 아이콘 사이즈 생성
+
+// 프로그레스 바 재정의
+$progress-height: 0.188rem;
+$progress-font-size: $font-size-base * 0.75;
+$progress-bg: rgba(0, 194, 222, 0.1);
+$progress-border-radius: 0;
+$progress-box-shadow: var(--#{$prefix}box-shadow-inset);
+$progress-bar-color: $white;
+$progress-bar-bg: $primary;
+$progress-bar-animation-timing: 1s linear infinite;
+$progress-bar-transition: width 0.6s ease;
+// 프로그레스 바 재정의
+
+// 인풋 체크박스 스위치 재정의
+$form-switch-color: rgba($white, 1);
+$form-switch-width: 2.75rem;
+$form-switch-padding-start: $form-switch-width + 0.125rem;
+$form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
+$form-switch-border-radius: $form-switch-width;
+$form-switch-transition: background-position 0.15s ease-in-out;
+
+$form-switch-focus-color: $input-focus-border-color;
+$form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+
+$form-switch-checked-color: $component-active-color;
+$form-switch-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
+$form-switch-checked-bg-position: right center;
+// 인풋 체크박스 스위치 재정의
+
+// 페이지네이션 재정의
+$pagination-padding-y: 0;
+$pagination-padding-x: 0;
+$pagination-padding-y-sm: 0;
+$pagination-padding-x-sm: 0;
+$pagination-padding-y-lg: 0;
+$pagination-padding-x-lg: 0;
+
+$pagination-color: $gray-33;
+$pagination-bg: var(--#{$prefix}body-bg) !default;
+$pagination-border-radius: 100px;
+$pagination-border-width: var(--#{$prefix}border-width) !default;
+$pagination-margin-start: calc(
+    #{$pagination-border-width} * -1
+) !default; // stylelint-disable-line function-disallowed-list
+$pagination-border-color: var(--#{$prefix}border-color) !default;
+
+$pagination-focus-color: inherit;
+$pagination-focus-bg: $white;
+$pagination-focus-box-shadow: inherit;
+$pagination-focus-outline: 0 !default;
+
+$pagination-hover-color: inherit;
+$pagination-hover-bg: $white;
+$pagination-hover-border-color: var(--#{$prefix}border-color) !default; // Todo in v6: remove this?
+
+$pagination-active-color: $component-active-color !default;
+$pagination-active-bg: $gray-33;
+$pagination-active-border-color: $gray-33;
+
+$pagination-disabled-color: var(--#{$prefix}secondary-color) !default;
+$pagination-disabled-bg: var(--#{$prefix}secondary-bg) !default;
+$pagination-disabled-border-color: var(--#{$prefix}border-color) !default;
+// 페이지네이션 재정의
+
+// vertical-align 재정의
+$utilities: (
+    "align": (
+        property: vertical-align,
+        class: align,
+        values: baseline top middle bottom text-bottom text-top sub
+    )
+);
+// vertical-align 재정의

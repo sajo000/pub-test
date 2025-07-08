@@ -1,0 +1,248 @@
+/* ************************************************************************
+ * 주석 설명
+ * @see: 참고 사항
+* ************************************************************************/
+
+/* ========================================================================
+ * root 재정의
+*/
+:root {
+}
+
+/* ========================================================================
+ * reset / 공통 스타일
+*/
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh; /* 동적 뷰포트 높이 */
+}
+
+body {
+  width: 100%;
+  min-height: 100vh; /* 최소 높이를 화면 전체로 설정합니다. */
+  -webkit-font-smoothing: antialiased; // 피그마와 폰트 최대한 비슷하게: 글꼴의 경계선이 더 부드럽게 보이도록 하며, 글꼴의 두께가 약간 줄어들 수 있음
+  text-rendering: optimizeLegibility; // 피그마와 폰트 최대한 비슷하게: 가독성을 높이기 위해 글꼴의 형태를 더 잘 표현함
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  width: 100%;
+  // height: auto; @see: 적용하면 copy 버튼이 엄청커지는 이슈있음
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+p {
+  margin-bottom: 0;
+}
+
+pre {
+  font-family: inherit;
+  font-size: inherit;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+  font-weight: 300;
+}
+
+// * 저장된 정보 입력시 인풋, 셀렉트 배경색상 수정
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// * 셀렉트박스 selected 색상 변경
+select.form-select:invalid {
+  color: $gray-99;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+// * input type number 일때 수량조절버튼 숨김
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+  margin-bottom: 0;
+  line-height: var(--bs-body-line-height);
+}
+
+summary {
+  list-style: none;
+
+  // 사파리 초기화
+  &::-webkit-details-marker,
+  &::marker {
+    display: none;
+  }
+}
+
+/* ========================================================================
+ * scrollbar 스크롤바 스타일
+*/
+/* Webkit 계열 브라우저 (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 14px; /* 스크롤바 너비 */
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999999; /* 스크롤 핸들(thumb) 색상 */
+  border-radius: 8px; /* 둥근 모서리 */
+}
+
+::-webkit-scrollbar-track {
+  background: #eeeeee; /* 스크롤 트랙(배경) 색상 */
+  border-radius: 8px;
+  margin: 40px 0; /* 트랙 위아래 여백 (상단/하단 둥글게) */
+}
+
+/* Firefox */
+html, body, * {
+  scrollbar-width: thin; /* 얇은 스크롤바 */
+  scrollbar-color: #999999 #eeeeee; /* thumb, track */
+}
+
+/* ========================================================================
+ * 컨테이너 양 옆 패딩 삭제
+*/
+.justify-margin {
+  @include media-breakpoint-down(lg) {
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+  }
+}
+
+/* ========================================================================
+ * icon 아이콘
+*/
+.icon {
+  display: flex;
+  mask-size: contain;
+
+  &:hover {
+    text-decoration: none;
+    opacity: 0.5;
+    transition: all 0.25s ease;
+  }
+}
+
+/* ========================================================================
+ * 말줄임표 2줄
+*/
+.text-truncate-multi {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+}
+
+/* ========================================================================
+ * box-shadow
+*/
+.custom-shadow {
+  box-shadow: $custom-shadow;
+}
+
+.custom-shadow2 {
+  box-shadow: $custom-shadow2;
+}
+
+.box-shadow-none {
+  box-shadow: unset !important;
+}
+
+/* ========================================================================
+ * pagination 페이지네이션 재정의
+*/
+.pagination {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.page-link {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 100px;
+  font-size: map-get($custom-font-size, 12);
+  font-weight: 500;
+}
+
+.page-link:focus {
+  box-shadow: none;
+}

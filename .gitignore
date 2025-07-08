@@ -1,0 +1,4 @@
+# 제외
+.idea/
+*.xml
+node_modules/
