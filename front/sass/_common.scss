@@ -30,12 +30,12 @@ body {
 body {
   color: #888;
   background: #f4f7fa;
-  font-family: Open Sans, sans-serif;
+  font-family: Pretendard, sans-serif;
   font-size: 14px;
   font-weight: 400;
   position: relative;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.21;
 }
 
 figure {
@@ -254,4 +254,12 @@ html, body, * {
 
 .page-link:focus {
   box-shadow: none;
+}
+
+/* ========================================================================
+ * filter 필터 테스트
+*/
+.filter-item {
+  border: 2px dashed darkslateblue;
+  margin-right: 20px;
 }

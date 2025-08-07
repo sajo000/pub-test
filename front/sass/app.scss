@@ -16,13 +16,13 @@
 // 5. 공통 css
 //@import "_button";
 @import "_common";
-//@import "_font";
+@import "_fonts";
 //@import "_form";
 //@import "_icons";
 //@import "_badge";
 //@import "_modals";
 //@import "_toast";
-//@import "_table";
+@import "_table";
 //
 //// 6. 페이지별 css
 //@import "pages/login";

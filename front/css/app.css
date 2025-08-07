@@ -16809,12 +16809,12 @@ body {
 body {
   color: #888;
   background: #f4f7fa;
-  font-family: Open Sans, sans-serif;
+  font-family: Pretendard, sans-serif;
   font-size: 14px;
   font-weight: 400;
   position: relative;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.21;
 }
 
 figure {
@@ -17023,4 +17023,61 @@ html, body, * {
 
 .page-link:focus {
   box-shadow: none;
+}
+
+/* ========================================================================
+ * filter 필터 테스트
+*/
+.filter-item {
+  border: 2px dashed darkslateblue;
+  margin-right: 20px;
+}
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard Bold"), url(../fonts/woff2/Pretendard-Bold.subset.woff2) format("woff2"), url(../fonts/woff/Pretendard-Bold.subset.woff) format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Pretendard Medium"), url(../fonts/woff2/Pretendard-Medium.subset.woff2) format("woff2"), url(../fonts/woff/Pretendard-Medium.subset.woff) format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard Regular"), url(../fonts/woff2/Pretendard-Regular.subset.woff2) format("woff2"), url(../fonts/woff/Pretendard-Regular.subset.woff) format("woff");
+}
+/* ========================================================================
+ * 핸즈온테이블 오버라이드
+*/
+.ht-theme-main,
+.ht-theme-main-dark,
+.ht-theme-main-dark0-auto {
+  --ht-border-color: #ff0000;
+  --ht-cell-horizontal-border-color: #ff0000;
+  --ht-cell-vertical-border-color: #ff0000;
+}
+
+/* 줄무늬: odd/even stripe 처리 */
+/* 테두리 스타일 */
+/* 폰트 및 기본 스타일 부트스트랩에 맞추기 */
+.htCore {
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  font-size: 14px;
+}
+
+.handsontable tr.ht__row_odd td {
+  background-color: var(--ht-row-cell-odd-background-color) !important;
 }
