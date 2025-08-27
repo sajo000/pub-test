@@ -30,12 +30,12 @@ body {
 body {
   color: #888;
   background: #f4f7fa;
-  font-family: Pretendard, sans-serif;
-  font-size: 14px;
+  font-family: $font-family;
   font-weight: 400;
   position: relative;
   margin: 0;
-  line-height: 1.21;
+  line-height: 1.5;
+  letter-spacing: -0.025em; // -2.5%
 }
 
 figure {
@@ -107,7 +107,7 @@ select:-webkit-autofill:active {
 
 // * 셀렉트박스 selected 색상 변경
 select.form-select:invalid {
-  color: $gray-99;
+  color: $gray-91;
 }
 
 option[value=""][disabled] {
@@ -262,4 +262,84 @@ html, body, * {
 .filter-item {
   border: 2px dashed darkslateblue;
   margin-right: 20px;
+}
+
+/* ========================================================================
+ * 넘쳤을때 딤처리 되는거
+*/
+.slider-outer { background: #222; }
+.slider-inner { will-change: transform; }
+.slide-item { min-width: 150px; margin-right:12px; }
+
+.slider-btn {
+  width:36px; height:100%;
+  opacity:0.7;
+  font-size:26px;
+}
+.slider-dim {
+  position:absolute; top:0; bottom:0; width:36px;
+  z-index: 1;
+  pointer-events:none;
+  display:none;
+}
+.slider-dim.left {
+  left:0;
+  background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+}
+.slider-dim.right {
+  right:0;
+  background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+}
+
+
+// 테이블 딤처리
+.table-container {
+  position: relative;  /* fade가 기준 삼을 컨테이너 */
+  //width: 500px;        /* wrap width */
+  border: 1px solid #ddd;
+}
+
+.my-table-wrap {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.my-table-wrap table {
+  //min-width: 1200px;   /* 래퍼보다 넓어서 스크롤 발생 */
+  border-collapse: collapse;
+}
+
+.my-table-wrap th,
+.my-table-wrap td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+
+/* fade 공통 */
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 2;          /* 반드시 테이블 위 */
+}
+
+/* 래퍼 경계선에 붙도록 배경 그라데이션 */
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.5), rgba(255,255,255,0));
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,.5), rgba(255,255,255,0));
+}
+
+.fade.show {
+  opacity: 1;
 }

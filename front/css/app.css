@@ -1,48 +1,14 @@
 @charset "UTF-8";
-.menu-row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-  --bs-gutter-x: 24px;
-}
-.menu-row > * {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-}
-
-.fs-44 {
-  font-size: 2.75rem !important;
-}
-
-.fs-38 {
-  font-size: 2.375rem !important;
-}
-
-.fs-36 {
-  font-size: 2.25rem !important;
-}
-
 .fs-32 {
   font-size: 2rem !important;
 }
 
-.fs-22 {
-  font-size: 1.375rem !important;
+.fs-26 {
+  font-size: 1.625rem !important;
 }
 
 .fs-24 {
   font-size: 1.5rem !important;
-}
-
-.fs-26 {
-  font-size: 1.625rem !important;
 }
 
 .fs-20 {
@@ -63,10 +29,6 @@
 
 .fs-12 {
   font-size: 0.75rem !important;
-}
-
-.fs-11 {
-  font-size: 0.688rem !important;
 }
 
 .is-16 {
@@ -5342,7 +5304,7 @@ textarea.form-control-lg {
   --bs-pagination-padding-x: 0;
   --bs-pagination-padding-y: 0;
   --bs-pagination-font-size: 1rem;
-  --bs-pagination-color: #333333;
+  --bs-pagination-color: #383838;
   --bs-pagination-bg: var(--bs-body-bg);
   --bs-pagination-border-width: var(--bs-border-width);
   --bs-pagination-border-color: var(--bs-border-color);
@@ -5354,8 +5316,8 @@ textarea.form-control-lg {
   --bs-pagination-focus-bg: #ffffff;
   --bs-pagination-focus-box-shadow: inherit;
   --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #333333;
-  --bs-pagination-active-border-color: #333333;
+  --bs-pagination-active-bg: #383838;
+  --bs-pagination-active-border-color: #383838;
   --bs-pagination-disabled-color: var(--bs-secondary-color);
   --bs-pagination-disabled-bg: var(--bs-secondary-bg);
   --bs-pagination-disabled-border-color: var(--bs-border-color);
@@ -5567,7 +5529,7 @@ textarea.form-control-lg {
   --bs-progress-border-radius: 0;
   --bs-progress-box-shadow: var(--bs-box-shadow-inset);
   --bs-progress-bar-color: #ffffff;
-  --bs-progress-bar-bg: #00c2de;
+  --bs-progress-bar-bg: #00BAD1;
   --bs-progress-bar-transition: width 0.6s ease;
   display: flex;
   height: var(--bs-progress-height);
@@ -16773,12 +16735,23 @@ textarea.form-control-lg {
   width: 255px;
 }
 
+.nav-wrap:hover .nav .nav-item .nav-link,
+.nav-wrap.opened .nav .nav-item .nav-link,
+.nav-wrap:hover .nav .nav-item .nav-link span,
+.nav-wrap.opened .nav .nav-item .nav-link span,
+.nav-wrap:hover .nav .nav-item .nav-link .bi-chevron-down,
+.nav-wrap.opened .nav .nav-item .nav-link .bi-chevron-down,
+.nav-wrap:hover .nav .nav-item .nav-link .bi-chevron-right,
+.nav-wrap.opened .nav .nav-item .nav-link .bi-chevron-right {
+  border: 2px solid red;
+  display: flex !important;
+}
+
 .content-container {
   width: 100%;
   padding: 66px 0 0 73px;
   transition: all 0.1s ease-in-out;
   background-color: inherit;
-  border: 2px dashed green;
 }
 
 /* ************************************************************************
@@ -16810,11 +16783,11 @@ body {
   color: #888;
   background: #f4f7fa;
   font-family: Pretendard, sans-serif;
-  font-size: 14px;
   font-weight: 400;
   position: relative;
   margin: 0;
-  line-height: 1.21;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
 }
 
 figure {
@@ -16881,7 +16854,7 @@ select:-webkit-autofill:active {
 }
 
 select.form-select:invalid {
-  color: #999999;
+  color: #919191;
 }
 
 option[value=""][disabled] {
@@ -17033,6 +17006,97 @@ html, body, * {
   margin-right: 20px;
 }
 
+/* ========================================================================
+ * 넘쳤을때 딤처리 되는거
+*/
+.slider-outer {
+  background: #222;
+}
+
+.slider-inner {
+  will-change: transform;
+}
+
+.slide-item {
+  min-width: 150px;
+  margin-right: 12px;
+}
+
+.slider-btn {
+  width: 36px;
+  height: 100%;
+  opacity: 0.7;
+  font-size: 26px;
+}
+
+.slider-dim {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 36px;
+  z-index: 1;
+  pointer-events: none;
+  display: none;
+}
+
+.slider-dim.left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.slider-dim.right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+}
+
+.table-container {
+  position: relative; /* fade가 기준 삼을 컨테이너 */
+  border: 1px solid #ddd;
+}
+
+.my-table-wrap {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.my-table-wrap table {
+  border-collapse: collapse;
+}
+
+.my-table-wrap th,
+.my-table-wrap td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+/* fade 공통 */
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2; /* 반드시 테이블 위 */
+}
+
+/* 래퍼 경계선에 붙도록 배경 그라데이션 */
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
+}
+
+.fade.show {
+  opacity: 1;
+}
+
 /*
 Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
 https://github.com/orioncactus/pretendard
@@ -17060,24 +17124,229 @@ http://scripts.sil.org/OFL
   src: local("Pretendard Regular"), url(../fonts/woff2/Pretendard-Regular.subset.woff2) format("woff2"), url(../fonts/woff/Pretendard-Regular.subset.woff) format("woff");
 }
 /* ========================================================================
- * 핸즈온테이블 오버라이드
+ * font-color
 */
-.ht-theme-main,
-.ht-theme-main-dark,
-.ht-theme-main-dark0-auto {
-  --ht-border-color: #ff0000;
-  --ht-cell-horizontal-border-color: #ff0000;
-  --ht-cell-vertical-border-color: #ff0000;
+.fc-primary {
+  color: #00BAD1;
 }
 
-/* 줄무늬: odd/even stripe 처리 */
-/* 테두리 스타일 */
-/* 폰트 및 기본 스타일 부트스트랩에 맞추기 */
-.htCore {
-  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 14px;
+.fc-primary-lite {
+  color: #E5F8FA;
 }
 
-.handsontable tr.ht__row_odd td {
-  background-color: var(--ht-row-cell-odd-background-color) !important;
+.fc-primary-hover {
+  color: #00A4B8;
+}
+
+.fc-primary-active {
+  color: #0095A7;
+}
+
+.fc-danger {
+  color: #FF4263;
+}
+
+.fc-danger-lite {
+  color: #FFE8EC;
+}
+
+.fc-warning {
+  color: #FF8000;
+}
+
+.fc-warning-lite {
+  color: #FFF0E0;
+}
+
+.fc-success {
+  color: #01A235;
+}
+
+.fc-success-lite {
+  color: #E1F4E7;
+}
+
+.fc-white {
+  color: #ffffff;
+}
+
+.fc-gray-f7 {
+  color: #f7f7f7;
+}
+
+.fc-gray-f0 {
+  color: #f0f0f0;
+}
+
+.fc-gray-e6 {
+  color: #e6e6e6;
+}
+
+.fc-gray-cc {
+  color: #cccccc;
+}
+
+.fc-gray-a7 {
+  color: #a7a7a7;
+}
+
+.fc-gray-91 {
+  color: #919191;
+}
+
+.fc-gray-6b {
+  color: #6b6b6b;
+}
+
+.fc-gray-38 {
+  color: #383838;
+}
+
+.fc-black {
+  color: #000000;
+}
+
+/* ========================================================================
+ * background-color
+*/
+.bg-primary {
+  background-color: #00BAD1;
+}
+
+.bg-primary-lite {
+  background-color: #E5F8FA;
+}
+
+.bg-primary-hover {
+  background-color: #00A4B8;
+}
+
+.bg-primary-active {
+  background-color: #0095A7;
+}
+
+.bg-danger {
+  background-color: #FF4263;
+}
+
+.bg-danger-lite {
+  background-color: #FFE8EC;
+}
+
+.bg-warning {
+  background-color: #FF8000;
+}
+
+.bg-warning-lite {
+  background-color: #FFF0E0;
+}
+
+.bg-success {
+  background-color: #01A235;
+}
+
+.bg-success-lite {
+  background-color: #E1F4E7;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-gray-f7 {
+  background-color: #f7f7f7;
+}
+
+.bg-gray-f0 {
+  background-color: #f0f0f0;
+}
+
+.bg-gray-e6 {
+  background-color: #e6e6e6;
+}
+
+.bg-gray-cc {
+  background-color: #cccccc;
+}
+
+.bg-gray-a7 {
+  background-color: #a7a7a7;
+}
+
+.bg-gray-91 {
+  background-color: #919191;
+}
+
+.bg-gray-6b {
+  background-color: #6b6b6b;
+}
+
+.bg-gray-38 {
+  background-color: #383838;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.modal-custom {
+  --bs-modal-width: 100%;
+  margin: 48px;
+}
+
+/* ========================================================================
+ * 테이블 길 때 우측..
+*/
+.form-switch .form-check-input {
+  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+}
+
+.multi-select-wrap {
+  border: 1.5px solid #28cbe5;
+  border-radius: 8px;
+  background: #fff;
+  position: relative;
+  min-height: 44px;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.multi-select-display {
+  min-height: 26px;
+  color: #39b2cf;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.multi-select-dropdown {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 110%;
+  background: #fff;
+  z-index: 20;
+  box-shadow: 0 3px 12px rgba(60, 55, 88, 0.12);
+}
+
+.multi-option {
+  padding: 10px 15px;
+  color: #39b2cf;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.multi-option:hover, .multi-option.selected {
+  background: #f0fbfd;
+}
+
+.check-mark {
+  color: #00baca;
+  font-size: 15px;
 }

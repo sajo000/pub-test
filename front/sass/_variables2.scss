@@ -2,51 +2,35 @@
 // $grid-gutter-width: 2rem;
 // row padding 디폴트값 수정
 
-// 색상 변수 지정
-$primary: #00c2de;
-$primary2: #00CFE8;
-$primary-lite: #D6F7FF;
-$primary-lite2: #ECFBFF;
+// 폰트 패밀리 지정
+$font-family: Pretendard, sans-serif;
+// 폰트 패밀리 지정
 
-$danger: #FF3558;
+// 색상 변수 지정
+$primary: #00BAD1;
+$primary-lite: #E5F8FA;
+$primary-hover: #00A4B8;
+$primary-active: #0095A7;
+
+$danger: #FF4263;
+$danger-lite: #FFE8EC;
 $warning: #FF8000;
-$notice: #344FFF;
+$warning-lite: #FFF0E0;
+$success: #01A235;
+$success-lite: #E1F4E7;
 
-$black: #000000;
 $white: #ffffff;
-
 $gray-f7: #f7f7f7;
-$gray-ee: #eeeeee;
-$gray-ef: #efefef;
-$gray-e6: #E6E6E6;
-$gray-d6: #d6d6d6;
-$gray-dd: #dddddd;
-$gray-99: #999999;
-$gray-94: #949494;
-$gray-88: #888888;
-$gray-66: #666666;
-$gray-55: #555555;
-$gray-33: #333333;
-$gray-1e: #1E1E1E;
-$gray-35: #353535;
-$gray-9a: #9a9c9c;
+$gray-f0: #f0f0f0;
+$gray-e6: #e6e6e6;
+$gray-cc: #cccccc;
+$gray-a7: #a7a7a7;
+$gray-91: #919191;
+$gray-6b: #6b6b6b;
+$gray-38: #383838;
+$black: #000000;
+
 // 색상 변수 지정
-
-// 페이지별 상단 메뉴영역 .menu-row 설정
-.menu-row {
-  @include make-row();
-  --bs-gutter-x: 24px;
-
-  > * {
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
-  }
-}
-
-// 페이지별 상단 메뉴영역 .menu-row 설정
 
 // 박스 섀도우
 $custom-shadow: 0px 16px 44px 0px rgba(0, 0, 0, 0.07); // 피그마에서 이름 -> shadow1
@@ -101,19 +85,19 @@ $container-max-widths: (
 $custom-font-size: 1rem !default;
 
 $custom-font-size: (
-    44: 2.75rem,
-    38: 2.375rem,
-    36: 2.25rem,
+    //44: 2.75rem,
+    //38: 2.375rem,
+    //36: 2.25rem,
     32: 2rem,
-    22: 1.375rem,
-    24: 1.5rem,
     26: 1.625rem,
+    24: 1.5rem,
+    //22: 1.375rem,
     20: 1.25rem,
     18: 1.125rem,
     16: 1rem,
     14: 0.875rem,
     12: 0.75rem,
-    11: 0.688rem
+    //11: 0.688rem
 );
 
 @each $key, $value in $custom-font-size {
@@ -121,7 +105,6 @@ $custom-font-size: (
     font-size: $value !important;
   }
 }
-
 // 폰트사이즈 생성
 
 // 아이콘 사이즈 생성
@@ -142,7 +125,6 @@ $custom-icon-size: (
     height: $value !important;
   }
 }
-
 // 아이콘 사이즈 생성
 
 // 프로그레스 바 재정의
@@ -181,7 +163,7 @@ $pagination-padding-x-sm: 0;
 $pagination-padding-y-lg: 0;
 $pagination-padding-x-lg: 0;
 
-$pagination-color: $gray-33;
+$pagination-color: $gray-38;
 $pagination-bg: var(--#{$prefix}body-bg) !default;
 $pagination-border-radius: 100px;
 $pagination-border-width: var(--#{$prefix}border-width) !default;
@@ -200,8 +182,8 @@ $pagination-hover-bg: $white;
 $pagination-hover-border-color: var(--#{$prefix}border-color) !default; // Todo in v6: remove this?
 
 $pagination-active-color: $component-active-color !default;
-$pagination-active-bg: $gray-33;
-$pagination-active-border-color: $gray-33;
+$pagination-active-bg: $gray-38;
+$pagination-active-border-color: $gray-38;
 
 $pagination-disabled-color: var(--#{$prefix}secondary-color) !default;
 $pagination-disabled-bg: var(--#{$prefix}secondary-bg) !default;

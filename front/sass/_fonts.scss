@@ -27,3 +27,132 @@ http://scripts.sil.org/OFL
 	font-display: swap;
 	src: local('Pretendard Regular'), url(../fonts/woff2/Pretendard-Regular.subset.woff2) format('woff2'), url(../fonts/woff/Pretendard-Regular.subset.woff) format('woff');
 }
+
+
+/* ========================================================================
+ * font-color
+*/
+.fc-primary {
+	color: $primary;
+}
+.fc-primary-lite {
+	color: $primary-lite;
+}
+.fc-primary-hover {
+	color: $primary-hover;
+}
+.fc-primary-active {
+	color: $primary-active;
+}
+.fc-danger {
+	color: $danger;
+}
+.fc-danger-lite {
+	color: $danger-lite;
+}
+.fc-warning {
+	color: $warning;
+}
+.fc-warning-lite {
+	color: $warning-lite;
+}
+.fc-success {
+	color: $success;
+}
+.fc-success-lite {
+	color: $success-lite;
+}
+.fc-white {
+	color: $white;
+}
+.fc-gray-f7 {
+	color: $gray-f7;
+}
+.fc-gray-f0 {
+	color: $gray-f0;
+}
+.fc-gray-e6 {
+	color: $gray-e6;
+}
+.fc-gray-cc {
+	color: $gray-cc;
+}
+.fc-gray-a7 {
+	color: $gray-a7;
+}
+.fc-gray-91 {
+	color: $gray-91;
+}
+.fc-gray-6b {
+	color: $gray-6b;
+}
+.fc-gray-38 {
+	color: $gray-38;
+}
+.fc-black {
+	color: $black;
+}
+
+/* ========================================================================
+ * background-color
+*/
+.bg-primary {
+	background-color: $primary;
+}
+.bg-primary-lite {
+	background-color: $primary-lite;
+}
+.bg-primary-hover {
+	background-color: $primary-hover;
+}
+.bg-primary-active {
+	background-color: $primary-active;
+}
+.bg-danger {
+	background-color: $danger;
+}
+.bg-danger-lite {
+	background-color: $danger-lite;
+}
+.bg-warning {
+	background-color: $warning;
+}
+.bg-warning-lite {
+	background-color: $warning-lite;
+}
+.bg-success {
+	background-color: $success;
+}
+.bg-success-lite {
+	background-color: $success-lite;
+}
+.bg-white {
+	background-color: $white;
+}
+.bg-gray-f7 {
+	background-color: $gray-f7;
+}
+.bg-gray-f0 {
+	background-color: $gray-f0;
+}
+.bg-gray-e6 {
+	background-color: $gray-e6;
+}
+.bg-gray-cc {
+	background-color: $gray-cc;
+}
+.bg-gray-a7 {
+	background-color: $gray-a7;
+}
+.bg-gray-91 {
+	background-color: $gray-91;
+}
+.bg-gray-6b {
+	background-color: $gray-6b;
+}
+.bg-gray-38 {
+	background-color: $gray-38;
+}
+.bg-black {
+	background-color: $black;
+}
