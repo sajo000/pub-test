@@ -63,8 +63,8 @@ $(function () {
   $('.table-container').each(function () {
     const $container = $(this);
     const $wrap = $container.find('.my-table-wrap');
-    const $fadeLeft = $container.find('.fade-left');
-    const $fadeRight = $container.find('.fade-right');
+    const $fadeLeft = $container.find('.my-table-fade-left');
+    const $fadeRight = $container.find('.my-table-fade-right');
 
     function updateFade() {
       const scrollLeft = $wrap.scrollLeft();

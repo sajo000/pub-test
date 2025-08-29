@@ -17071,7 +17071,7 @@ html, body, * {
 }
 
 /* fade 공통 */
-.fade {
+.my-table-fade {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -17083,17 +17083,17 @@ html, body, * {
 }
 
 /* 래퍼 경계선에 붙도록 배경 그라데이션 */
-.fade-left {
+.my-table-fade-left {
   left: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
 }
 
-.fade-right {
+.my-table-fade-right {
   right: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0));
 }
 
-.fade.show {
+.my-table-fade.show {
   opacity: 1;
 }
 
