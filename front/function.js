@@ -152,7 +152,22 @@ $(function () {
 });
 
 // 모든 data-bs-toggle="tooltip" 속성을 가진 요소에 툴팁 활성화
-const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
+$(function () {
+  const tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  });
+});
+
+// datepicker
+$(function () {
+  const elem = document.getElementById('myDatepicker');
+  const datepicker = new Datepicker(elem, {
+    buttonClass: 'btn', // Ensures buttons are styled with Bootstrap's 'btn' class
+    autohide: true,// 날짜 선택 후 자동 닫힘
+    format: 'yyyy-mm-dd',     // 날짜 포맷 지정
+    todayHighlight: true, //오늘 날짜에 하이라이팅 기능 기본값 :false
+    // Add other options as needed (e.g., format, minDate, maxDate)
+  });
 });

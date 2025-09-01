@@ -13,16 +13,19 @@
   <!-- JS -->
   <script type="text/javascript" src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
   <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="./node_modules/"></script>
   <script type="text/javascript" src="./node_modules/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="./layout.js"></script>
   <script type="text/javascript" src="./function.js"></script>
-
 
   <!-- CSS -->
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/app.css">
 
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker-bs5.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
 </head>
 <body>
 <div class="container-wrap">
@@ -100,8 +103,19 @@
       <div class="iframe-content bg-danger-subtle px-4"></div>
       <!--      /사이드메뉴 페이지 컨테이너에 보여줌 -->
 
+      <div class="text-center">
+        <input type="text" class="form-control" id="myDatepicker">
+
+<!--        <button type="button" class="btn btn-secondary"-->
+<!--                data-bs-toggle="tooltip" data-bs-placement="top"-->
+<!--                data-bs-custom-class="custom-tooltip"-->
+<!--                data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">-->
+<!--          Custom tooltip-->
+<!--        </button>-->
+      </div>
+
       <!--      넘쳤을때 딤처리 되는거 -->
-      <div class="px-4">
+      <div class="px-4 py-2">
         <h1>넘쳤을때 딤처리</h1>
         <div class="slider-outer position-relative overflow-hidden">
           <button class="slider-btn left btn btn-dark position-absolute"
@@ -137,7 +151,7 @@
       <!--      /넘쳤을때 딤처리 되는거 -->
 
       <!--      테이블 테스트 -->
-      <div class="px-4 py-5">
+      <div class="px-4 py-2">
         <h1>테이블 테스트</h1>
         <div class="table-container">
           <div class="my-table-wrap">
@@ -187,7 +201,10 @@
                 <td>Row8</td>
                 <td>Row9</td>
                 <td>Row10</td>
-                <td>Row7</td>
+                <td><div                data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS &nbsp;variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">
+                  >Row7</div></td>
                 <td>Row8</td>
                 <td>Row9</td>
                 <td>Row10</td>
@@ -206,7 +223,7 @@
           <div class="my-table-fade my-table-fade-left"></div>
           <div class="my-table-fade my-table-fade-right show"></div>
         </div>
-        <!--      /테이블 테스트 -->
+
         <div class="table-container">
           <div class="my-table-wrap">
             <table class="table table-hover">
@@ -233,76 +250,84 @@
           <div class="my-table-fade my-table-fade-right show"></div>
         </div>
       </div>
+      <!--      /테이블 테스트 -->
 
-      <!--      체크박스 -->
-      <div class="px-4 py-5">
-        <h1>checkbox, radio, toggle</h1>
-        <div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" value="">
-              Default checkbox
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio">
-              Default radio
-            </label>
-          </div>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch">
-            <label class="form-check-label">Default switch checkbox input</label>
-          </div>
-        </div>
-      </div>
-      <!--      /체크박스 -->
-
-      <!--      드롭다운, 다중선택-->
-      <div class="px-4 py-5">
+      <!--      체크박스, radio, toggle / select custom-->
+      <div class="px-4 py-2">
         <div class="row">
-          <!-- 단일 선택(왼쪽) -->
+          <!--      체크박스 -->
           <div class="col-6">
-            <label class="form-label">레이블</label>
-            <div class="custom-select-box">
-              <select class="form-select" id="labelSelect">
-                <option>전체</option>
-                <option>아이템1</option>
-                <option>아이템2</option>
-                <option>아이템3</option>
-                <option>아이템4</option>
-                <option>아이템5</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- 멀티 셀렉트(오른쪽) -->
-          <div class="col-6">
-            <label class="form-label">상품타입</label>
-            <div class="multi-select-wrap" tabindex="0">
-              <div class="multi-select-display" id="multiSelectDisplay">전체</div>
-              <div class="multi-select-dropdown mt-1 d-none" id="multiSelectDropdown">
-                <div class="multi-option" data-value="전체">전체 <span class="check-mark d-none"><i
-                    class="bi bi-check2"></i></span></div>
-                <div class="multi-option" data-value="아이템1">아이템1 <span class="check-mark d-none"><i
-                    class="bi bi-check2"></i></span></div>
-                <div class="multi-option" data-value="아이템2">아이템2 <span class="check-mark d-none"><i
-                    class="bi bi-check2"></i></span></div>
-                <div class="multi-option" data-value="아이템3">아이템3 <span class="check-mark d-none"><i
-                    class="bi bi-check2"></i></span></div>
-                <div class="multi-option" data-value="아이템4">아이템4 <span class="check-mark d-none"><i
-                    class="bi bi-check2"></i></span></div>
-                <div class="multi-option" data-value="아이템5">아이템5 <span class="check-mark d-none"><i
-                    class="bi bi-check2"></i></span></div>
+            <h1>checkbox, radio, toggle</h1>
+            <div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Default checkbox
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio">
+                  Default radio
+                </label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch">
+                <label class="form-check-label">Default switch checkbox input</label>
               </div>
             </div>
           </div>
+          <!--      /체크박스 -->
+
+          <!--      드롭다운, 다중선택-->
+          <div class="col-6">
+            <h1>select custom</h1>
+            <div>
+              <!-- 단일 선택(왼쪽) -->
+              <div class="col-6">
+                <label class="form-label">레이블</label>
+                <div class="custom-select-box">
+                  <select class="form-select" id="labelSelect">
+                    <option>전체</option>
+                    <option>아이템1</option>
+                    <option>아이템2</option>
+                    <option>아이템3</option>
+                    <option>아이템4</option>
+                    <option>아이템5</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 멀티 셀렉트(오른쪽) -->
+              <div class="col-6">
+                <label class="form-label">상품타입</label>
+                <div class="multi-select-wrap" tabindex="0">
+                  <div class="multi-select-display" id="multiSelectDisplay">전체</div>
+                  <div class="multi-select-dropdown mt-1 d-none" id="multiSelectDropdown">
+                    <div class="multi-option" data-value="전체">전체 <span class="check-mark d-none"><i
+                        class="bi bi-check2"></i></span></div>
+                    <div class="multi-option" data-value="아이템1">아이템1 <span class="check-mark d-none"><i
+                        class="bi bi-check2"></i></span></div>
+                    <div class="multi-option" data-value="아이템2">아이템2 <span class="check-mark d-none"><i
+                        class="bi bi-check2"></i></span></div>
+                    <div class="multi-option" data-value="아이템3">아이템3 <span class="check-mark d-none"><i
+                        class="bi bi-check2"></i></span></div>
+                    <div class="multi-option" data-value="아이템4">아이템4 <span class="check-mark d-none"><i
+                        class="bi bi-check2"></i></span></div>
+                    <div class="multi-option" data-value="아이템5">아이템5 <span class="check-mark d-none"><i
+                        class="bi bi-check2"></i></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--      /드롭다운, 다중선택-->
         </div>
       </div>
-      <!--      /드롭다운, 다중선택-->
+      <!--      체크박스, radio, toggle / select custom-->
 
       <!--      component 컴포넌트-->
-      <div class="px-4 py-5">
+      <div class="px-4 py-2">
         <div class="row">
           <h1>한글 (프리텐다드)</h1>
           <p class="mb-3">line-height: <b>150% (1.5)</b> / letter-spacing: <b>-0.025em; (-2.5%)</b></p>
