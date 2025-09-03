@@ -32,31 +32,37 @@
 }
 
 .is-16 {
+  display: inline-block;
   width: 1rem !important;
   height: 1rem !important;
 }
 
 .is-20 {
+  display: inline-block;
   width: 1.25rem !important;
   height: 1.25rem !important;
 }
 
 .is-24 {
+  display: inline-block;
   width: 1.5rem !important;
   height: 1.5rem !important;
 }
 
 .is-30 {
+  display: inline-block;
   width: 1.875rem !important;
   height: 1.875rem !important;
 }
 
 .is-32 {
+  display: inline-block;
   width: 2rem !important;
   height: 2rem !important;
 }
 
 .is-48 {
+  display: inline-block;
   width: 3rem !important;
   height: 3rem !important;
 }
@@ -16774,96 +16780,83 @@ textarea.form-control-lg {
 }
 
 /* ========================================================================
-* 사이드메뉴
+* 사이드메뉴 deps1
 */
-.side-menu-item__title,
-.icon-side-menu__arrow {
-  display: none !important;
-}
-
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1 .icon-side-menu__arrow,
-.nav-wrap.opened .nav-deps1 .nav-item-deps1 .nav-link-deps1 .icon-side-menu__arrow {
-  display: flex !important;
-}
-
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1,
-.nav-wrap.opened .nav-deps1 .nav-item-deps1 .nav-link-deps1,
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1 .side-menu-item__title,
-.nav-wrap.opened .nav-deps1 .nav-item-deps1 .nav-link-deps1 .side-menu-item__title,
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1 .icon-side-menu__main {
-  display: flex !important;
-}
-
-.nav-deps1 {
+.deps1 {
+  border: 2px dashed lightpink;
   padding-right: 16px;
 }
 
-.nav-item-deps1 {
-  padding-right: 16px;
-}
-.nav-item-deps1:hover {
-  color: #00BAD1;
-  background-color: #f7f7f7;
-  border-radius: 0 10px 10px 0;
-}
-.nav-item-deps1.active {
-  border: 2px dashed red;
-  background-color: #EFFDFF;
-  border-radius: 0 10px 10px 0;
-}
-.nav-item-deps1.active .icon-side-menu__main {
-  background-color: #00BAD1;
-}
-.nav-item-deps1.active .side-menu-item__title {
-  color: #00BAD1;
-  font-weight: 600;
-}
-
-.nav-link-deps1 {
-  height: 56px;
-  padding: 0 16px 0 24px;
-  align-content: center;
+.deps1-link {
+  display: flex;
   align-items: center;
   gap: 1rem;
-}
-.nav-link-deps1 .icon-side-menu__main {
-  background-color: #000000;
-}
-.nav-link-deps1 .side-menu-item__title {
-  color: #000000;
   font-weight: 500;
-  flex-grow: 1;
+  padding: 17.5px 0 17.5px 24px;
+  border-radius: 0 10px 10px 0;
 }
-.nav-link-deps1 .icon-side-menu__arrow {
-  background-color: #919191;
+.deps1-link:hover {
+  background-color: #f7f7f7;
 }
 
-.nav-deps2 {
-  width: 100%;
+.deps1-icon-main {
+  flex-shrink: 0;
+  background-color: #000000;
 }
-.nav-deps2.active {
+
+.deps1-icon-arrow {
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+.deps1-title,
+.deps1-icon-arrow {
+  display: none;
+  flex-shrink: 0;
+}
+
+.nav-wrap:hover .deps1-title,
+.nav-wrap:hover .deps1-icon-arrow,
+.nav-wrap.opened .deps1-title,
+.nav-wrap.opened .deps1-icon-arrow {
+  display: block;
+}
+
+.nav-wrap:hover .single.active,
+.nav-wrap.opened .single.active {
+  color: #00BAD1;
   background-color: #EFFDFF;
+}
+.nav-wrap:hover .single.active .deps1-icon-main,
+.nav-wrap.opened .single.active .deps1-icon-main {
+  background-color: #00BAD1;
+}
+
+.single.active .deps1-icon-main {
+  background-color: #00BAD1;
+}
+
+/* ========================================================================
+* 사이드메뉴 deps2
+*/
+.deps2 {
+  display: none;
+}
+
+.deps2-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+  padding: 11.5px 0 11.5px 60px;
   border-radius: 0 10px 10px 0;
 }
-.nav-deps2.active .nav-link-deps2 {
-  color: #00BAD1;
-  font-weight: 600;
-}
-.nav-deps2 .nav-item-deps2 {
-  width: 100%;
-  padding-left: 58px;
-  border: 2px dashed purple;
-}
-.nav-deps2 .nav-item-deps2:hover {
-  color: #00BAD1;
+.deps2-link:hover {
   background-color: #f7f7f7;
-  border-radius: 0 10px 10px 0;
 }
-.nav-deps2 .nav-link-deps2 {
-  height: 44px;
-}
-.nav-deps2 .side-menu-item__title {
-  display: flex !important;
+
+.deps2-title {
+  flex-shrink: 0;
 }
 
 /* ========================================================================
@@ -16982,7 +16975,7 @@ textarea.form-control-lg {
 /* ========================================================================
  * icon 아이콘
  * button 안에 i class="icon-{필요한아이콘}" 필요한아이콘에 search, menu 등 넣으면 됨.
- * @see: class 순서 -> icon-{필요한아이콘} icon is-m-20 is-p-20 bg-333
+ * @see: class 순서 -> icon-{필요한아이콘} is-m-20 is-p-20 bg-333
 */
 .icon-side-menu {
   opacity: 1;
@@ -17290,11 +17283,7 @@ html, body, * {
 /* ========================================================================
  * icon 아이콘
 */
-.icon {
-  display: flex;
-  mask-size: contain;
-}
-.icon:hover {
+.icon-hover:hover {
   text-decoration: none;
   opacity: 0.3;
   transition: all 0.25s ease;

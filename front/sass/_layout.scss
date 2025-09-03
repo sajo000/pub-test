@@ -99,120 +99,94 @@
 }
 
 /* ========================================================================
-* 사이드메뉴
+* 사이드메뉴 deps1
 */
-.side-menu-item__title,
-.icon-side-menu__arrow {
-  display: none !important;
-}
 
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1 .icon-side-menu__arrow,
-.nav-wrap.opened .nav-deps1 .nav-item-deps1 .nav-link-deps1 .icon-side-menu__arrow {
-  display: flex !important;
-}
-
-// * 사이드메뉴 hover 했을때
-// * 펼쳐졌일때 스타일
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1,
-.nav-wrap.opened .nav-deps1 .nav-item-deps1 .nav-link-deps1,
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1 .side-menu-item__title,
-.nav-wrap.opened .nav-deps1 .nav-item-deps1 .nav-link-deps1 .side-menu-item__title,
-.nav-wrap:hover .nav-deps1 .nav-item-deps1 .nav-link-deps1 .icon-side-menu__main {
-  display: flex !important;
-}
-
-.nav-deps1 {
+.deps1 {
+  border: 2px dashed lightpink;
   padding-right: 16px;
 }
 
-
-.nav-item-deps1 {
-  padding-right: 16px;
-
-  &:hover {
-    color: $primary;
-    background-color: $gray-f7;
-    border-radius: 0 10px 10px 0;
-  }
-
-  &.active {
-    border: 2px dashed red;
-    background-color: $primary-lite2;
-    border-radius: 0 10px 10px 0;
-
-    .icon-side-menu__main {
-      background-color: $primary;
-    }
-
-    .side-menu-item__title {
-      color: $primary;
-      font-weight: $font-weight-semibold;
-    }
-  }
-}
-
-.nav-link-deps1 {
-  height: 56px;
-  padding: 0 16px 0 24px;
-  align-content: center;
+.deps1-link {
+  display: flex;
   align-items: center;
   gap: 1rem;
+  font-weight: $font-weight-medium;
+  padding: 17.5px 0 17.5px 24px;
+  border-radius: 0 10px 10px 0;
 
-  .icon-side-menu__main {
-    background-color: $black;
-  }
-
-  .side-menu-item__title {
-    color: $black;
-    font-weight: $font-weight-medium;
-    flex-grow: 1;
-  }
-
-  .icon-side-menu__arrow {
-    background-color: $gray-91;
+  &:hover {
+    background-color: $gray-f7;
   }
 }
 
-// * 사이드메뉴 deps2
-.nav-deps2 {
-  width: 100%;
+.deps1-icon-main {
+  flex-shrink: 0;
+  background-color: $black;
+}
 
-  //&:hover {
-  //  color: $primary;
-  //  background-color: $gray-f7;
-  //  border-radius: 0 10px 10px 0;
-  //}
+.deps1-icon-arrow {
+  margin-left: auto;
+  margin-right: 16px;
+}
 
-  &.active {
-    background-color: $primary-lite2;
-    border-radius: 0 10px 10px 0;
+.deps1-title,
+.deps1-icon-arrow {
+  display: none;
+  flex-shrink: 0;
+}
 
-    .nav-link-deps2 {
-      color: $primary;
-      font-weight: $font-weight-semibold;
-    }
-  }
-
-  .nav-item-deps2 {
-    width: 100%;
-    padding-left: 58px;
-    border: 2px dashed purple;
-
-    &:hover {
-      color: $primary;
-      background-color: $gray-f7;
-      border-radius: 0 10px 10px 0;
-    }
-  }
-
-  .nav-link-deps2 {
-    height: 44px;
-  }
-
-  .side-menu-item__title {
-    display: flex !important;
+// * 호버하거나 메뉴 열었을때 보임
+.nav-wrap:hover,
+.nav-wrap.opened {
+  .deps1-title,
+  .deps1-icon-arrow {
+    display: block;
   }
 }
+
+// 대시보드 등 하위메뉴 없는 사이드메뉴의 active 스타일
+.nav-wrap:hover .single.active,
+.nav-wrap.opened .single.active {
+  // nav-wrap 열려있고 선택된 deps1
+  color: $primary;
+  background-color: $primary-lite2;
+
+  .deps1-icon-main {
+    // 선택된 deps1의 아이콘 색상
+    background-color: $primary;
+  }
+}
+
+.single.active .deps1-icon-main {
+  background-color: $primary;
+}
+
+/* ========================================================================
+* 사이드메뉴 deps2
+*/
+
+.deps2 {
+  display: none;
+}
+
+.deps2-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: $font-weight-medium;
+  padding: 11.5px 0 11.5px 60px;
+  border-radius: 0 10px 10px 0;
+
+  &:hover {
+    background-color: $gray-f7;
+  }
+}
+
+.deps2-title {
+  flex-shrink: 0;
+}
+
 
 /* ========================================================================
 * 컨텐츠 컨테이너

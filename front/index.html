@@ -32,7 +32,7 @@
     <header>
       <div class="header-item__left px-4">
         <button class="btn menu p-0">
-          <i class="icon is-20 icon-side-menu bg-black"></i>
+          <i class="is-20 icon-side-menu bg-black"></i>
         </button>
         <div class="logo-wrap ps-3">
           <img src="./images/logo.png" alt="one express logo">
@@ -72,54 +72,96 @@
   <div class="content-container-wrap">
     <!--    사이드메뉴 -->
     <nav class="nav-wrap flex-column">
-      <ul class="nav nav-deps1 flex-column w-100">
-        <li class="nav-item nav-item-deps1 active">
-          <a href="#" class="nav-link nav-link-deps1" data-url="./page1.html">
-            <i class="icon is-20 icon-side-home icon-side-menu__main"></i>
-            <span class="side-menu-item__title">대시보드</span>
-            <i class="icon is-20 icon-arrow-right icon-side-menu__arrow"></i>
+      <ul class="nav deps1">
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link single active" data-url="./page1.html">
+            <i class="icon-side-home is-20 deps1-icon-main"></i>
+            <span class="deps1-title">대시보드</span>
+            <i class="icon-arrow-right is-20 bg-gray-91 deps1-icon-arrow"></i>
           </a>
         </li>
-        <li class="nav-item nav-item-deps1">
-          <a href="#" class="nav-link nav-link-deps1" data-url="./page2.html">
-            <i class="icon is-20 icon-side-briefcase icon-side-menu__main"></i>
-            <span class="side-menu-item__title">상품관리</span>
-            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-home is-20 deps1-icon-main"></i>
+            <span class="deps1-title">상품관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
           </a>
-        </li>
-        <li class="nav-item nav-item-deps1">
-          <a href="#" class="nav-link nav-link-deps1" data-url="./page3.html">
-            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>
-            <span class="side-menu-item__title">재고관리</span>
-            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>
-          </a>
-        </li>
-        <li class="nav-item nav-item-deps1">
-          <a href="#" class="nav-link nav-link-deps1">
-            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>
-            <span class="side-menu-item__title">재고관리</span>
-            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>
-          </a>
-          <ul class="nav nav-deps2">
-            <li class="nav-item nav-item-deps2">
-              <a href="#" class="nav-link nav-link-deps2">
-                <span class="side-menu-item__title">재고조회</span>
-              </a>
-            </li>
-            <li class="nav-item nav-item-deps2">
-              <a href="#" class="nav-link nav-link-deps2">
-                <span class="side-menu-item__title">재고등록</span>
-              </a>
-            </li>
-            <li class="nav-item nav-item-deps2">
-              <a href="#" class="nav-link nav-link-deps2">
-                <span class="side-menu-item__title">재고수정</span>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="./page1.html">
+                <span class="deps2-title">상품관리 상세</span>
               </a>
             </li>
           </ul>
         </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-home is-20 deps1-icon-main"></i>
+            <span class="deps1-title">재고관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="./page1.html">
+                <span class="deps2-title">재고관리 상세</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="./page1.html">
+                <span class="deps2-title">재고등록</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
 
+      <ul class="nav nav-deps1 flex-column w-100 d-none">
+        <!--        <li class="nav-item nav-item-deps1 active">-->
+        <!--          <a href="#" class="nav-link nav-link-deps1" data-url="./page1.html">-->
+        <!--            <i class="icon is-20 icon-side-home icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">대시보드</span>-->
+        <!--            <i class="icon is-20 icon-arrow-right icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item nav-item-deps1">-->
+        <!--          <a href="#" class="nav-link nav-link-deps1" data-url="./page2.html">-->
+        <!--            <i class="icon is-20 icon-side-briefcase icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">상품관리</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item nav-item-deps1">-->
+        <!--          <a href="#" class="nav-link nav-link-deps1" data-url="./page3.html">-->
+        <!--            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">재고관리</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item nav-item-deps1">-->
+        <!--          <a href="#" class="nav-link nav-link-deps1">-->
+        <!--            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">재고관리</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--          <ul class="nav nav-deps2">-->
+        <!--            <li class="nav-item nav-item-deps2">-->
+        <!--              <a href="#" class="nav-link nav-link-deps2">-->
+        <!--                <span class="side-menu-item__title">재고조회</span>-->
+        <!--              </a>-->
+        <!--            </li>-->
+        <!--            <li class="nav-item nav-item-deps2">-->
+        <!--              <a href="#" class="nav-link nav-link-deps2">-->
+        <!--                <span class="side-menu-item__title">재고등록</span>-->
+        <!--              </a>-->
+        <!--            </li>-->
+        <!--            <li class="nav-item nav-item-deps2">-->
+        <!--              <a href="#" class="nav-link nav-link-deps2">-->
+        <!--                <span class="side-menu-item__title">재고수정</span>-->
+        <!--              </a>-->
+        <!--            </li>-->
+        <!--          </ul>-->
+        <!--        </li>-->
         <!--        <li class="nav-item">-->
         <!--          <a href="#" class="nav-link side-menu-item">-->
         <!--            <i class="icon is-20 icon-side-disk icon-side-menu__main"></i>-->

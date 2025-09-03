@@ -193,16 +193,11 @@ html, body, * {
 /* ========================================================================
  * icon 아이콘
 */
-.icon {
-  display: flex;
-  mask-size: contain;
-
-  // * icon hover 색상
-  &:hover {
-    text-decoration: none;
-    opacity: 0.3;
-    transition: all 0.25s ease;
-  }
+// * icon hover 색상
+.icon-hover:hover {
+  text-decoration: none;
+  opacity: 0.3;
+  transition: all 0.25s ease;
 }
 
 /* ========================================================================
@@ -268,34 +263,50 @@ html, body, * {
 /* ========================================================================
  * 넘쳤을때 딤처리 되는거
 */
-.slider-outer { background: #222; }
-.slider-inner { will-change: transform; }
-.slide-item { min-width: 150px; margin-right:12px; }
+.slider-outer {
+  background: #222;
+}
+
+.slider-inner {
+  will-change: transform;
+}
+
+.slide-item {
+  min-width: 150px;
+  margin-right: 12px;
+}
 
 .slider-btn {
-  width:36px; height:100%;
-  opacity:0.7;
-  font-size:26px;
+  width: 36px;
+  height: 100%;
+  opacity: 0.7;
+  font-size: 26px;
 }
+
 .slider-dim {
-  position:absolute; top:0; bottom:0; width:36px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 36px;
   z-index: 1;
-  pointer-events:none;
-  display:none;
+  pointer-events: none;
+  display: none;
 }
+
 .slider-dim.left {
-  left:0;
-  background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
 }
+
 .slider-dim.right {
-  right:0;
-  background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
 }
 
 
 // 테이블 딤처리
 .table-container {
-  position: relative;  /* fade가 기준 삼을 컨테이너 */
+  position: relative; /* fade가 기준 삼을 컨테이너 */
   //width: 500px;        /* wrap width */
   border: 1px solid #ddd;
 }
@@ -327,18 +338,18 @@ html, body, * {
   pointer-events: none;
   opacity: 0;
   transition: opacity .3s;
-  z-index: 2;          /* 반드시 테이블 위 */
+  z-index: 2; /* 반드시 테이블 위 */
 }
 
 /* 래퍼 경계선에 붙도록 배경 그라데이션 */
 .my-table-fade-left {
   left: 0;
-  background: linear-gradient(to right, rgba(0,0,0,.5), rgba(255,255,255,0));
+  background: linear-gradient(to right, rgba(0, 0, 0, .5), rgba(255, 255, 255, 0));
 }
 
 .my-table-fade-right {
   right: 0;
-  background: linear-gradient(to left, rgba(0,0,0,.5), rgba(255,255,255,0));
+  background: linear-gradient(to left, rgba(0, 0, 0, .5), rgba(255, 255, 255, 0));
 }
 
 .my-table-fade.show {
