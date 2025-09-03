@@ -9,6 +9,7 @@ $font-family: Pretendard, sans-serif;
 // 색상 변수 지정
 $primary: #00BAD1;
 $primary-lite: #E5F8FA;
+$primary-lite2: #EFFDFF;
 $primary-hover: #00A4B8;
 $primary-active: #0095A7;
 
@@ -108,7 +109,7 @@ $custom-font-size: (
 // 폰트사이즈 생성
 
 // 아이콘 사이즈 생성
-$custom-icon-size: 24px !default;
+$custom-icon-size: 20px !default;
 
 $custom-icon-size: (
     16: 1rem,

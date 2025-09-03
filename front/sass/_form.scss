@@ -1,7 +1,178 @@
-.form-switch .form-check-input {
-  // input 스위치 왼쪽으로 꺼져있을때 스위치 버튼 색상 지정.
-  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+/* ========================================================================
+* input
+*/
+
+.form-group {
+  margin-bottom: 20px;
 }
+
+// * form-group input 안에 아이콘 있는 경우 button 감싸고 있는 div
+.form-group-append {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding-right: 1rem;
+}
+
+.form-label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: map-get($custom-font-size, 14);
+}
+
+.form-control,
+.form-select {
+  height: 46px;
+  padding: 11px 1rem;
+  border: 1px solid $gray-6b;
+  font-size: map-get($custom-font-size, 14);
+  border-radius: var(--bs-border-radius-sm);
+
+  &::placeholder {
+    color: blue;
+  }
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: $gray-e6;
+    border-color: $gray-cc;
+    color: $gray-91;
+  }
+
+  &.success {
+    border-color: $success;
+  }
+
+  &.warning {
+    border-color: $warning;
+  }
+
+  &.error {
+    border-color: $danger;
+  }
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: none;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 50px;
+    padding: 13px 1rem;
+    font-size: map-get($custom-font-size, 16);
+  }
+}
+
+
+/* ========================================================================
+* 인풋 체크박스
+*/
+// * 체크박스
+.form-check-input {
+  width: 20px;
+  height: 20px;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: none;
+  }
+
+  &:checked {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+.form-check-label {
+  font-size: 14px;
+}
+
+.form-check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-left: 28px;
+  min-height: unset;
+  margin-bottom: 0;
+
+  .form-check-input {
+    margin-left: -28px;
+    margin-top: 0;
+  }
+
+  .form-check-label {
+    line-height: 1;
+  }
+}
+
+// * 스위치
+.form-switch .form-check-input {
+  // $form-switch-color: #ffffff;
+  --bs-form-check-bg: #e0e0e0;
+  height: 24px;
+  margin-right: 8px;
+
+  &:focus {
+    border-color: transparent;
+    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+  }
+}
+
+// * 라디오 버튼
+.form-check-input[type="radio"] {
+  &:checked {
+    border-color: $primary;
+    background-color: $white;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='%2300c2de'/></svg>");
+  }
+}
+
+/* ========================================================================
+* 검색 인풋 search
+* .form-search 안에 input 과 search icon button 나란히 있어야함!
+* 검색 인풋만 PC에서 높이 56px, 둥글기 10px, 버튼 top: 3px 인 점 참고.
+*/
+.form-search {
+  position: relative;
+  flex: 1;
+
+  .form-control {
+    padding-right: 20px;
+    background-color: $gray-f7;
+    border-color: $gray-f7;
+    @include media-breakpoint-up(lg) {
+      height: 56px;
+      border-radius: 10px;
+    }
+
+    &:hover {
+      border-color: $primary;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    right: 16px;
+    top: 0;
+    @include media-breakpoint-up(lg) {
+      top: 3px;
+    }
+  }
+}
+
+/* ========================================================================
+ * 테스트으으으으
+ */
+//.form-switch .form-check-input {
+//  // input 스위치 왼쪽으로 꺼져있을때 스위치 버튼 색상 지정.
+//  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+//}
 
 // 드롭다운, 다중선택 셀렉트 테스트
 .multi-select-wrap {
@@ -13,6 +184,7 @@
   cursor: pointer;
   padding: 8px 12px;
 }
+
 .multi-select-display {
   min-height: 26px;
   color: #39b2cf;
@@ -21,6 +193,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .multi-select-dropdown {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -30,8 +203,9 @@
   top: 110%;
   background: #fff;
   z-index: 20;
-  box-shadow: 0 3px 12px rgba(60,55,88,0.12);
+  box-shadow: 0 3px 12px rgba(60, 55, 88, 0.12);
 }
+
 .multi-option {
   padding: 10px 15px;
   color: #39b2cf;
@@ -41,10 +215,20 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .multi-option:hover, .multi-option.selected {
   background: #f0fbfd;
 }
+
 .check-mark {
   color: #00baca;
   font-size: 15px;
+}
+
+// * select box 아이콘 변경
+.form-select {
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7' viewBox='0 0 8 7' fill='none'%3E%3Cpath d='M4.51901 5.84531L7.82796 2.06375C8.21847 1.61736 7.9011 0.919138 7.30844 0.919138L0.690533 0.919138C0.557896 0.919024 0.428037 0.957144 0.316507 1.02893C0.204978 1.10072 0.116507 1.20314 0.0616874 1.32392C0.00686781 1.4447 -0.0119768 1.57872 0.00741186 1.70993C0.0268005 1.84114 0.0835995 1.96399 0.171007 2.06375L3.47996 5.84462C3.54472 5.91873 3.62458 5.97812 3.71419 6.01882C3.80379 6.05951 3.90107 6.08057 3.99949 6.08057C4.0979 6.08057 4.19518 6.05951 4.28478 6.01882C4.37439 5.97812 4.45425 5.91942 4.51901 5.84531Z' fill='%23919191'/%3E%3C/svg%3E");
+  background-size: 8px 7px;
+  background-position: right 21px center;
+  padding: 8px 16px;
 }

@@ -23,27 +23,27 @@
   <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/app.css">
 
-<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker-bs5.min.css">
   <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
 </head>
 <body>
 <div class="container-wrap">
   <div class="header-wrap">
-    <header class="">
-      <div class="bg-danger">
-        <button class="btn menu">
-          <i class="bi bi-list"></i>
+    <header>
+      <div class="header-item__left px-4">
+        <button class="btn menu p-0">
+          <i class="icon is-20 icon-side-menu bg-black"></i>
         </button>
-        <img src="https://one-express.kr/wp-content/uploads/2024/02/%EC%9B%90%EB%B0%B0%EC%86%A1_%EB%A1%9C%EA%B3%A0_kr.png" alt=""
-             style="height: 60px;">
+        <div class="logo-wrap ps-3">
+          <img src="./images/logo.png" alt="one express logo">
+        </div>
       </div>
 
       <div class="bg-secondary">
         <ul class="nav nav-tabs"></ul>
       </div>
 
-      <div class="d-flex align-items-center gap-1 ms-auto bg-danger">
+      <div class="d-flex align-items-center gap-1 ms-auto bg-secondary">
         <a href="" class="btn">
           <i class="bi bi-gear"></i>
         </a>
@@ -71,29 +71,77 @@
 
   <div class="content-container-wrap">
     <!--    사이드메뉴 -->
-    <nav class="nav nav-wrap flex-column bg-light p-3">
-      <ul class="nav flex-column w-100">
-        <li class="nav-item">
-          <a href="#" class="nav-link menu-item" data-url="./page1.html">
-            <i class="bi bi-house-heart-fill"></i>
-            <span class="d-none">대시보드</span>
-            <i class="bi bi-chevron-down d-none"></i>
+    <nav class="nav-wrap flex-column">
+      <ul class="nav nav-deps1 flex-column w-100">
+        <li class="nav-item nav-item-deps1">
+          <a href="#" class="nav-link nav-link-deps1 active" data-url="./page1.html">
+            <i class="icon is-20 icon-side-home icon-side-menu__main"></i>
+            <span class="side-menu-item__title">대시보드</span>
+            <i class="icon is-20 icon-arrow-right icon-side-menu__arrow"></i>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link menu-item" data-url="./page2.html">
-            <i class="bi bi-box-seam"></i>
-            <span class="d-none">상품 관리</span>
-            <i class="bi bi-chevron-down d-none"></i>
+        <li class="nav-item nav-item-deps1">
+          <a href="#" class="nav-link nav-link-deps1" data-url="./page2.html">
+            <i class="icon is-20 icon-side-briefcase icon-side-menu__main"></i>
+            <span class="side-menu-item__title">상품관리</span>
+            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link menu-item" data-url="./page3.html">
-            <i class="bi bi-clipboard"></i>
-            <span class="d-none">주문 내역</span>
-            <i class="bi bi-chevron-down d-none"></i>
+        <li class="nav-item nav-item-deps1">
+          <a href="#" class="nav-link nav-link-deps1" data-url="./page3.html">
+            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>
+            <span class="side-menu-item__title">재고관리</span>
+            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>
           </a>
         </li>
+        <li class="nav-item nav-item-deps1">
+          <a href="#" class="nav-link nav-link-deps1">
+            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>
+            <span class="side-menu-item__title">재고관리</span>
+            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>
+          </a>
+          <ul class="nav nav-deps2">
+            <li class="nav-item nav-item-deps2">
+              <a href="" class="nav-link side-menu-item nav-link-deps2">1234</a>
+            </li>
+          </ul>
+        </li>
+
+
+
+        <!--        <li class="nav-item">-->
+        <!--          <a href="#" class="nav-link side-menu-item">-->
+        <!--            <i class="icon is-20 icon-side-disk icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">주문/배송관리</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--          <ul class="nav nav-deps2">-->
+        <!--            <li class="nav-item nav-item-deps2">-->
+        <!--              <a href="" class="nav-link side-menu-item nav-link-deps2">1234</a>-->
+        <!--            </li>-->
+        <!--          </ul>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item">-->
+        <!--          <a href="#" class="nav-link side-menu-item" data-url="./page3.html">-->
+        <!--            <i class="icon is-20 icon-side-calculator icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">정산관리</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item">-->
+        <!--          <a href="#" class="nav-link side-menu-item" data-url="./page3.html">-->
+        <!--            <i class="icon is-20 icon-side-megaphone icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">공지/이용안내</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--        </li>-->
+        <!--        <li class="nav-item">-->
+        <!--          <a href="#" class="nav-link side-menu-item" data-url="./page3.html">-->
+        <!--            <i class="icon is-20 icon-side-gear icon-side-menu__main"></i>-->
+        <!--            <span class="side-menu-item__title">설정</span>-->
+        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
+        <!--          </a>-->
+        <!--        </li>-->
       </ul>
     </nav>
     <!--    /사이드메뉴 -->
@@ -102,17 +150,6 @@
       <!--      사이드메뉴 페이지 컨테이너에 보여줌 -->
       <div class="iframe-content bg-danger-subtle px-4"></div>
       <!--      /사이드메뉴 페이지 컨테이너에 보여줌 -->
-
-      <div class="text-center">
-        <input type="text" class="form-control" id="myDatepicker">
-
-<!--        <button type="button" class="btn btn-secondary"-->
-<!--                data-bs-toggle="tooltip" data-bs-placement="top"-->
-<!--                data-bs-custom-class="custom-tooltip"-->
-<!--                data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">-->
-<!--          Custom tooltip-->
-<!--        </button>-->
-      </div>
 
       <!--      넘쳤을때 딤처리 되는거 -->
       <div class="px-4 py-2">
@@ -201,10 +238,13 @@
                 <td>Row8</td>
                 <td>Row9</td>
                 <td>Row10</td>
-                <td><div                data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS &nbsp;variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">
-                  >Row7</div></td>
+                <td>
+                  <div data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-custom-class="custom-tooltip"
+                       data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS &nbsp;variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">
+                    >Row7
+                  </div>
+                </td>
                 <td>Row8</td>
                 <td>Row9</td>
                 <td>Row10</td>
@@ -271,20 +311,34 @@
                   Default radio
                 </label>
               </div>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch">
-                <label class="form-check-label">Default switch checkbox input</label>
+              <!--              <div class="form-check form-switch">-->
+              <!--                <input class="form-check-input" type="checkbox" role="switch">-->
+              <!--                <label class="form-check-label">Default switch checkbox input</label>-->
+              <!--              </div>-->
+              <div class="form-check form-switch ">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                  input</label>
               </div>
             </div>
           </div>
           <!--      /체크박스 -->
 
+          <!--      데이터피커-->
+          <div class="col-6">
+            <h1>datepicker</h1>
+            <div class="text-center">
+              <input type="text" class="form-control" id="myDatepicker">
+            </div>
+          </div>
+          <!--      데이터피커-->
+
           <!--      드롭다운, 다중선택-->
           <div class="col-6">
             <h1>select custom</h1>
             <div>
-              <!-- 단일 선택(왼쪽) -->
-              <div class="col-6">
+              <!-- 단일 선택 -->
+              <div>
                 <label class="form-label">레이블</label>
                 <div class="custom-select-box">
                   <select class="form-select" id="labelSelect">
@@ -298,8 +352,8 @@
                 </div>
               </div>
 
-              <!-- 멀티 셀렉트(오른쪽) -->
-              <div class="col-6">
+              <!-- 멀티 셀렉트 -->
+              <div>
                 <label class="form-label">상품타입</label>
                 <div class="multi-select-wrap" tabindex="0">
                   <div class="multi-select-display" id="multiSelectDisplay">전체</div>
@@ -322,6 +376,33 @@
             </div>
           </div>
           <!--      /드롭다운, 다중선택-->
+
+          <!--          인풋 필드-->
+          <div class="col-6">
+            <h1>인풋 필드</h1>
+            <div>
+              <div class="form-group">
+                <label for="test1" class="form-label">label</label>
+                <input type="text" class="form-control" placeholder="dd" id="test1">
+                <div class="form-text fc-danger">1234</div>
+              </div>
+              <div class="form-group">
+                <label for="" class="form-label">비밀번호 확인</label>
+                <div class="position-relative">
+                  <!-- @relay: 에러인경우 .form-control 에 .error 추가 -> 빨간 보더로 변경 -->
+                  <input type="password" class="form-control userPw error" name="newPw"
+                         placeholder="동일한 비밀번호 입력">
+                  <div class="form-group-append">
+                    <button class="btn-clear togglePassword" type="button">
+                      <i class="icon bi bi-eye-slash fs-m-18 fs-p-20 fc-999"></i>
+                    </button>
+                  </div>
+                </div>
+                <p class="form-control-info__text error" style="display: block;">비밀번호가 일치하지 않습니다</p>
+              </div>
+            </div>
+          </div>
+          <!--          /인풋 필드-->
         </div>
       </div>
       <!--      체크박스, radio, toggle / select custom-->
@@ -345,7 +426,7 @@
             <li class="fw-normal">400 fw-normal</li>
             <li class="fw-medium">500 fw-medium</li>
             <li class="fw-semibold">600 fw-semibold</li>
-            <li class="fw-bold">700 fw0bold</li>
+            <li class="fw-bold">700 fw-bold</li>
           </ul>
         </div>
 
@@ -400,6 +481,14 @@
               <li class="bg-black">bg-black</li>
             </ul>
           </div>
+        </div>
+
+        <div class="row">
+          <!--          버튼-->
+          <div>
+            <h1>button</h1>
+          </div>
+          <!--          /버튼-->
         </div>
       </div>
       <!--      /component 컴포넌트-->

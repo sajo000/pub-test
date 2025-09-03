@@ -1,0 +1,93 @@
+/* ========================================================================
+ * button 버튼 스타일 재정의
+*/
+.btn {
+  //height: 46px;
+  //--bs-btn-padding-x: 1rem;
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-line-height: 1.45;
+  font-weight: 500;
+  font-size: map-get($custom-font-size, 14);
+
+  &:disabled,
+  &.disabled {
+    background-color: $gray-e6;
+    border-color: $gray-cc;
+    color: $gray-91;
+  }
+}
+
+.btn-s,
+.btn-group-s > .btn {
+  height: 36px;
+  font-size: map-get($custom-font-size, 14);
+  @include media-breakpoint-up(lg) {
+    height: 40px;
+  }
+}
+
+.btn-m,
+.btn-group-m > .btn {
+  height: 36px;
+  font-size: map-get($custom-font-size, 14);
+  @include media-breakpoint-up(lg) {
+    height: 40px;
+  }
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+  height: 50px;
+  --bs-btn-border-radius: var(--bs-border-radius);
+  font-size: map-get($custom-font-size, 16);
+  @include media-breakpoint-up(lg) {
+    height: 56px;
+    font-size: map-get($custom-font-size, 18);
+  }
+}
+
+.btn-xl,
+.btn-group-xl > .btn {
+  height: 50px;
+  --bs-btn-border-radius: var(--bs-border-radius);
+  font-size: map-get($custom-font-size, 16);
+  @include media-breakpoint-up(lg) {
+    height: 56px;
+    font-size: map-get($custom-font-size, 18);
+  }
+}
+
+.btn-primary {
+  --bs-btn-color: #fff; // 버튼 컬러 색상
+  --bs-btn-bg: #00c2de; // 버튼 배경
+  --bs-btn-border-color: #00c2de; // 버튼 보더
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #00b7d1; // 호버 배경
+  --bs-btn-hover-border-color: #00b7d1; // 호버 보더
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #00a6bd; // 액티브 배경
+  --bs-btn-active-border-color: #00a6bd; // 액티브 보더
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff; // 비활성화 컬러
+  --bs-btn-disabled-bg: #e0e0e0; // 비활성화 배경
+  --bs-btn-disabled-border-color: #999; // 비활성화 보더
+}
+
+.btn-clear {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.btn-group {
+  margin-top: 24px;
+  border-radius: 0;
+  @include media-breakpoint-up(lg) {
+    margin-top: 48px;
+  }
+
+  .btn {
+    border-radius: inherit;
+  }
+}

@@ -28,7 +28,7 @@ body {
 }
 
 body {
-  color: #888;
+  color: $black;
   background: #f4f7fa;
   font-family: $font-family;
   font-weight: 400;
@@ -197,9 +197,10 @@ html, body, * {
   display: flex;
   mask-size: contain;
 
+  // * icon hover 색상
   &:hover {
     text-decoration: none;
-    opacity: 0.5;
+    opacity: 0.3;
     transition: all 0.25s ease;
   }
 }

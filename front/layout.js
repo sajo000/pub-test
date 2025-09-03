@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 // * 사이드메뉴에서 메뉴 클릭했을때 탭 쌓이면서 컨텐츠 화면 전환
 $(function () {
-  $('.menu-item').on('click', function (e) {
+  $('.nav-link-deps1').on('click', function (e) {
     e.preventDefault();
 
     const menuName = $(this).text().trim();
@@ -89,5 +89,5 @@ $(function () {
   }
 
   // ✅ 초기 화면 로딩
-  loadContent($('.menu-item').first().data('url'));
+  loadContent($('.nav-link-deps1').first().data('url'));
 });
