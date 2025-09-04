@@ -13,7 +13,6 @@
   <!-- JS -->
   <script type="text/javascript" src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
   <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="./node_modules/"></script>
   <script type="text/javascript" src="./node_modules/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="./layout.js"></script>
   <script type="text/javascript" src="./function.js"></script>
@@ -30,7 +29,7 @@
 <div class="container-wrap">
   <div class="header-wrap">
     <header>
-      <div class="header-item__left px-4">
+      <div class="header-item__left flex-grow-0 px-4">
         <button class="btn menu p-0">
           <i class="is-20 icon-side-menu bg-black"></i>
         </button>
@@ -39,25 +38,71 @@
         </div>
       </div>
 
-      <div class="bg-secondary">
-        <ul class="nav nav-tabs"></ul>
+      <div class="header-tab-bar-wrap flex-grow-1">
+        <div class="header-tab-bar">
+          <ul class="nav header-tab">
+            <li class="nav-item">
+              <a class="nav-link active d-flex align-items-center">
+                test test test test test test
+                <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-flex align-items-center">
+                test test test test test test
+                <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-flex align-items-center">
+                test test test test test test
+                <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-flex align-items-center">
+                test test test test test test
+                <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active d-flex align-items-center">
+                test test test test test test
+                <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+              </a>
+            </li>
+          </ul>
+
+
+          <div class="scroll-arrow left" id="leftArrow">&#9664;</div>
+          <div class="scroll-arrow right" id="rightArrow">&#9654;</div>
+        </div>
       </div>
 
-      <div class="d-flex align-items-center gap-1 ms-auto bg-secondary">
-        <a href="" class="btn">
-          <i class="bi bi-gear"></i>
-        </a>
-        <a href="">
-          <button type="button" class="btn btn-primary position-relative">
-            <i class="bi bi-bell"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger z-1">
-              99+
-            </span>
-          </button>
-        </a>
+      <div class="d-flex align-items-center gap-3 flex-grow-0 ms-auto me-32">
+        <!--        알림 -->
+        <button type="button" class="btn btn-clear position-relative">
+          <i class="icon-bell is-20 bg-black"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-primary z-1">
+            N
+          </span>
+        </button>
+        <!--        /알림 -->
+
+        <span class="fc-gray-cc">|</span>
+
+        <!--        언어 -->
+        <button type="button" class="btn btn-clear">
+          <i class="icon-earth is-20 bg-black"></i>
+        </button>
+        <!--        /언어 -->
+
+        <span class="fc-gray-cc">|</span>
+
+        <!--        프로필 -->
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown button
+          <button class="btn btn-clear dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="icon-user is-20 bg-black"></i>
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
@@ -65,6 +110,7 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </div>
+        <!--        /프로필 -->
       </div>
     </header>
   </div>
@@ -82,119 +128,177 @@
         </li>
         <li class="dep1-item w-100">
           <a href="#" class="deps1-link multiple">
-            <i class="icon-side-home is-20 deps1-icon-main"></i>
+            <i class="icon-side-briefcase is-20 deps1-icon-main"></i>
             <span class="deps1-title">상품관리</span>
             <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
           </a>
           <ul class="deps2">
             <li class="deps2-item">
-              <a href="" class="deps2-link" data-url="./page1.html">
-                <span class="deps2-title">상품관리 상세</span>
+              <a href="" class="deps2-link" data-url="./page2.html">
+                <span class="deps2-title">상품관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="./page3.html">
+                <span class="deps2-title">연동상품관리</span>
               </a>
             </li>
           </ul>
         </li>
         <li class="dep1-item w-100">
-          <a href="#" class="deps1-link multiple">
-            <i class="icon-side-home is-20 deps1-icon-main"></i>
+          <a href="#" class="deps1-link multiple" data-url="">
+            <i class="icon-side-warehouse is-20 deps1-icon-main"></i>
             <span class="deps1-title">재고관리</span>
             <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
           </a>
           <ul class="deps2">
             <li class="deps2-item">
-              <a href="" class="deps2-link" data-url="./page1.html">
-                <span class="deps2-title">재고관리 상세</span>
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">재고현황</span>
               </a>
             </li>
             <li class="deps2-item">
-              <a href="" class="deps2-link" data-url="./page1.html">
-                <span class="deps2-title">재고등록</span>
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">입고요청</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">출고처리현황</span>
               </a>
             </li>
           </ul>
         </li>
-      </ul>
-
-
-      <ul class="nav nav-deps1 flex-column w-100 d-none">
-        <!--        <li class="nav-item nav-item-deps1 active">-->
-        <!--          <a href="#" class="nav-link nav-link-deps1" data-url="./page1.html">-->
-        <!--            <i class="icon is-20 icon-side-home icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">대시보드</span>-->
-        <!--            <i class="icon is-20 icon-arrow-right icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item nav-item-deps1">-->
-        <!--          <a href="#" class="nav-link nav-link-deps1" data-url="./page2.html">-->
-        <!--            <i class="icon is-20 icon-side-briefcase icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">상품관리</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item nav-item-deps1">-->
-        <!--          <a href="#" class="nav-link nav-link-deps1" data-url="./page3.html">-->
-        <!--            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">재고관리</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item nav-item-deps1">-->
-        <!--          <a href="#" class="nav-link nav-link-deps1">-->
-        <!--            <i class="icon is-20 icon-side-warehouse icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">재고관리</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--          <ul class="nav nav-deps2">-->
-        <!--            <li class="nav-item nav-item-deps2">-->
-        <!--              <a href="#" class="nav-link nav-link-deps2">-->
-        <!--                <span class="side-menu-item__title">재고조회</span>-->
-        <!--              </a>-->
-        <!--            </li>-->
-        <!--            <li class="nav-item nav-item-deps2">-->
-        <!--              <a href="#" class="nav-link nav-link-deps2">-->
-        <!--                <span class="side-menu-item__title">재고등록</span>-->
-        <!--              </a>-->
-        <!--            </li>-->
-        <!--            <li class="nav-item nav-item-deps2">-->
-        <!--              <a href="#" class="nav-link nav-link-deps2">-->
-        <!--                <span class="side-menu-item__title">재고수정</span>-->
-        <!--              </a>-->
-        <!--            </li>-->
-        <!--          </ul>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--          <a href="#" class="nav-link side-menu-item">-->
-        <!--            <i class="icon is-20 icon-side-disk icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">주문/배송관리</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--          <ul class="nav nav-deps2">-->
-        <!--            <li class="nav-item nav-item-deps2">-->
-        <!--              <a href="" class="nav-link side-menu-item nav-link-deps2">1234</a>-->
-        <!--            </li>-->
-        <!--          </ul>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--          <a href="#" class="nav-link side-menu-item" data-url="./page3.html">-->
-        <!--            <i class="icon is-20 icon-side-calculator icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">정산관리</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--          <a href="#" class="nav-link side-menu-item" data-url="./page3.html">-->
-        <!--            <i class="icon is-20 icon-side-megaphone icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">공지/이용안내</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--        </li>-->
-        <!--        <li class="nav-item">-->
-        <!--          <a href="#" class="nav-link side-menu-item" data-url="./page3.html">-->
-        <!--            <i class="icon is-20 icon-side-gear icon-side-menu__main"></i>-->
-        <!--            <span class="side-menu-item__title">설정</span>-->
-        <!--            <i class="icon is-20 icon-arrow-bottom icon-side-menu__arrow"></i>-->
-        <!--          </a>-->
-        <!--        </li>-->
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple" data-url="">
+            <i class="icon-side-disk is-20 deps1-icon-main"></i>
+            <span class="deps1-title">주문/배송관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">주문관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">주문배송관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">주문 업로드</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">국내운송장 업로드</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">미출고 주문현황</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">출고체적현황</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">수출신고현황</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple" data-url="">
+            <i class="icon-side-warehouse is-20 deps1-icon-main"></i>
+            <span class="deps1-title">이슈관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">이슈관리</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple" data-url="">
+            <i class="icon-side-calculator is-20 deps1-icon-main"></i>
+            <span class="deps1-title">정산관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">정산내역</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">문서발행</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">배송요율표</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple" data-url="">
+            <i class="icon-side-megaphone is-20 deps1-icon-main"></i>
+            <span class="deps1-title">공지/이용안내</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">공지사항</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">1:1 문의</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">이용가이드</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple" data-url="">
+            <i class="icon-side-gear is-20 deps1-icon-main"></i>
+            <span class="deps1-title">설정</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">사업자 설정 관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">사용자 관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="">
+                <span class="deps2-title">쇼핑몰 연동 관리</span>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <!--    /사이드메뉴 -->
@@ -236,7 +340,6 @@
           <div class="slider-dim left"></div>
           <div class="slider-dim right"></div>
         </div>
-
       </div>
       <!--      /넘쳤을때 딤처리 되는거 -->
 

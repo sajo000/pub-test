@@ -85,7 +85,6 @@
   -webkit-mask-size: contain;
 }
 
-
 // * 상하좌우 화살표 아이콘 믹스인
 @mixin arrow-icon($direction, $rotation) {
   .icon-arrow-#{$direction} {
@@ -106,6 +105,35 @@
 @include arrow-icon("left", "180deg"); // 왼쪽 방향
 @include arrow-icon("top", "-90deg"); // 위쪽 방향
 
+.icon-bell {
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M16.8407 8.73881C18.922 8.73881 20.6092 7.05161 20.6092 4.97036C20.6092 2.8891 18.922 1.2019 16.8407 1.2019C14.7595 1.2019 13.0723 2.8891 13.0723 4.97036C13.0723 7.05161 14.7595 8.73881 16.8407 8.73881Z' stroke='black' stroke-width='1.50738' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15.6092 12.5074V14.8191C15.6092 15.4087 15.8434 15.9741 16.2603 16.391C16.6771 16.8078 17.3823 17.0421 17.9718 17.0421H1.39062C1.9802 17.0421 2.68528 16.8078 3.10218 16.391C3.51906 15.9741 3.75328 15.4087 3.75328 14.8191L3.75326 9.39109C3.75326 7.81891 4.37782 6.31111 5.48953 5.1994C6.60123 4.08769 8.10904 3.46313 9.68122 3.46313' stroke='black' stroke-width='1.50738' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8.17383 20.7981H11.1886' stroke='black' stroke-width='1.50738' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M16.8407 8.73881C18.922 8.73881 20.6092 7.05161 20.6092 4.97036C20.6092 2.8891 18.922 1.2019 16.8407 1.2019C14.7595 1.2019 13.0723 2.8891 13.0723 4.97036C13.0723 7.05161 14.7595 8.73881 16.8407 8.73881Z' stroke='black' stroke-width='1.50738' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15.6092 12.5074V14.8191C15.6092 15.4087 15.8434 15.9741 16.2603 16.391C16.6771 16.8078 17.3823 17.0421 17.9718 17.0421H1.39062C1.9802 17.0421 2.68528 16.8078 3.10218 16.391C3.51906 15.9741 3.75328 15.4087 3.75328 14.8191L3.75326 9.39109C3.75326 7.81891 4.37782 6.31111 5.48953 5.1994C6.60123 4.08769 8.10904 3.46313 9.68122 3.46313' stroke='black' stroke-width='1.50738' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8.17383 20.7981H11.1886' stroke='black' stroke-width='1.50738' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
+.icon-earth {
+  opacity: 1;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M10.9996 20.9419C16.4905 20.9419 20.9416 16.4908 20.9416 10.9999C20.9416 5.50905 16.4905 1.05786 10.9996 1.05786C5.5088 1.05786 1.05762 5.50905 1.05762 10.9999C1.05762 16.4908 5.5088 20.9419 10.9996 20.9419Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.05762 10.9998H20.9416' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.8235 10.9999C14.6356 14.6356 13.2965 18.1173 10.9996 20.9419C8.70275 18.1173 7.36361 14.6356 7.17578 10.9999C7.36361 7.36416 8.70275 3.88238 10.9996 1.05786C13.2965 3.88238 14.6356 7.36416 14.8235 10.9999Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M10.9996 20.9419C16.4905 20.9419 20.9416 16.4908 20.9416 10.9999C20.9416 5.50905 16.4905 1.05786 10.9996 1.05786C5.5088 1.05786 1.05762 5.50905 1.05762 10.9999C1.05762 16.4908 5.5088 20.9419 10.9996 20.9419Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.05762 10.9998H20.9416' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.8235 10.9999C14.6356 14.6356 13.2965 18.1173 10.9996 20.9419C8.70275 18.1173 7.36361 14.6356 7.17578 10.9999C7.36361 7.36416 8.70275 3.88238 10.9996 1.05786C13.2965 3.88238 14.6356 7.36416 14.8235 10.9999Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
+.icon-user {
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M10.9996 12.5293C13.1115 12.5293 14.8235 10.8173 14.8235 8.70544C14.8235 6.59359 13.1115 4.88159 10.9996 4.88159C8.88778 4.88159 7.17578 6.59359 7.17578 8.70544C7.17578 10.8173 8.88778 12.5293 10.9996 12.5293Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.46777 18.4945C5.15031 17.3741 6.1096 16.4482 7.25338 15.8058C8.39717 15.1632 9.687 14.8257 10.9989 14.8257C12.3108 14.8257 13.6006 15.1632 14.7444 15.8058C15.8883 16.4482 16.8474 17.3741 17.5301 18.4945' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10.9996 20.9419C16.4905 20.9419 20.9416 16.4908 20.9416 10.9999C20.9416 5.50905 16.4905 1.05786 10.9996 1.05786C5.5088 1.05786 1.05762 5.50905 1.05762 10.9999C1.05762 16.4908 5.5088 20.9419 10.9996 20.9419Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M10.9996 12.5293C13.1115 12.5293 14.8235 10.8173 14.8235 8.70544C14.8235 6.59359 13.1115 4.88159 10.9996 4.88159C8.88778 4.88159 7.17578 6.59359 7.17578 8.70544C7.17578 10.8173 8.88778 12.5293 10.9996 12.5293Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.46777 18.4945C5.15031 17.3741 6.1096 16.4482 7.25338 15.8058C8.39717 15.1632 9.687 14.8257 10.9989 14.8257C12.3108 14.8257 13.6006 15.1632 14.7444 15.8058C15.8883 16.4482 16.8474 17.3741 17.5301 18.4945' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10.9996 20.9419C16.4905 20.9419 20.9416 16.4908 20.9416 10.9999C20.9416 5.50905 16.4905 1.05786 10.9996 1.05786C5.5088 1.05786 1.05762 5.50905 1.05762 10.9999C1.05762 16.4908 5.5088 20.9419 10.9996 20.9419Z' stroke='black' stroke-width='1.52954' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
 
 //.icon- {
 //  opacity: 1;

@@ -1,4 +1,4 @@
-// * 사이드바 열기
+// * 사이드메뉴 열기
 $(document).ready(function () {
   $('.menu').on('click', function () {
     $('.container-wrap').toggleClass('toggle-opened');
@@ -6,35 +6,7 @@ $(document).ready(function () {
   });
 });
 
-//
-// $(document).ready(function () {
-//   $(".deps1-link").click(function(e) {
-//     $(".deps1-link").removeClass("active"); // 모든 요소에서 active 제거
-//     $(this).addClass("active"); // 클릭한 요소에 active 추가
-//   });
-//
-// });
-//
-// $(document).ready(function() {
-//   // 1, 2. deps1-link.multiple 클릭 시 토글
-//   $('.deps1-link.multiple').click(function(e) {
-//     e.preventDefault();
-//
-//     const $arrowIcon = $(this).find('.deps1-icon-arrow');
-//     const $subMenu = $(this).next('.deps2');
-//
-//     if ($subMenu.css('display') === 'block') {
-//       $subMenu.hide();
-//       $arrowIcon.removeClass('icon-arrow-top').addClass('icon-arrow-bottom');
-//     } else {
-//       $subMenu.show();
-//       $arrowIcon.removeClass('icon-arrow-bottom').addClass('icon-arrow-top');
-//     }
-//   });
-//
-// });
-
-
+// * 사이드메뉴 동작처리
 $(document).ready(function() {
   // 기본 .deps2 숨김 처리 (필요시)
   $('.deps2').hide();
@@ -93,14 +65,7 @@ $(document).ready(function() {
   });
 });
 
-
-
-
-
-
-
 // * 사이드메뉴에서 메뉴 클릭했을때 탭 쌓이면서 컨텐츠 화면 전환
-/*
 $(function () {
   $('.deps1-link').on('click', function (e) {
     e.preventDefault();
@@ -111,7 +76,7 @@ $(function () {
 
     const $existingTab = $('#' + tabId);
     if ($existingTab.length) {
-      $('.nav-tabs .nav-link').removeClass('active');
+      $('.header-tab .nav-link').removeClass('active');
       $existingTab.addClass('active');
       loadContent($existingTab.data('url'));
       return;
@@ -126,14 +91,14 @@ $(function () {
       </li>
     `);
 
-    $('.nav-tabs .nav-link').removeClass('active');
-    $('.nav-tabs').append($newTab);
+    $('.header-tab .nav-link').removeClass('active');
+    $('.header-tab').append($newTab);
 
     loadContent(menuUrl);
 
     $newTab.find('.nav-link').on('click', function (e) {
       e.preventDefault();
-      $('.nav-tabs .nav-link').removeClass('active');
+      $('.header-tab .nav-link').removeClass('active');
       $(this).addClass('active');
       loadContent($(this).data('url'));
     });
@@ -146,7 +111,7 @@ $(function () {
       $li.remove();
 
       if (wasActive) {
-        const $first = $('.nav-tabs .nav-link').first();
+        const $first = $('.header-tab .nav-link').first();
         if ($first.length) {
           $first.addClass('active');
           loadContent($first.data('url'));
@@ -158,9 +123,9 @@ $(function () {
     });
   });
 
-  $('.nav-tabs .nav-link').on('click', function (e) {
+  $('.header-tab .nav-link').on('click', function (e) {
     e.preventDefault();
-    $('.nav-tabs .nav-link').removeClass('active');
+    $('.header-tab .nav-link').removeClass('active');
     $(this).addClass('active');
     loadContent($(this).data('url'));
   });
@@ -185,4 +150,3 @@ $(function () {
   // ✅ 초기 화면 로딩
   loadContent($('.deps1-link').first().data('url'));
 });
-*/

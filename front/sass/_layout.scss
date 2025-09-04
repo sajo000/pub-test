@@ -55,13 +55,24 @@
 }
 
 /* ========================================================================
+* 헤더 중앙에 탭 바. 사이드 메뉴에서 클릭하면 쌓이는 탭으로 페이지 이동 가능함.
+*/
+.header-tab-bar-wrap {
+  width: 300px;
+  padding-left: 40px;
+  padding-right: 40px;
+  align-content: end;
+  border: 2px dashed blue;
+}
+
+/* ========================================================================
 * 컨텐츠
 */
 .content-container-wrap {
   width: 100vw;
   min-width: 1280px;
   display: flex;
-  background-color: orange;
+  background-color: rgb(231 224 250 / 50%);
 }
 
 .container-wrap.toggle-opened .content-container {
