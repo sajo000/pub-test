@@ -16836,6 +16836,23 @@ textarea.form-control-lg {
   background-color: #00BAD1;
 }
 
+.multiple.active {
+  color: #00BAD1;
+}
+
+.multiple.active .deps1-icon-main {
+  background-color: #00BAD1;
+}
+
+.deps2-link.active {
+  color: #00BAD1;
+  background-color: #EFFDFF;
+}
+.deps2-link.active:hover {
+  color: #00BAD1;
+  background-color: #EFFDFF;
+}
+
 /* ========================================================================
 * 사이드메뉴 deps2
 */

@@ -159,7 +159,29 @@
 }
 
 .single.active .deps1-icon-main {
+  // 선택된 deps1의 아이콘 색상
   background-color: $primary;
+}
+
+// 대시보드를 제외한 하위메뉴 있는 사이드메뉴의 active 스타일
+.multiple.active {
+  // 하위메뉴가 선택됐을때 상위메뉴의 컬러 색상
+  color: $primary;
+}
+
+.multiple.active .deps1-icon-main {
+  // 하위메뉴가 선택됐을때 상위메뉴의 아이콘 색상
+  background-color: $primary;
+}
+
+.deps2-link.active {
+  // 하위메뉴 선택됐을때
+  color: $primary;
+  background-color: $primary-lite2;
+  &:hover {
+    color: $primary;
+    background-color: $primary-lite2;
+  }
 }
 
 /* ========================================================================
