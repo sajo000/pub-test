@@ -108,11 +108,12 @@
 }
 
 .deps1-link {
+  height: 56px;
   display: flex;
   align-items: center;
   gap: 1rem;
   font-weight: $font-weight-medium;
-  padding: 17.5px 0 17.5px 24px;
+  padding-left: 24px;
   border-radius: 0 10px 10px 0;
 
   &:hover {
@@ -193,11 +194,12 @@
 }
 
 .deps2-link {
+  height: 44px;
   display: flex;
   align-items: center;
   gap: 1rem;
   font-weight: $font-weight-medium;
-  padding: 11.5px 0 11.5px 60px;
+  padding-left: 60px;
   border-radius: 0 10px 10px 0;
 
   &:hover {
@@ -207,6 +209,10 @@
 
 .deps2-title {
   flex-shrink: 0;
+}
+
+.nav-wrap:not(:hover, .opened) .deps2 {
+  display: none !important;
 }
 
 
