@@ -16738,14 +16738,70 @@ textarea.form-control-lg {
 }
 
 /* ========================================================================
+* 헤더 스크롤러블 탭메뉴
 * 헤더 중앙에 탭 바. 사이드 메뉴에서 클릭하면 쌓이는 탭으로 페이지 이동 가능함.
 */
 .header-tab-bar-wrap {
-  width: 300px;
-  padding-left: 40px;
-  padding-right: 40px;
-  align-content: end;
-  border: 2px dashed blue;
+  /* 크롬 */
+}
+.header-tab-bar-wrap .tab-area-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.header-tab-bar-wrap .tab-scroll-wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none; /* 파이어폭스 */
+}
+.header-tab-bar-wrap .tab-scroll-wrap::-webkit-scrollbar {
+  display: none;
+}
+.header-tab-bar-wrap .nav-tabs .nav-item {
+  display: inline-block;
+}
+.header-tab-bar-wrap .nav-tabs .nav-link {
+  display: inline-flex;
+  align-items: center;
+}
+.header-tab-bar-wrap .tab-close-btn {
+  margin-left: 8px;
+  font-weight: bold;
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.header-tab-bar-wrap .scroll-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  /* ... */
+}
+.header-tab-bar-wrap .scroll-arrow.left {
+  left: 0;
+}
+.header-tab-bar-wrap .scroll-arrow.right {
+  right: 0;
+}
+.header-tab-bar-wrap .scroll-arrow:hover {
+  background: rgba(200, 220, 255, 0.7);
+}
+.header-tab-bar-wrap .tab-list {
+  display: inline-block;
+  min-width: 100%;
+  white-space: nowrap;
+}
+.header-tab-bar-wrap .tab-scroll-wrap {
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 /* ========================================================================
