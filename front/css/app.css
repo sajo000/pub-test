@@ -16714,6 +16714,7 @@ textarea.form-control-lg {
   height: 62px;
   display: flex;
   align-content: center;
+  flex: 0 0 auto;
   border-right: 1px solid #f0f0f0;
 }
 
@@ -16738,19 +16739,33 @@ textarea.form-control-lg {
 }
 
 /* ========================================================================
+* 헤더 오른쪽에 알림, 언어, 유저명
+*/
+.header-item__right {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 1rem;
+}
+
+/* ========================================================================
 * 헤더 스크롤러블 탭메뉴
 * 헤더 중앙에 탭 바. 사이드 메뉴에서 클릭하면 쌓이는 탭으로 페이지 이동 가능함.
 */
 .header-tab-bar-wrap {
+  flex: 1 1 auto;
+  overflow: hidden;
   /* 크롬 */
 }
 .header-tab-bar-wrap .tab-area-container {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  align-content: end;
 }
 .header-tab-bar-wrap .tab-scroll-wrap {
   overflow-x: auto;
@@ -17823,7 +17838,7 @@ http://scripts.sil.org/OFL
 .form-control,
 .form-select {
   height: 46px;
-  padding: 11px 1rem;
+  padding: 8px 1rem;
   border: 1px solid #6b6b6b;
   font-size: 0.875rem;
   border-radius: var(--bs-border-radius-sm);
@@ -17860,13 +17875,26 @@ http://scripts.sil.org/OFL
   border-color: #00BAD1;
   box-shadow: none;
 }
-@media (min-width: 992px) {
-  .form-control,
-  .form-select {
-    height: 50px;
-    padding: 13px 1rem;
-    font-size: 1rem;
-  }
+
+.form-control-info__text {
+  margin-top: 2px;
+  font-size: 0.75rem;
+}
+.form-control-info__text.success {
+  color: #01A235;
+}
+.form-control-info__text.warning {
+  color: #FF8000;
+}
+.form-control-info__text.error {
+  color: #FF4263;
+}
+
+/* ========================================================================
+* textarea
+*/
+textarea.form-control {
+  min-height: calc(1.5em + 0.75rem + var(--bs-border-width) * 2 + 20px);
 }
 
 /* ========================================================================

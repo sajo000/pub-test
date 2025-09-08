@@ -25,7 +25,7 @@
 .form-control,
 .form-select {
   height: 46px;
-  padding: 11px 1rem;
+  padding: 8px 1rem;
   border: 1px solid $gray-6b;
   font-size: map-get($custom-font-size, 14);
   border-radius: var(--bs-border-radius-sm);
@@ -61,15 +61,33 @@
     border-color: $primary;
     box-shadow: none;
   }
+}
 
-  @include media-breakpoint-up(lg) {
-    height: 50px;
-    padding: 13px 1rem;
-    font-size: map-get($custom-font-size, 16);
+// 헬퍼 문구
+.form-control-info__text {
+  margin-top: 2px;
+  font-size: map-get($custom-font-size, 12);
+
+
+  &.success {
+    color: $success;
+  }
+
+  &.warning {
+    color: $warning;
+  }
+
+  &.error {
+    color: $danger;
   }
 }
 
-
+/* ========================================================================
+* textarea
+*/
+textarea.form-control {
+  min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2) + 20px);
+}
 /* ========================================================================
 * 인풋 체크박스
 */

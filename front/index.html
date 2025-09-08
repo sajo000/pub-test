@@ -34,7 +34,7 @@
 <div class="container-wrap">
   <div class="header-wrap">
     <header>
-      <div class="header-item__left flex-grow-0 px-4">
+      <div class="header-item__left px-4">
         <button class="btn menu p-0">
           <i class="is-20 icon-side-menu bg-black"></i>
         </button>
@@ -43,27 +43,28 @@
         </div>
       </div>
 
-      <div class="header-tab-bar-wrap flex-grow-1">
+      <div class="header-tab-bar-wrap">
         <!-- 헤더 스크롤러블 탭메뉴 -->
-        <div class="tab-area-container" style="position:relative; max-width:700px; margin:16px auto; background:#f9fbfd;">
-          <button class="scroll-arrow left" style="display:none; position:absolute; left:0; top:0; bottom:0; z-index:1;">&#9664;
+        <div class="tab-area-container">
+          <button class="scroll-arrow left">
+            <i class="bi bi-chevron-left"></i>
           </button>
-          <div class="tab-scroll-wrap" style="overflow:hidden;">
-            <ul class="nav nav-tabs tab-list" style="white-space:nowrap; margin-bottom:0;">
+          <div class="tab-scroll-wrap">
+            <ul class="nav nav-tabs tab-list">
               <!-- 탭 항목이 동적으로 들어갑니다. -->
             </ul>
           </div>
-          <button class="scroll-arrow right" style="display:none; position:absolute; right:0; top:0; bottom:0; z-index:1;">
-            &#9654;
+          <button class="scroll-arrow right">
+            <i class="bi bi-chevron-right"></i>
           </button>
         </div>
-        <div style="text-align:center; margin:1rem 0;">
+        <div>
           <button id="addTabBtn" class="btn btn-primary btn-sm">탭 추가</button>
         </div>
         <!-- /헤더 스크롤러블 탭메뉴 -->
       </div>
 
-      <div class="d-flex align-items-center gap-3 flex-grow-0 ms-auto me-32">
+      <div class="header-item__right ms-auto me-32">
         <!--        알림 -->
         <button type="button" class="btn btn-clear position-relative">
           <i class="icon-bell is-20 bg-black"></i>
@@ -292,272 +293,284 @@
       <div class="iframe-content bg-danger-subtle px-4"></div>
       <!--      /사이드메뉴 페이지 컨테이너에 보여줌 -->
 
-      <!--      넘쳤을때 딤처리 되는거 -->
       <div class="px-4 py-2">
-        <h1>넘쳤을때 딤처리</h1>
-        <div class="slider-outer position-relative overflow-hidden">
-          <button class="slider-btn left btn btn-dark position-absolute"
-                  style="left:0; top:0; bottom:0; z-index:2; display:none;">&#60;
-          </button>
-          <div class="slider-inner d-flex" style="transition:transform 0.3s;">
-            <!-- 슬라이드 아이템 여러 개 -->
-            <div class="slide-item p-3 border bg-light">아이템1</div>
-            <div class="slide-item p-3 border bg-light">아이템2</div>
-            <div class="slide-item p-3 border bg-light">아이템3</div>
-            <div class="slide-item p-3 border bg-light">아이템4</div>
-            <div class="slide-item p-3 border bg-light">아이템5</div>
-            <div class="slide-item p-3 border bg-light">아이템6</div>
-            <div class="slide-item p-3 border bg-light">아이템7</div>
-            <div class="slide-item p-3 border bg-light">아이템8</div>
-            <div class="slide-item p-3 border bg-light">아이템9</div>
-            <div class="slide-item p-3 border bg-light">아이템10</div>
-            <div class="slide-item p-3 border bg-light">아이템11</div>
-            <div class="slide-item p-3 border bg-light">아이템12</div>
-            <div class="slide-item p-3 border bg-light">아이템13</div>
-            <div class="slide-item p-3 border bg-light">아이템14</div>
-            <div class="slide-item p-3 border bg-light">아이템15</div>
-            <div class="slide-item p-3 border bg-light">아이템16</div>
-          </div>
-          <button class="slider-btn right btn btn-dark position-absolute" style="right:0; top:0; bottom:0; z-index:2;">&#62;
-          </button>
-          <!-- dim 효과 영역 -->
-          <div class="slider-dim left"></div>
-          <div class="slider-dim right"></div>
-        </div>
-      </div>
-      <!--      /넘쳤을때 딤처리 되는거 -->
-
-      <!--      테이블 테스트 -->
-      <div class="px-4 py-2">
-        <h1>테이블 테스트</h1>
-        <div class="table-container">
-          <div class="my-table-wrap">
-            <table class="table table-hover">
-              <tr>
-                <th>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="">
-                  </div>
-                </th>
-                <th>Header1</th>
-                <th>Header2</th>
-                <th>Header3</th>
-                <th>Header4</th>
-                <th>Header5</th>
-                <th>Header6</th>
-                <th>Header7</th>
-                <th>Header8</th>
-                <th>Header9</th>
-                <th>Header10</th>
-                <th>Header7</th>
-                <th>Header8</th>
-                <th>Header9</th>
-                <th>Header10</th>
-                <th>Header7</th>
-                <th>Header8</th>
-                <th>Header9</th>
-                <th>Header10</th>
-                <th>Header7</th>
-                <th>Header8</th>
-                <th>Header9</th>
-                <th>Header10</th>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="">
-                  </div>
-                </td>
-                <td>Row1</td>
-                <td>Row2</td>
-                <td>Row3</td>
-                <td>Row4</td>
-                <td>Row5</td>
-                <td>Row6</td>
-                <td>Row7</td>
-                <td>Row8</td>
-                <td>Row9</td>
-                <td>Row10</td>
-                <td>
-                  <div data-bs-toggle="tooltip" data-bs-placement="top"
-                       data-bs-custom-class="custom-tooltip"
-                       data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS &nbsp;variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">
-                    >Row7
-                  </div>
-                </td>
-                <td>Row8</td>
-                <td>Row9</td>
-                <td>Row10</td>
-                <td>Row7</td>
-                <td>Row8</td>
-                <td>Row9</td>
-                <td>Row10</td>
-                <td>Row7</td>
-                <td>Row8</td>
-                <td>Row9</td>
-                <td>Row10</td>
-              </tr>
-            </table>
-          </div>
-          <!-- 스크롤 되는 영역 바깥, 경계선에 고정 -->
-          <div class="my-table-fade my-table-fade-left"></div>
-          <div class="my-table-fade my-table-fade-right show"></div>
-        </div>
-
-        <div class="table-container">
-          <div class="my-table-wrap">
-            <table class="table table-hover">
-              <tr>
-                <th>Header1</th>
-                <th>Header2</th>
-                <th>Header3</th>
-                <th>Header4</th>
-                <th>Header5</th>
-                <th>Header6</th>
-              </tr>
-              <tr>
-                <td>Row1</td>
-                <td>Row2</td>
-                <td>Row3</td>
-                <td>Row4</td>
-                <td>Row5</td>
-                <td>Row6</td>
-              </tr>
-            </table>
-          </div>
-          <!-- 스크롤 되는 영역 바깥, 경계선에 고정 -->
-          <div class="my-table-fade my-table-fade-left"></div>
-          <div class="my-table-fade my-table-fade-right show"></div>
-        </div>
-      </div>
-      <!--      /테이블 테스트 -->
-
-      <!--      체크박스, radio, toggle / select custom-->
-      <div class="px-4 py-2">
-        <div class="row">
-          <!--      체크박스 -->
-          <div class="col-6">
-            <h1>checkbox, radio, toggle</h1>
-            <div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Default checkbox
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio">
-                  Default radio
-                </label>
-              </div>
-              <!--              <div class="form-check form-switch">-->
-              <!--                <input class="form-check-input" type="checkbox" role="switch">-->
-              <!--                <label class="form-check-label">Default switch checkbox input</label>-->
-              <!--              </div>-->
-              <div class="form-check form-switch ">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
-                  input</label>
-              </div>
+        <!--      넘쳤을때 딤처리 되는거 -->
+        <div>
+          <h1>넘쳤을때 딤처리</h1>
+          <div class="slider-outer position-relative overflow-hidden">
+            <button class="slider-btn left btn btn-dark position-absolute"
+                    style="left:0; top:0; bottom:0; z-index:2; display:none;">&#60;
+            </button>
+            <div class="slider-inner d-flex" style="transition:transform 0.3s;">
+              <!-- 슬라이드 아이템 여러 개 -->
+              <div class="slide-item p-3 border bg-light">아이템1</div>
+              <div class="slide-item p-3 border bg-light">아이템2</div>
+              <div class="slide-item p-3 border bg-light">아이템3</div>
+              <div class="slide-item p-3 border bg-light">아이템4</div>
+              <div class="slide-item p-3 border bg-light">아이템5</div>
+              <div class="slide-item p-3 border bg-light">아이템6</div>
+              <div class="slide-item p-3 border bg-light">아이템7</div>
+              <div class="slide-item p-3 border bg-light">아이템8</div>
+              <div class="slide-item p-3 border bg-light">아이템9</div>
+              <div class="slide-item p-3 border bg-light">아이템10</div>
+              <div class="slide-item p-3 border bg-light">아이템11</div>
+              <div class="slide-item p-3 border bg-light">아이템12</div>
+              <div class="slide-item p-3 border bg-light">아이템13</div>
+              <div class="slide-item p-3 border bg-light">아이템14</div>
+              <div class="slide-item p-3 border bg-light">아이템15</div>
+              <div class="slide-item p-3 border bg-light">아이템16</div>
             </div>
+            <button class="slider-btn right btn btn-dark position-absolute" style="right:0; top:0; bottom:0; z-index:2;">&#62;
+            </button>
+            <!-- dim 효과 영역 -->
+            <div class="slider-dim left"></div>
+            <div class="slider-dim right"></div>
           </div>
-          <!--      /체크박스 -->
+        </div>
+        <!--      /넘쳤을때 딤처리 되는거 -->
 
-          <!--      데이터피커-->
-          <div class="col-6">
-            <h1>datepicker</h1>
-            <div class="text-center">
-              <input type="text" class="form-control" id="myDatepicker">
+        <!--      테이블 테스트 -->
+        <div>
+          <h1>테이블 테스트</h1>
+          <div class="table-container">
+            <div class="my-table-wrap">
+              <table class="table table-hover">
+                <tr>
+                  <th>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" value="">
+                    </div>
+                  </th>
+                  <th>Header1</th>
+                  <th>Header2</th>
+                  <th>Header3</th>
+                  <th>Header4</th>
+                  <th>Header5</th>
+                  <th>Header6</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" value="">
+                    </div>
+                  </td>
+                  <td>Row1</td>
+                  <td>Row2</td>
+                  <td>Row3</td>
+                  <td>Row4</td>
+                  <td>Row5</td>
+                  <td>Row6</td>
+                  <td>Row7</td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                  <td>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top"
+                         data-bs-custom-class="custom-tooltip"
+                         data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS &nbsp;variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">
+                      >Row7
+                    </div>
+                  </td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                  <td>Row7</td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                  <td>Row7</td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                </tr>
+              </table>
             </div>
+            <!-- 스크롤 되는 영역 바깥, 경계선에 고정 -->
+            <div class="my-table-fade my-table-fade-left"></div>
+            <div class="my-table-fade my-table-fade-right show"></div>
           </div>
-          <!--      데이터피커-->
 
-          <!--      드롭다운, 다중선택-->
-          <div class="col-6">
-            <h1>select custom</h1>
-            <div>
-              <!-- 단일 선택 -->
+          <div class="table-container">
+            <div class="my-table-wrap">
+              <table class="table table-hover">
+                <tr>
+                  <th>Header1</th>
+                  <th>Header2</th>
+                  <th>Header3</th>
+                  <th>Header4</th>
+                  <th>Header5</th>
+                  <th>Header6</th>
+                </tr>
+                <tr>
+                  <td>Row1</td>
+                  <td>Row2</td>
+                  <td>Row3</td>
+                  <td>Row4</td>
+                  <td>Row5</td>
+                  <td>Row6</td>
+                </tr>
+              </table>
+            </div>
+            <!-- 스크롤 되는 영역 바깥, 경계선에 고정 -->
+            <div class="my-table-fade my-table-fade-left"></div>
+            <div class="my-table-fade my-table-fade-right show"></div>
+          </div>
+        </div>
+        <!--      /테이블 테스트 -->
+
+        <!--      체크박스, radio, toggle / select custom-->
+        <div>
+          <div class="row">
+            <!--      체크박스 -->
+            <div class="col-6">
+              <h1>checkbox, radio, toggle</h1>
               <div>
-                <label class="form-label">레이블</label>
-                <div class="custom-select-box">
-                  <select class="form-select" id="labelSelect">
-                    <option>전체</option>
-                    <option>아이템1</option>
-                    <option>아이템2</option>
-                    <option>아이템3</option>
-                    <option>아이템4</option>
-                    <option>아이템5</option>
-                  </select>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio">
+                    Default radio
+                  </label>
+                </div>
+                <!--              <div class="form-check form-switch">-->
+                <!--                <input class="form-check-input" type="checkbox" role="switch">-->
+                <!--                <label class="form-check-label">Default switch checkbox input</label>-->
+                <!--              </div>-->
+                <div class="form-check form-switch ">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                    input</label>
                 </div>
               </div>
+            </div>
+            <!--      /체크박스 -->
 
-              <!--              부트스트랩 -->
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+            <!--      데이터피커-->
+            <div class="col-6">
+              <h1>datepicker</h1>
+              <div class="text-center">
+                <input type="text" class="form-control" id="myDatepicker">
               </div>
+            </div>
+            <!--      데이터피커-->
 
-              <!-- 멀티 셀렉트 -->
+            <!--      드롭다운, 다중선택-->
+            <div class="col-6">
+              <h1>select custom</h1>
               <div>
-                <label class="form-label">상품타입</label>
-                <div class="multi-select-wrap" tabindex="0">
-                  <div class="multi-select-display" id="multiSelectDisplay">전체</div>
-                  <div class="multi-select-dropdown mt-1 d-none" id="multiSelectDropdown">
-                    <div class="multi-option" data-value="전체">전체 <span class="check-mark d-none"><i
-                        class="bi bi-check2"></i></span></div>
-                    <div class="multi-option" data-value="아이템1">아이템1 <span class="check-mark d-none"><i
-                        class="bi bi-check2"></i></span></div>
-                    <div class="multi-option" data-value="아이템2">아이템2 <span class="check-mark d-none"><i
-                        class="bi bi-check2"></i></span></div>
-                    <div class="multi-option" data-value="아이템3">아이템3 <span class="check-mark d-none"><i
-                        class="bi bi-check2"></i></span></div>
-                    <div class="multi-option" data-value="아이템4">아이템4 <span class="check-mark d-none"><i
-                        class="bi bi-check2"></i></span></div>
-                    <div class="multi-option" data-value="아이템5">아이템5 <span class="check-mark d-none"><i
-                        class="bi bi-check2"></i></span></div>
+                <!-- 단일 선택 -->
+                <div>
+                  <label class="form-label">레이블</label>
+                  <div class="custom-select-box">
+                    <select class="form-select" id="labelSelect">
+                      <option>전체</option>
+                      <option>아이템1</option>
+                      <option>아이템2</option>
+                      <option>아이템3</option>
+                      <option>아이템4</option>
+                      <option>아이템5</option>
+                    </select>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!--      /드롭다운, 다중선택-->
 
-          <!--          인풋 필드-->
-          <div class="col-6">
-            <h1>인풋 필드</h1>
-            <div>
-              <div class="form-group">
-                <label for="test1" class="form-label">label</label>
-                <input type="text" class="form-control" placeholder="dd" id="test1">
-                <div class="form-text fc-danger">1234</div>
-              </div>
-              <div class="form-group">
-                <label for="" class="form-label">비밀번호 확인</label>
-                <div class="position-relative">
-                  <!-- @relay: 에러인경우 .form-control 에 .error 추가 -> 빨간 보더로 변경 -->
-                  <input type="password" class="form-control userPw error" name="newPw"
-                         placeholder="동일한 비밀번호 입력">
-                  <div class="form-group-append">
-                    <button class="btn-clear togglePassword" type="button">
-                      <i class="icon bi bi-eye-slash fs-m-18 fs-p-20 fc-999"></i>
-                    </button>
+                <!--              부트스트랩 -->
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+
+                <!-- 멀티 셀렉트 -->
+                <div>
+                  <label class="form-label">상품타입</label>
+                  <div class="multi-select-wrap" tabindex="0">
+                    <div class="multi-select-display" id="multiSelectDisplay">전체</div>
+                    <div class="multi-select-dropdown mt-1 d-none" id="multiSelectDropdown">
+                      <div class="multi-option" data-value="전체">전체 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템1">아이템1 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템2">아이템2 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템3">아이템3 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템4">아이템4 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템5">아이템5 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                    </div>
                   </div>
                 </div>
-                <p class="form-control-info__text error" style="display: block;">비밀번호가 일치하지 않습니다</p>
               </div>
             </div>
+            <!--      /드롭다운, 다중선택-->
+
+            <!--          인풋 필드-->
+            <div class="col-6">
+              <h1>인풋 필드</h1>
+              <div>
+                <div class="form-group">
+                  <label for="test1" class="form-label">label</label>
+                  <input type="text" class="form-control" placeholder="dd" id="test1">
+                  <div class="form-text fc-danger">1234</div>
+                </div>
+                <div class="form-group">
+                  <label for="" class="form-label">비밀번호 확인</label>
+                  <div class="position-relative">
+                    <!-- @relay: 에러인경우 .form-control 에 .error 추가 -> 빨간 보더로 변경 -->
+                    <input type="password" class="form-control userPw error" name="newPw"
+                           placeholder="동일한 비밀번호 입력">
+                    <div class="form-group-append">
+                      <button class="btn-clear togglePassword" type="button">
+                        <i class="icon bi bi-eye-slash fs-m-18 fs-p-20 fc-999"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="form-control-info__text error" style="display: block;">비밀번호가 일치하지 않습니다</p>
+                </div>
+              </div>
+            </div>
+            <!--          /인풋 필드-->
+
+            <!--            텍스트 아레아 -->
+            <div>
+              <h1>textarea</h1>
+              <div class="form-group">
+                <label for="" class="form-label">label</label>
+                <textarea name="" id=""  class="form-control form-text" placeholder="테스트입니다. 텍스트를 입력해 주세요~!">테스트내용</textarea>
+              </div>
+            </div>
+            <!--            /텍스트 아레아 -->
           </div>
-          <!--          /인풋 필드-->
         </div>
+        <!--      체크박스, radio, toggle / select custom-->
       </div>
-      <!--      체크박스, radio, toggle / select custom-->
 
       <!--      component 컴포넌트-->
       <div class="px-4 py-2">
