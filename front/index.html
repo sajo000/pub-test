@@ -10,12 +10,15 @@
           integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
           crossorigin="anonymous"></script>
 
-  <!-- JS -->
+  <!-- BOOTSTRAP -->
   <script type="text/javascript" src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
   <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+
+  <!-- AXIOS -->
   <script type="text/javascript" src="./node_modules/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="./layout.js"></script>
-  <script type="text/javascript" src="./function.js"></script>
+
 
   <!-- Owl Carousel -->
   <link rel="stylesheet" href="./lib/owl-carousel/assets/owl.carousel.min.css">
@@ -23,9 +26,7 @@
   <script type="text/javascript" src="./lib/owl-carousel/owl.carousel.min.js"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="css/app.css">
+
 
   <!-- datepicker -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -36,11 +37,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-<!--  NDP -->
-  <link href="https://portal-staging.deleo.co.kr/css/suite.css" rel="stylesheet">
-  <link href="https://portal-staging.deleo.co.kr/css/layout2.css?ver=3" rel="stylesheet">
-  <script type="text/javascript" src="https://portal-staging.deleo.co.kr/js/common.js"></script>
-  <script type="text/javascript" src="https://portal-staging.deleo.co.kr/js/layout.js"></script>
+
+  <!-- custom -->
+  <link rel="stylesheet" href="css/app.css">
+
 </head>
 <body>
 <div class="container-wrap">
@@ -717,4 +717,498 @@
 </div>
 
 </body>
+<script>
+  // * 사이드메뉴 열기
+  $(document).ready(function () {
+    $('.menu').on('click', function () {
+      $('.container-wrap').toggleClass('toggle-opened');
+      $('.nav-wrap').toggleClass('opened');
+    });
+  });
+
+
+  // * 사이드메뉴 동작처리
+  $(document).ready(function() {
+    // 기본 .deps2 숨김 처리 (필요시)
+    $('.deps2').hide();
+
+    $('.deps1-link.multiple').click(function(e) {
+      e.preventDefault();
+
+      const $arrowIcon = $(this).find('.deps1-icon-arrow');
+      const $subMenu = $(this).next('.deps2');
+
+      // 토글 하위 메뉴 표시
+      $subMenu.slideToggle(200);
+
+      // 아이콘 토글 클래스
+      if ($arrowIcon.hasClass('icon-arrow-bottom')) {
+        $arrowIcon.removeClass('icon-arrow-bottom').addClass('icon-arrow-top');
+      } else {
+        $arrowIcon.removeClass('icon-arrow-top').addClass('icon-arrow-bottom');
+      }
+    });
+
+    $('.deps2-link').click(function(e) {
+      e.preventDefault();
+
+      // 모든 활성화 초기화
+      $('.deps1-link.active').removeClass('active');
+      $('.deps2-link.active').removeClass('active');
+
+      // 클릭한 deps2-link 활성화
+      $(this).addClass('active');
+
+      // 클릭한 deps2-link의 조상 deps2 바로 이전 형제 deps1-link에 active 추가
+      const $deps2 = $(this).closest('.deps2');
+      const $deps1Link = $deps2.prev('.deps1-link');
+      if ($deps1Link.length) {
+        $deps1Link.addClass('active');
+
+        // 하위 메뉴가 닫혀있으면 열기 & 아이콘 토글
+        if (!$deps2.is(':visible')) {
+          $deps2.slideDown(200);
+          const $arrowIcon = $deps1Link.find('.deps1-icon-arrow');
+          $arrowIcon.removeClass('icon-arrow-bottom').addClass('icon-arrow-top');
+        }
+      }
+    });
+
+    // 만약 deps1-link.single 클릭 시 활성화 상태를 변경하려면 아래 추가 가능
+    $('.deps1-link.single').click(function(e) {
+      e.preventDefault();
+
+      // 기존 활성화 모두 제거
+      $('.deps1-link.active').removeClass('active');
+      $('.deps2-link.active').removeClass('active');
+
+      $(this).addClass('active');
+    });
+  });
+
+
+  // * 사이드메뉴에서 메뉴 클릭했을때 탭 쌓이면서 컨텐츠 화면 전환
+  $(function () {
+    $('.deps1-link').on('click', function (e) {
+      e.preventDefault();
+
+      const menuName = $(this).text().trim();
+      const menuUrl = $(this).data('url');
+      const tabId = 'tab-' + menuName.replace(/\s+/g, '-').toLowerCase();
+
+      const $existingTab = $('#' + tabId);
+      if ($existingTab.length) {
+        $('.header-tab .nav-link').removeClass('active');
+        $existingTab.addClass('active');
+        loadContent($existingTab.data('url'));
+        return;
+      }
+
+      const $newTab = $(`
+      <li class="nav-item">
+        <a class="nav-link active d-flex align-items-center" id="${tabId}" href="#" data-url="${menuUrl}">
+          ${menuName}
+          <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+        </a>
+      </li>
+    `);
+
+      $('.header-tab .nav-link').removeClass('active');
+      $('.header-tab').append($newTab);
+
+      loadContent(menuUrl);
+
+      $newTab.find('.nav-link').on('click', function (e) {
+        e.preventDefault();
+        $('.header-tab .nav-link').removeClass('active');
+        $(this).addClass('active');
+        loadContent($(this).data('url'));
+      });
+
+      $newTab.find('.btn-close').on('click', function (e) {
+        e.stopPropagation();
+        const $tab = $(this).closest('.nav-link');
+        const wasActive = $tab.hasClass('active');
+        const $li = $(this).closest('li');
+        $li.remove();
+
+        if (wasActive) {
+          const $first = $('.header-tab .nav-link').first();
+          if ($first.length) {
+            $first.addClass('active');
+            loadContent($first.data('url'));
+          } else {
+            $('.iframe-content').html(
+                '<div class="p-3 text-muted">화면을 선택해주세요</div>');
+          }
+        }
+      });
+    });
+
+    $('.header-tab .nav-link').on('click', function (e) {
+      e.preventDefault();
+      $('.header-tab .nav-link').removeClass('active');
+      $(this).addClass('active');
+      loadContent($(this).data('url'));
+    });
+
+    // ✅ HTML을 Ajax로 로딩하는 함수
+    function loadContent(url) {
+      if (!url || url === 'undefined') {
+        $('.iframe-content').html('<div class="p-3 text-muted">화면을 선택해주세요</div>');
+        return;
+      }
+
+      $.get(url)
+      .done(function (html) {
+        $('.iframe-content').html(html);
+      })
+      .fail(function () {
+        $('.iframe-content').html(
+            '<div class="p-3 text-danger">화면을 불러오는데 실패했어요😢</div>');
+      });
+    }
+
+    // ✅ 초기 화면 로딩
+    loadContent($('.deps1-link').first().data('url'));
+  });
+
+
+  // * 헤더 스크롤러블 탭메뉴
+  $(function() {
+    let tabIdx = 1;
+
+    function updateArrows() {
+      const $wrap = $('.tab-scroll-wrap');
+      const $ul = $('.tab-list');
+      const scrollLeft = $wrap.scrollLeft();
+      const maxScroll = $wrap[0].scrollWidth - $wrap.width(); // scrollWidth로 변경
+
+      $('.scroll-arrow.left').toggle(scrollLeft > 0);
+      $('.scroll-arrow.right').toggle(scrollLeft < maxScroll - 1 && maxScroll > 0);
+    }
+
+    // 탭 추가 버튼
+    $('#addTabBtn').on('click', function() {
+      const tabTitle = '탭' + tabIdx++;
+      const $li = $(`
+      <li class="nav-item">
+        <a class="nav-link${$('.tab-list .nav-link').length ? '' : ' active'}" href="#">
+          ${tabTitle}<button class="tab-close-btn" title="닫기">&times;</button>
+        </a>
+      </li>
+    `);
+      $('.tab-list').append($li);
+      if($('.tab-list .nav-link.active').length === 0){
+        $li.find('.nav-link').addClass('active');
+      }
+      // requestAnimationFrame 사용해 렌더링 후 updateArrows 호출
+      requestAnimationFrame(updateArrows);
+    });
+
+    // 탭 닫기
+    $('.tab-list').on('click', '.tab-close-btn', function(e){
+      e.stopPropagation();
+      const $tab = $(this).closest('.nav-item');
+      const isActive = $tab.find('.nav-link').hasClass('active');
+      $tab.remove();
+      if(isActive){
+        $('.tab-list .nav-link').removeClass('active').eq(0).addClass('active');
+      }
+      updateArrows();
+    });
+
+    // 탭 클릭시 active
+    $('.tab-list').on('click', '.nav-link', function(e){
+      e.preventDefault();
+      $('.tab-list .nav-link').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    // 스크롤 감지
+    $('.tab-scroll-wrap').on('scroll', updateArrows);
+
+    // 화살표 클릭
+    $('.scroll-arrow.left').on('click', function(){
+      $('.tab-scroll-wrap').animate({scrollLeft: '-=200'}, 200, updateArrows);
+    });
+    $('.scroll-arrow.right').on('click', function(){
+      $('.tab-scroll-wrap').animate({scrollLeft: '+=200'}, 200, updateArrows);
+    });
+
+    $(window).on('resize', updateArrows);
+
+    // 초기 탭 3개 추가
+    $('#addTabBtn').trigger('click').trigger('click').trigger('click');
+  });
+
+
+  // 넘쳤을때 딤처리 되는거
+  $(function () {
+    const $slider = $('.slider-outer');
+    const $inner = $slider.find('.slider-inner');
+    const $slides = $inner.find('.slide-item');
+
+    // viewWidth를 슬라이더 컨테이너 너비로 동적으로 가져오기
+    let viewWidth = $slider.width();
+    let slideWidth = $slides.outerWidth(true);
+    let totalWidth = slideWidth * $slides.length;
+    let scrollPos = 0;
+
+    function updateNav() {
+      if (scrollPos > 0) {
+        $slider.find('.slider-btn.left').show();
+        $slider.find('.slider-dim.left').show();
+      } else {
+        $slider.find('.slider-btn.left').hide();
+        $slider.find('.slider-dim.left').hide();
+      }
+      if (scrollPos < totalWidth - viewWidth) {
+        $slider.find('.slider-btn.right').show();
+        $slider.find('.slider-dim.right').show();
+      } else {
+        $slider.find('.slider-btn.right').hide();
+        $slider.find('.slider-dim.right').hide();
+      }
+    }
+
+    $slider.find('.slider-btn.left').on('click', function () {
+      scrollPos = Math.max(0, scrollPos - viewWidth);
+      $inner.css('transform', 'translateX(-' + scrollPos + 'px)');
+      updateNav();
+    });
+
+    $slider.find('.slider-btn.right').on('click', function () {
+      scrollPos = Math.min(totalWidth - viewWidth, scrollPos + viewWidth);
+      $inner.css('transform', 'translateX(-' + scrollPos + 'px)');
+      updateNav();
+    });
+
+    function resize() {
+      viewWidth = $slider.width();  // 컨테이너 너비 동기화
+      slideWidth = $slides.outerWidth(true);
+      totalWidth = slideWidth * $slides.length;
+      if (scrollPos > totalWidth - viewWidth) {
+        scrollPos = Math.max(0,
+            totalWidth - viewWidth);
+      }
+      $inner.css('transform', 'translateX(-' + scrollPos + 'px)');
+      updateNav();
+    }
+
+    resize();
+
+    // 창 리사이즈 시 자동으로 넓이 재계산
+    $(window).on('resize', resize);
+  });
+
+  // 테이블 딤처리
+  $(function () {
+    $('.table-container').each(function () {
+      const $container = $(this);
+      const $wrap = $container.find('.my-table-wrap');
+      const $fadeLeft = $container.find('.my-table-fade-left');
+      const $fadeRight = $container.find('.my-table-fade-right');
+
+      function updateFade() {
+        const scrollLeft = $wrap.scrollLeft();
+        const scrollWidth = $wrap[0].scrollWidth;
+        const clientWidth = $wrap.width();
+
+        // 스크롤 안 생기는 경우: fade 모두 숨김
+        if (scrollWidth <= clientWidth) {
+          $fadeLeft.removeClass('show');
+          $fadeRight.removeClass('show');
+          return;
+        }
+
+        // 스크롤 생기면 기존 조건대로 fade 처리
+        if (scrollLeft > 0) {
+          $fadeLeft.addClass('show');
+        } else {
+          $fadeLeft.removeClass('show');
+        }
+
+        if (scrollLeft + clientWidth < scrollWidth - 1) {
+          $fadeRight.addClass('show');
+        } else {
+          $fadeRight.removeClass('show');
+        }
+      }
+
+      updateFade();
+      $wrap.on('scroll', updateFade);
+      $(window).on('resize', updateFade);
+    });
+  });
+
+
+  // 다중셀렉트 select2
+  $(document).ready(function() {
+    const $select = $('#goodsType');
+    const allValue = 'all';
+
+    $select.select2({
+      theme: 'bootstrap-5',
+      width: '100%',
+      placeholder: '전체',
+      closeOnSelect: false
+    });
+
+    let isSyncing = false; // 이벤트 중복 방지 플래그
+
+    $select.on('select2:select select2:unselect', function(e) {
+      if (isSyncing) return; // 리커시브 방지
+
+      isSyncing = true;
+      let values = $select.val() || [];
+
+      if (e.params.data.id === allValue) {
+        if (values.includes(allValue)) {
+          // 전체 선택: 모든 옵션 선택
+          const allOptions = $select.find('option').map(function() { return this.value; }).get();
+          $select.val(allOptions).trigger('change');
+        } else {
+          // 전체 해제: 전체 선택 해제
+          $select.val(null).trigger('change');
+        }
+      } else {
+        const optionCount = $select.find('option').length - 1; // 전체 제외 옵션 수
+        const allSelected = (values.length === optionCount);
+
+        if (allSelected && !values.includes(allValue)) {
+          // 모든 개별 옵션 선택 시 '전체' 옵션도 추가
+          values.push(allValue);
+          $select.val(values).trigger('change');
+        }
+        else if (!allSelected && values.includes(allValue)) {
+          // 일부 해제 시 '전체' 옵션 제거
+          values = values.filter(v => v !== allValue);
+          $select.val(values).trigger('change');
+        }
+      }
+      isSyncing = false;
+    });
+  });
+
+
+  // datepicker
+  $(function () {
+    // startDate 데이트피커 초기화
+    const $startInput = $('#startDate');
+    $startInput.datepicker({
+      format: 'yyyy-mm-dd',
+      todayHighlight: true,
+      autoclose: true
+    }).on('show', function () {
+      // 데이트피커가 보일 때 좌우 화살표 변경
+      $('.datepicker .prev').html('<i class="icon is-16 icon-arrow-left bg-black"></i>');
+      $('.datepicker .next').html('<i class="icon is-16 icon-arrow-right bg-black"></i>');
+
+      // 데이트피커가 보일 때 헤더 순서 재배치
+      $('.datepicker thead tr').each(function() {
+        const $tr = $(this);
+        const $prev = $tr.find('.prev').detach();
+        const $switch = $tr.find('.datepicker-switch').detach();
+        const $next = $tr.find('.next').detach();
+        $tr.append($switch).append($prev).append($next);
+      });
+    });
+
+    // endDate 데이트피커 초기화
+    const $endInput = $('#endDate');
+    $endInput.datepicker({
+      format: 'yyyy-mm-dd',
+      todayHighlight: true,
+      autoclose: true
+    }).on('show', function () {
+      // 데이트피커가 보일 때 좌우 화살표 변경
+      $('.datepicker .prev').html('<i class="icon is-16 icon-arrow-left bg-black"></i>');
+      $('.datepicker .next').html('<i class="icon is-16 icon-arrow-right bg-black"></i>');
+
+      // 데이트피커가 보일 때 헤더 순서 재배치
+      $('.datepicker thead tr').each(function() {
+        const $tr = $(this);
+        const $prev = $tr.find('.prev').detach();
+        const $switch = $tr.find('.datepicker-switch').detach();
+        const $next = $tr.find('.next').detach();
+        $tr.append($switch).append($prev).append($next);
+      });
+    });
+
+    // startDate 아이콘 버튼 클릭 시 캘린더 열기
+    $startInput.siblings('.form-group-append').find('button').on('click', function() {
+      $startInput.datepicker('show');
+    });
+
+    // endDate 아이콘 버튼 클릭 시 캘린더 열기
+    $endInput.siblings('.form-group-append').find('button').on('click', function() {
+      $endInput.datepicker('show');
+    });
+  });
+
+
+  // 드롭다운, 다중선택 셀렉트 테스트
+  $(function () {
+// 드롭다운 토글
+    $(".multi-select-wrap").on("click", function (e) {
+      $("#multiSelectDropdown").toggleClass("d-none");
+      e.stopPropagation();
+    });
+
+// 옵션 선택/해제
+    var selected = [];
+
+    $(".multi-option").on("click", function (e) {
+      var val = $(this).data("value");
+      if (val === "전체") {
+        selected = ["전체"];
+        $(".multi-option").removeClass("selected");
+        $(".check-mark").addClass("d-none");
+        $(this).addClass("selected").find(".check-mark").removeClass("d-none");
+      } else {
+        if (selected.includes("전체")) {
+          selected = [];
+          $(".multi-option[data-value='전체']").removeClass("selected").find(
+              ".check-mark").addClass("d-none");
+        }
+        // 토글
+        if (selected.includes(val)) {
+          selected = selected.filter(v => v !== val);
+          $(this).removeClass("selected").find(".check-mark").addClass("d-none");
+        } else {
+          selected.push(val);
+          $(this).addClass("selected").find(".check-mark").removeClass("d-none");
+        }
+      }
+      // "전체" 외에 아무것도 선택 안됐을 때 전체 체크 해제
+      if (selected.length === 0) {
+        selected = ["선택"];
+        $(".multi-option[data-value='전체']").addClass("selected").find(
+            ".check-mark").removeClass("d-none");
+      }
+
+      // 표시영역 업데이트
+      let disp = selected.join(",");
+      $("#multiSelectDisplay").text(
+          disp.length > 25 ? disp.slice(0, 23) + "..." : disp);
+      e.stopPropagation();
+    });
+
+// 외부 클릭 시 닫기
+    $(document).on("click", function () {
+      $("#multiSelectDropdown").addClass("d-none");
+    });
+  });
+
+  // 모든 data-bs-toggle="tooltip" 속성을 가진 요소에 툴팁 활성화
+  $(function () {
+    const tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+  });
+
+</script>
 </html>
