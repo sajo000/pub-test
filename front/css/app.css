@@ -32,37 +32,37 @@
 }
 
 .is-16 {
-  display: inline-block;
+  display: flex;
   width: 1rem !important;
   height: 1rem !important;
 }
 
 .is-20 {
-  display: inline-block;
+  display: flex;
   width: 1.25rem !important;
   height: 1.25rem !important;
 }
 
 .is-24 {
-  display: inline-block;
+  display: flex;
   width: 1.5rem !important;
   height: 1.5rem !important;
 }
 
 .is-30 {
-  display: inline-block;
+  display: flex;
   width: 1.875rem !important;
   height: 1.875rem !important;
 }
 
 .is-32 {
-  display: inline-block;
+  display: flex;
   width: 2rem !important;
   height: 2rem !important;
 }
 
 .is-48 {
-  display: inline-block;
+  display: flex;
   width: 3rem !important;
   height: 3rem !important;
 }
@@ -17236,6 +17236,16 @@ textarea.form-control-lg {
   -webkit-mask-size: contain;
 }
 
+.icon-calendar {
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M2.39127 2.90161C2.12083 2.90161 1.86147 3.00905 1.67024 3.20027C1.47901 3.3915 1.37158 3.65086 1.37158 3.9213V13.6084C1.37158 13.8788 1.47901 14.1382 1.67024 14.3294C1.86147 14.5206 2.12083 14.6281 2.39127 14.6281H13.6079C13.8783 14.6281 14.1377 14.5206 14.3289 14.3294C14.5201 14.1382 14.6276 13.8788 14.6276 13.6084V3.9213C14.6276 3.65086 14.5201 3.3915 14.3289 3.20027C14.1377 3.00905 13.8783 2.90161 13.6079 2.90161H11.5685' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.37158 6.47046H14.6276' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.5684 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 2.90161H9.5301' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M2.39127 2.90161C2.12083 2.90161 1.86147 3.00905 1.67024 3.20027C1.47901 3.3915 1.37158 3.65086 1.37158 3.9213V13.6084C1.37158 13.8788 1.47901 14.1382 1.67024 14.3294C1.86147 14.5206 2.12083 14.6281 2.39127 14.6281H13.6079C13.8783 14.6281 14.1377 14.5206 14.3289 14.3294C14.5201 14.1382 14.6276 13.8788 14.6276 13.6084V3.9213C14.6276 3.65086 14.5201 3.3915 14.3289 3.20027C14.1377 3.00905 13.8783 2.90161 13.6079 2.90161H11.5685' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.37158 6.47046H14.6276' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.5684 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 2.90161H9.5301' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
 /* ************************************************************************
  * 주석 설명
  * @see: 참고 사항
@@ -17481,6 +17491,27 @@ html, body, * {
 }
 
 /* ========================================================================
+ * datepicker 데이트피커 재정의
+*/
+.datepicker .datepicker-switch {
+  text-align: unset;
+}
+.datepicker .datepicker-switch:after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 7px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='8' viewBox='0 0 15 8' fill='none'%3E%3Cpath d='M0.786133 0.42041L7.42037 7.05465L14.0546 0.42041H0.786133Z' fill='black' fill-opacity='0.6'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='8' viewBox='0 0 15 8' fill='none'%3E%3Cpath d='M0.786133 0.42041L7.42037 7.05465L14.0546 0.42041H0.786133Z' fill='black' fill-opacity='0.6'/%3E%3C/svg%3E");
+  background-color: rgba(0, 0, 0, 0.6);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  margin-left: 6px;
+}
+
+/* ========================================================================
  * filter 필터 테스트
 */
 .filter-item {
@@ -17611,6 +17642,35 @@ html, body, * {
   line-break: auto;
   font-size: var(--bs-tooltip-font-size);
   word-wrap: break-word;
+}
+
+/* 드롭다운에서 선택된 항목에 배경색과 체크아이콘 */
+.select2-container--bootstrap5 .select2-results__option[aria-selected=true] {
+  background-color: #e5f5fa;
+  color: #0098b9;
+  position: relative;
+}
+
+.select2-container--bootstrap5 .select2-results__option[aria-selected=true]:after {
+  content: "✔";
+  position: absolute;
+  right: 12px;
+  color: #0098b9;
+  font-weight: bold;
+}
+
+/* 선택값 표시될 때 스타일 */
+.select2-container--bootstrap5 .select2-selection--multiple .select2-selection__choice {
+  background-color: #e5f5fa;
+  color: #0098b9;
+  border: none;
+  font-weight: 500;
+}
+
+/* "전체" 항목 강조시 */
+.select2-results__option[role=option][id*="-0"][aria-selected=true] {
+  background-color: #0098b9 !important;
+  color: #fff !important;
 }
 
 /*
@@ -17941,12 +18001,6 @@ textarea.form-control {
 .form-switch .form-check-input:focus {
   border-color: transparent;
   --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-}
-
-.form-check-input[type=radio]:checked {
-  border-color: #00BAD1;
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='%2300c2de'/></svg>");
 }
 
 /* ========================================================================

@@ -162,12 +162,178 @@ $(function () {
 
 // datepicker
 $(function () {
-  const elem = document.getElementById('myDatepicker');
-  const datepicker = new Datepicker(elem, {
-    buttonClass: 'btn', // Ensures buttons are styled with Bootstrap's 'btn' class
-    autohide: true,// 날짜 선택 후 자동 닫힘
-    format: 'yyyy-mm-dd',     // 날짜 포맷 지정
-    todayHighlight: true, //오늘 날짜에 하이라이팅 기능 기본값 :false
-    // Add other options as needed (e.g., format, minDate, maxDate)
+  // startDate 데이트피커 초기화
+  const $startInput = $('#startDate');
+  $startInput.datepicker({
+    format: 'yyyy-mm-dd',
+    todayHighlight: true,
+    autoclose: true
+  }).on('show', function () {
+    // 데이트피커가 보일 때 좌우 화살표 변경
+    $('.datepicker .prev').html('<i class="icon is-16 icon-arrow-left bg-black"></i>');
+    $('.datepicker .next').html('<i class="icon is-16 icon-arrow-right bg-black"></i>');
+
+    // 데이트피커가 보일 때 헤더 순서 재배치
+    $('.datepicker thead tr').each(function() {
+      const $tr = $(this);
+      const $prev = $tr.find('.prev').detach();
+      const $switch = $tr.find('.datepicker-switch').detach();
+      const $next = $tr.find('.next').detach();
+      $tr.append($switch).append($prev).append($next);
+    });
+  });
+
+  // endDate 데이트피커 초기화
+  const $endInput = $('#endDate');
+  $endInput.datepicker({
+    format: 'yyyy-mm-dd',
+    todayHighlight: true,
+    autoclose: true
+  }).on('show', function () {
+    // 데이트피커가 보일 때 좌우 화살표 변경
+    $('.datepicker .prev').html('<i class="icon is-16 icon-arrow-left bg-black"></i>');
+    $('.datepicker .next').html('<i class="icon is-16 icon-arrow-right bg-black"></i>');
+
+    // 데이트피커가 보일 때 헤더 순서 재배치
+    $('.datepicker thead tr').each(function() {
+      const $tr = $(this);
+      const $prev = $tr.find('.prev').detach();
+      const $switch = $tr.find('.datepicker-switch').detach();
+      const $next = $tr.find('.next').detach();
+      $tr.append($switch).append($prev).append($next);
+    });
+  });
+
+  // startDate 아이콘 버튼 클릭 시 캘린더 열기
+  $startInput.siblings('.form-group-append').find('button').on('click', function() {
+    $startInput.datepicker('show');
+  });
+
+  // endDate 아이콘 버튼 클릭 시 캘린더 열기
+  $endInput.siblings('.form-group-append').find('button').on('click', function() {
+    $endInput.datepicker('show');
   });
 });
+
+// 다중셀렉트 select2
+$(document).ready(function() {
+  const $select = $('#goodsType');
+  const allValue = 'all';
+
+  $select.select2({
+    theme: 'bootstrap-5',
+    width: '100%',
+    placeholder: '전체',
+    closeOnSelect: false
+  });
+
+  let isSyncing = false; // 이벤트 중복 방지 플래그
+
+  $select.on('select2:select select2:unselect', function(e) {
+    if (isSyncing) return; // 리커시브 방지
+
+    isSyncing = true;
+    let values = $select.val() || [];
+
+    if (e.params.data.id === allValue) {
+      if (values.includes(allValue)) {
+        // 전체 선택: 모든 옵션 선택
+        const allOptions = $select.find('option').map(function() { return this.value; }).get();
+        $select.val(allOptions).trigger('change');
+      } else {
+        // 전체 해제: 전체 선택 해제
+        $select.val(null).trigger('change');
+      }
+    } else {
+      const optionCount = $select.find('option').length - 1; // 전체 제외 옵션 수
+      const allSelected = (values.length === optionCount);
+
+      if (allSelected && !values.includes(allValue)) {
+        // 모든 개별 옵션 선택 시 '전체' 옵션도 추가
+        values.push(allValue);
+        $select.val(values).trigger('change');
+      }
+      else if (!allSelected && values.includes(allValue)) {
+        // 일부 해제 시 '전체' 옵션 제거
+        values = values.filter(v => v !== allValue);
+        $select.val(values).trigger('change');
+      }
+    }
+    isSyncing = false;
+  });
+});
+
+
+// $(document).ready(function() {
+//   const $select = $('#goodsType');
+//
+//   $select.select2({
+//     theme: 'bootstrap-5',
+//     width: '100%',
+//     placeholder: '전체',
+//     closeOnSelect: false // 멀티 선택 시 드롭다운 닫히지 않게
+//   });
+//
+//   $select.on('select2:select select2:unselect', function(e) {
+//     const values = $select.val() || [];
+//     const allValue = 'all';
+//
+//     if (e.params.data.id === allValue) {
+//       if (values.includes(allValue)) {
+//         // 전체 선택 → 모든 옵션 선택
+//         $select.val($select.find('option').map(function() {
+//           return this.value;
+//         }).get()).trigger('change');
+//       } else {
+//         // 전체 해제 → 모두 해제
+//         $select.val(null).trigger('change');
+//       }
+//     } else {
+//       // 개별 선택 변경 시 전체 선택 상태 동기화
+//       const optionCount = $select.find('option').length - 1; // 전체 제외 옵션 개수
+//       const allSelected = (values.length === optionCount);
+//
+//       if (allSelected && !values.includes(allValue)) {
+//         // 모든 옵션 선택된 상태면 전체 옵션 추가
+//         $select.val(values.concat(allValue)).trigger('change');
+//       } else if (!allSelected && values.includes(allValue)) {
+//         // 전체 선택 되어 있지만 일부 옵션 해제된 경우 전체 선택 해제
+//         $select.val(values.filter(v => v !== allValue)).trigger('change');
+//       }
+//     }
+//   });
+// });
+
+// $(function() {
+//   const $select = $('#goodsType');
+//
+//   $select.select2({
+//     theme: 'bootstrap-5',
+//     width: '100%',
+//     placeholder: '전체',
+//     closeOnSelect: false,
+//     dropdownAutoWidth: true
+//   });
+//
+//   // 전체 선택/해제 로직
+//   $select.on('select2:select select2:unselect', function(e) {
+//     const values = $select.val() || [];
+//     if (e.params.data.id === 'all') {
+//       if (values.includes('all')) {
+//         // 전체 선택 → 모두 선택
+//         $select.val(['all', 'normal', 'gift', 'sample', 'add', 'set']).trigger('change');
+//       } else {
+//         // 전체 해제 → 모두 해제
+//         $select.val(null).trigger('change');
+//       }
+//     } else {
+//       // 옵션 하나라도 해제 시 전체도 해제
+//       if (values.length === 5 && !values.includes('all')) {
+//         $select.val(['all', ...values]).trigger('change');
+//       } else if (values.length < 6 && values.includes('all')) {
+//         $select.val(values.filter(v => v !== 'all')).trigger('change');
+//       }
+//     }
+//   });
+// });
+

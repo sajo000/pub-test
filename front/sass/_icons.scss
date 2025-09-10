@@ -135,6 +135,16 @@
   -webkit-mask-size: contain;
 }
 
+.icon-calendar {
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M2.39127 2.90161C2.12083 2.90161 1.86147 3.00905 1.67024 3.20027C1.47901 3.3915 1.37158 3.65086 1.37158 3.9213V13.6084C1.37158 13.8788 1.47901 14.1382 1.67024 14.3294C1.86147 14.5206 2.12083 14.6281 2.39127 14.6281H13.6079C13.8783 14.6281 14.1377 14.5206 14.3289 14.3294C14.5201 14.1382 14.6276 13.8788 14.6276 13.6084V3.9213C14.6276 3.65086 14.5201 3.3915 14.3289 3.20027C14.1377 3.00905 13.8783 2.90161 13.6079 2.90161H11.5685' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.37158 6.47046H14.6276' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.5684 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 2.90161H9.5301' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M2.39127 2.90161C2.12083 2.90161 1.86147 3.00905 1.67024 3.20027C1.47901 3.3915 1.37158 3.65086 1.37158 3.9213V13.6084C1.37158 13.8788 1.47901 14.1382 1.67024 14.3294C1.86147 14.5206 2.12083 14.6281 2.39127 14.6281H13.6079C13.8783 14.6281 14.1377 14.5206 14.3289 14.3294C14.5201 14.1382 14.6276 13.8788 14.6276 13.6084V3.9213C14.6276 3.65086 14.5201 3.3915 14.3289 3.20027C14.1377 3.00905 13.8783 2.90161 13.6079 2.90161H11.5685' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1.37158 6.47046H14.6276' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.5684 1.37207V4.43115' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.43164 2.90161H9.5301' stroke='black' stroke-width='1.01969' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
 //.icon- {
 //  opacity: 1;
 //  -webkit-mask:

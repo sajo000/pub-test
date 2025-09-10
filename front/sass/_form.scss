@@ -145,9 +145,9 @@ textarea.form-control {
 // * 라디오 버튼
 .form-check-input[type="radio"] {
   &:checked {
-    border-color: $primary;
-    background-color: $white;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='%2300c2de'/></svg>");
+    //border-color: $primary;
+    //background-color: $white;
+    //background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='%2300c2de'/></svg>");
   }
 }
 

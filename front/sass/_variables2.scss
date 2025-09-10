@@ -122,7 +122,7 @@ $custom-icon-size: (
 
 @each $key, $value in $custom-icon-size {
   .is-#{$key} {
-    display: inline-block;
+    display: flex;
     width: $value !important;
     height: $value !important;
   }
