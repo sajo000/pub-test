@@ -68,91 +68,83 @@ $(document).ready(function() {
 
 
 // * 사이드메뉴에서 메뉴 클릭했을때 탭 쌓이면서 컨텐츠 화면 전환
-$(function () {
-  $('.deps1-link').on('click', function (e) {
+$(function() {
+  const $tabList = $('.tab-list');
+  const $iframeContent = $('.iframe-content');
+
+  // 대시보드 탭 클릭 무시
+  $tabList.on('click', '.fixed-tab', function(e) {
     e.preventDefault();
+  });
 
-    const menuName = $(this).text().trim();
-    const menuUrl = $(this).data('url');
-    const tabId = 'tab-' + menuName.replace(/\s+/g, '-').toLowerCase();
-
-    const $existingTab = $('#' + tabId);
-    if ($existingTab.length) {
-      $('.header-tab .nav-link').removeClass('active');
-      $existingTab.addClass('active');
-      loadContent($existingTab.data('url'));
+  // 탭 추가 함수 (대시보드 바로 뒤에 삽입)
+  function addOrActivateTab(tabId, title, url) {
+    let existingTab = $tabList.find(`li[data-tab="${tabId}"]`);
+    if (existingTab.length) {
+      $tabList.find('.nav-link').removeClass('active');
+      existingTab.find('.nav-link').addClass('active').trigger('click');
+      $iframeContent.html(`<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`);
       return;
     }
 
-    const $newTab = $(`
-      <li class="nav-item">
-        <a class="nav-link active d-flex align-items-center" id="${tabId}" href="#" data-url="${menuUrl}">
-          ${menuName}
-          <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+    const $li = $(`
+      <li class="nav-item" data-tab="${tabId}">
+        <a href="#" class="nav-link active">${title}
+          <button type="button" class="tab-close-btn">&times;</button>
         </a>
       </li>
     `);
 
-    $('.header-tab .nav-link').removeClass('active');
-    $('.header-tab').append($newTab);
+    $tabList.find('.nav-link').removeClass('active');
 
-    loadContent(menuUrl);
+    // 대시보드 탭 뒤에 삽입 (첫번째 li 뒤)
+    $tabList.find('li').eq(0).after($li);
 
-    $newTab.find('.nav-link').on('click', function (e) {
-      e.preventDefault();
-      $('.header-tab .nav-link').removeClass('active');
-      $(this).addClass('active');
-      loadContent($(this).data('url'));
-    });
-
-    $newTab.find('.btn-close').on('click', function (e) {
-      e.stopPropagation();
-      const $tab = $(this).closest('.nav-link');
-      const wasActive = $tab.hasClass('active');
-      const $li = $(this).closest('li');
-      $li.remove();
-
-      if (wasActive) {
-        const $first = $('.header-tab .nav-link').first();
-        if ($first.length) {
-          $first.addClass('active');
-          loadContent($first.data('url'));
-        } else {
-          $('.iframe-content').html(
-              '<div class="p-3 text-muted">화면을 선택해주세요</div>');
-        }
-      }
-    });
-  });
-
-  $('.header-tab .nav-link').on('click', function (e) {
-    e.preventDefault();
-    $('.header-tab .nav-link').removeClass('active');
-    $(this).addClass('active');
-    loadContent($(this).data('url'));
-  });
-
-  // ✅ HTML을 Ajax로 로딩하는 함수
-  function loadContent(url) {
-    if (!url || url === 'undefined') {
-      $('.iframe-content').html('<div class="p-3 text-muted">화면을 선택해주세요</div>');
-      return;
-    }
-
-    $.get(url)
-    .done(function (html) {
-      $('.iframe-content').html(html);
-    })
-    .fail(function () {
-      $('.iframe-content').html(
-          '<div class="p-3 text-danger">화면을 불러오는데 실패했어요😢</div>');
-    });
+    $iframeContent.html(`<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`);
   }
 
-  // ✅ 초기 화면 로딩
-  loadContent($('.deps1-link').first().data('url'));
-});
+  // 탭 클릭 이벤트 (열기 및 콘텐츠 변경)
+  $tabList.on('click', '.nav-link', function(e) {
+    if ($(e.target).hasClass('tab-close-btn')) return;
+    e.preventDefault();
+    $tabList.find('.nav-link').removeClass('active');
+    $(this).addClass('active');
+    const url = "test1.html"; // 실제 url로 변경 가능
+    $iframeContent.html(`<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`);
+  });
 
+  // 탭 닫기 버튼 클릭 시
+  $tabList.on('click', '.tab-close-btn', function(e) {
+    e.stopPropagation();
+    const $li = $(this).closest('li');
+    const isActive = $li.find('.nav-link').hasClass('active');
+    let $nextTab = $li.next();
+    $li.remove();
+
+    if (isActive) {
+      if ($nextTab.length) {
+        $nextTab.find('.nav-link').addClass('active').trigger('click');
+      } else {
+        let $prevTab = $tabList.find('li').last();
+        if ($prevTab.length) {
+          $prevTab.find('.nav-link').addClass('active').trigger('click');
+        }
+      }
+    }
+  });
+
+  // 사이드메뉴 클릭 이벤트로 탭 추가
+  $('.deps1-link, .deps2-link').click(function(e) {
+    e.preventDefault();
+
+    if ($(this).hasClass('multiple')) return; // 대메뉴 무시
+    if ($(this).hasClass('single') && $(this).find('.deps1-title').text().trim() === '대시보드') return;
+
+    const tabId = $(this).text().trim();
+    const title = $(this).find('.deps1-title, .deps2-title').text() || tabId;
+    addOrActivateTab(tabId, title, "test1.html");
+  });
+});
 
 // * 헤더 스크롤러블 탭메뉴
 $(function() {

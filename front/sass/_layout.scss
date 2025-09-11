@@ -101,6 +101,10 @@
   .nav-tabs .nav-link {
     display: inline-flex;
     align-items: center;
+
+    &.active {
+      background: red;
+    }
   }
 
   .tab-close-btn {

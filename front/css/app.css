@@ -16783,6 +16783,9 @@ textarea.form-control-lg {
   display: inline-flex;
   align-items: center;
 }
+.header-tab-bar-wrap .nav-tabs .nav-link.active {
+  background: red;
+}
 .header-tab-bar-wrap .tab-close-btn {
   margin-left: 8px;
   font-weight: bold;
