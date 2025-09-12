@@ -11,29 +11,74 @@
           crossorigin="anonymous"></script>
 
   <!-- BOOTSTRAP CSS -->
-<!--  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
-<!--  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">-->
+  <!--  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+  <!--  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">-->
 
   <!-- DHTMLX -->
   <link rel="stylesheet" href="../../lib/dhtmlx/suite.min.css">
   <script type="text/javascript" src="../../lib/dhtmlx/suite.min.js"></script>
 
   <!-- Owl Carousel -->
-  <link rel="stylesheet" href="../../lib/owl-carousel/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="../../lib/owl-carousel/assets/owl.theme.default.min.css">
-  <script type="text/javascript" src="../../lib/owl-carousel/owl.carousel.min.js"></script>
+  <!--  <link rel="stylesheet" href="../../lib/owl-carousel/assets/owl.carousel.min.css">-->
+  <!--  <link rel="stylesheet" href="../../lib/owl-carousel/assets/owl.theme.default.min.css">-->
+  <!--  <script type="text/javascript" src="../../lib/owl-carousel/owl.carousel.min.js"></script>-->
 
   <!-- CUSTOM -->
   <script type="text/javascript" src="../../layout.js"></script>
   <script type="text/javascript" src="../../function.js"></script>
   <link rel="stylesheet" href="../../css/app.css">
 
+
+  <style>
+    .btn-detail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 28px;
+      height: 28px;
+      /*background: #f4f4f4;*/
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+      margin: 0 auto;
+      transition: background 0.2s;
+    }
+
+    .btn-detail:hover {
+      background: #d1e7ff;
+    }
+
+    .btn-detail .icon {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      /*background: #444;*/
+      position: relative;
+    }
+
+    .btn-detail .icon::before {
+      content: "";
+      display: block;
+      /*margin: 4px auto 0;*/
+      width: 16px;
+      height: 16px;
+      /*border-radius: 50%;*/
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cg clip-path='url(%23clip0_2482_18535)'%3E%3Cpath d='M0.530518 13.7209V3.08496C0.530567 2.61449 0.801077 2.22335 1.16567 1.9709C1.52871 1.71953 1.99183 1.5944 2.45083 1.59434H8.45161C8.7409 1.59446 8.97505 1.82923 8.97505 2.11855C8.97484 2.4077 8.74078 2.64187 8.45161 2.64199H2.45083C2.16936 2.64206 1.92234 2.72065 1.76177 2.83184C1.60282 2.94191 1.579 3.04253 1.57896 3.08496V13.7209C1.57896 13.7633 1.60285 13.8639 1.76177 13.974C1.92239 14.0852 2.16941 14.1638 2.45083 14.1639H12.2266C12.508 14.1638 12.755 14.0852 12.9157 13.974C13.0746 13.8639 13.0985 13.7633 13.0985 13.7209V8.52012C13.0985 8.23072 13.3333 7.9959 13.6227 7.9959C13.9121 7.9959 14.1469 8.23072 14.1469 8.52012V13.7209C14.1469 14.1914 13.8764 14.5833 13.5118 14.8357C13.1488 15.087 12.6856 15.2122 12.2266 15.2123H2.45083C1.99184 15.2122 1.52864 15.087 1.16567 14.8357C0.800977 14.5833 0.530518 14.1914 0.530518 13.7209ZM14.4211 3.47559C14.4211 3.40688 14.407 3.33866 14.3805 3.2748L14.3321 3.18418C14.3128 3.15547 14.2903 3.12895 14.2657 3.10449L14.2649 3.10293L13.154 1.99277L13.1532 1.99121C13.1045 1.94216 13.0465 1.90293 12.9829 1.87637H12.9821C12.9185 1.84992 12.8503 1.83653 12.7813 1.83652C12.7121 1.83652 12.6434 1.84985 12.5797 1.87637C12.516 1.90292 12.4587 1.94233 12.4102 1.99121L12.4071 1.99355L7.57349 6.80605L7.19771 9.09121L9.44614 8.68652L14.2641 3.8498L14.2657 3.84746C14.3147 3.79882 14.3539 3.74094 14.3805 3.67715L14.411 3.57871C14.4178 3.5449 14.4211 3.51011 14.4211 3.47559ZM15.4688 3.47559C15.4688 3.68318 15.428 3.88908 15.3485 4.08027H15.3477C15.2683 4.27061 15.1516 4.44256 15.0055 4.58809L15.0063 4.58887L10.0735 9.54277C9.99779 9.61879 9.90016 9.66986 9.79458 9.68887L6.65317 10.2545C6.48564 10.2846 6.31351 10.2318 6.19224 10.1123C6.07098 9.99285 6.01539 9.82167 6.04302 9.65371L6.56646 6.47012L6.58599 6.39043C6.61166 6.3128 6.65564 6.24162 6.71411 6.1834L11.668 1.25059C11.8135 1.1045 11.9863 0.988482 12.1766 0.90918L12.3227 0.856836C12.4711 0.811564 12.6256 0.788086 12.7813 0.788086C12.9886 0.788091 13.1938 0.829457 13.3852 0.90918L13.5258 0.975586C13.6617 1.04867 13.7862 1.14166 13.8954 1.25137L15.004 2.35996C15.1143 2.46943 15.2079 2.5947 15.2813 2.73105L15.3477 2.87168C15.4272 3.06278 15.4688 3.2681 15.4688 3.47559Z' fill='black'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2482_18535'%3E%3Crect width='16' height='16' fill='white' transform='translate(16 16) rotate(-180)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center / contain;
+      position: absolute;
+      top: 9px;
+      left: 7px;
+    }
+  </style>
 </head>
 <body>
 <div class="iframe-content-inner">
   <div class="iframe-page-wrap" style="min-height: 100vh;">
     <div class="iframe-page-filter-wrap">
-      <h1>필터 영역</h1>
+      <div class="iframe-title--main">
+        <h1>상품 관리</h1>
+      </div>
       <!-- component container -->
       <section class="dhx_sample-container">
         <form id="form" style="height: 100%; margin: 0 10px;"></form>
@@ -46,37 +91,212 @@
   </div>
 </div>
 
-<!-- dataset -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const dataset = [
-      { selected: false, no: "1", productType: "일반상품", productCode: "202402010164-0004" },
-      { selected: false, no: "2", productType: "일반상품", productCode: "202402010164-0004" },
-      { selected: false, no: "3", productType: "일반상품", productCode: "202402010164-0004" },
-      { selected: false, no: "4", productType: "일반상품", productCode: "202402010164-0004" },
-      { selected: false, no: "5", productType: "일반상품", productCode: "1075305275-1085897513|…" },
-      // ... 기타 데이터
-    ];
 
-    const grid = new dhx.Grid("grid", {
+<script>
+  // dataset
+  const dataset = [
+    {
+      // selected: false,
+      no: "1",
+      productType: "일반상품",
+      productCode: "202402010164-0004",
+      productName: "마르디메크르디 플라워 맨투맨",
+      amount: "68.5",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "2",
+      productType: "일반상품",
+      productCode: "202402010164-0004",
+      productName: "LG 프라엘 더마세라",
+      amount: "1547.2",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "3",
+      productType: "일반상품",
+      productCode: "202402010164-0004",
+      productName: "오쿡 두 손더 라지 블랙",
+      amount: "463.27",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "4",
+      productType: "일반상품",
+      productCode: "202402010164-0004",
+      productName: "엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG +",
+      amount: "74.4",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "5",
+      productType: "일반상품",
+      productCode: "1075305275-1085897513|1075304982|0002|000302|0001075305275-1085897513|1075304982|0002|000302|0003",
+      productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:PORCELAIN]",
+      amount: "39.4",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "6",
+      productType: "일반상품",
+      productCode: "18577-B11695",
+      productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:VANILLA]",
+      amount: "39.4",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "7",
+      productType: "일반상품",
+      productCode: "18577-C11695",
+      productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:BEIGE]",
+      amount: "39.4",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "8",
+      productType: "일반상품",
+      productCode: "18572",
+      productName: "마르디메크르디 플라워 맨투맨",
+      amount: "261.8",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "9",
+      productType: "일반상품",
+      productCode: "1088781746-1234",
+      productName: "메디큐브 김희선 윤곽 에이저밸 에스테틱 2종 세트",
+      amount: "486.54",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    },
+    {
+      // selected: false,
+      no: "10",
+      productType: "일반상품",
+      productCode: "18574",
+      productName: "에스프레소 토크 블렌딩 원두 500g 에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g",
+      amount: "15.9",
+      hsCode: "6211499000",
+      registrant: "msyoon",
+      regDate: "2024-07-12 17:33:50"
+    }
+  ];
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    let grid;
+    let config = {
       columns: [
         {
-          width: 40,
-          id: "selected",                            // 체크박스 컬럼 id
-          header: [{ content: "checkboxSelector" }], // 헤더 전체선택 체크박스 자동 생성
-          editorType: "checkbox"                      // 각 row 체크박스 표시
+          id: "inStock",
+          type: "boolean",
+          maxWidth: 62,
+          width: 62,
+          header: [
+            {
+              text: `
+                        <label class="dhx_checkbox dhx_cell-editor__checkbox ">
+                            <input type="checkbox" class="dhx_checkbox__input dhx_checkbox--check-all">
+                            <span class="dhx_checkbox__visual-input "></span>
+                        </label>
+                    `,1
+              htmlEnable: true,
+            }
+          ],
+          sortable: false
         },
-        { width: 50, id: "no", header: [{ text: "NO" }] },
-        { minWidth: 100, id: "productType", header: [{ text: "상품 타입" }] },
-        { minWidth: 150, id: "productCode", header: [{ text: "상품코드" }] }
-        // 기타 컬럼들...
+        {
+          width: 62,
+          id: "detail",
+          header: [{text: "상세"}],
+          htmlEnable: true,
+          template: (value, row, col, rowIdx) =>
+              `<button class="btn-detail" data-rowid="\${row.id || rowIdx}">
+                <span class="icon"></span>
+              </button>`
+        },
+        {width: 65, id: "no", header: [{text: "NO"}], sortable: true},
+        {minWidth: 95, id: "productType", header: [{text: "상품 타입"}]},
+        {maxWidth: 230, id: "productCode", header: [{text: "상품코드"}]},
+        // { maxWidth: 860, id: "productName", header: [{ text: "상품명" }] },
+        {
+          maxWidth: 860,
+          autoWidth: false,
+          id: "productName",
+          header: [{text: "상품명"}],
+          htmlEnable: true,
+          template: (value, row) =>
+              `<div class="div-wrap text-truncate-multi" data-rowid="${row.id || ''}">
+                ${value || ""}
+              </div>`
+        },
+        {minWidth: 92, autoWidth: false, id: "amount", header: [{text: "상품가액"}]},
+        {minWidth: 101, autoWidth: false, id: "hsCode", header: [{text: "HS 코드"}]},
+        {minWidth: 107, autoWidth: false, id: "registrant", header: [{text: "최초 등록자"}]},
+        {minWidth: 118, autoWidth: false, id: "regDate", header: [{text: "최초 등록일시"}]}
       ],
       data: dataset,
-      autoWidth: true,
-      height: 400
-    });
-  });
+      autoWidth: false,
+      minWidth: 1280,
+      height: 620,
+      editable: true,
+      adjust: true,
+      eventHandlers: {
+        onclick: {
+          "dhx_checkbox--check-all": function (event, data) {
+            grid.data.forEach(row => {
+              grid.data.update(row.id, {
+                [data.col.id]: event.target.checked,
+              });
+            });
+          }
+        },
+      }
+    };
 
+    function createGrid() {
+      if (grid) {
+        grid.destructor();
+      }
+      grid = new dhx.Grid("grid", config);
+    }
+
+    let selector = document.querySelectorAll("[name=editable]");
+    for (let index = 0; index < selector.length; index++) {
+      selector[index].addEventListener("change", function (e) {
+        config.editable = (e.target.id === "true");
+        createGrid();
+      });
+    }
+
+    createGrid();
+
+  });
 </script>
 </body>
 </html>

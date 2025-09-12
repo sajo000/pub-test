@@ -16972,6 +16972,7 @@ textarea.form-control-lg {
 */
 .content-container {
   width: 100%;
+  min-width: 1280px;
   min-height: 100vh;
   padding: 62px 0 0 68px;
   transition: all 0.1s ease-in-out;
@@ -17002,6 +17003,23 @@ iframe {
 .iframe-content-inner .iframe-page-content-wrap {
   flex: 1 1 auto;
   background: palevioletred;
+}
+
+.iframe-title--main h1, .iframe-title--main .h1 {
+  color: #00BAD1;
+  font-size: 1.625rem;
+  font-weight: 700;
+}
+
+.text-truncate-multi {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 필수 -webkit- 프리픽스 */
+  -webkit-box-orient: vertical; /* 필수 */
+  height: 3em; /* 2줄 높이에 맞춰 조정 */
+  display: -webkit-box; /* 박스 레이아웃으로 변경 */
+  -webkit-box-orient: vertical;
 }
 
 /* ========================================================================
