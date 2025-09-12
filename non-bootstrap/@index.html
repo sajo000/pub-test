@@ -1,0 +1,1214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+
+  <!-- BOOTSTRAP -->
+  <script type="text/javascript" src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+
+  <!-- AXIOS -->
+  <script type="text/javascript" src="./node_modules/axios/dist/axios.min.js"></script>
+
+
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="./lib/owl-carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="./lib/owl-carousel/assets/owl.theme.default.min.css">
+  <script type="text/javascript" src="./lib/owl-carousel/owl.carousel.min.js"></script>
+
+  <!-- CSS -->
+
+
+  <!-- datepicker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- SELECT2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+  <!-- custom -->
+  <link rel="stylesheet" href="css/app.css">
+
+</head>
+<body>
+<div class="container-wrap">
+  <div class="header-wrap">
+    <header>
+      <div class="header-item__left px-4">
+        <button class="btn menu p-0">
+          <i class="is-20 icon-side-menu bg-black"></i>
+        </button>
+        <div class="logo-wrap ps-3">
+          <img src="./images/logo.png" alt="one express logo">
+        </div>
+      </div>
+
+      <div class="header-tab-bar-wrap">
+        <!-- 헤더 스크롤러블 탭메뉴 -->
+        <div class="tab-area-container">
+          <button class="scroll-arrow left">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <div class="tab-scroll-wrap">
+            <ul class="nav nav-tabs tab-list">
+              <!-- 탭 항목이 동적으로 들어갑니다. -->
+            </ul>
+          </div>
+          <button class="scroll-arrow right">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+        <div>
+          <button id="addTabBtn" class="btn btn-primary btn-sm">탭 추가</button>
+        </div>
+        <!-- /헤더 스크롤러블 탭메뉴 -->
+      </div>
+
+      <div class="header-item__right ms-auto me-32">
+        <!--        알림 -->
+        <button type="button" class="btn btn-clear position-relative">
+          <i class="icon-bell is-20 bg-black"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-primary z-1">
+            N
+          </span>
+        </button>
+        <!--        /알림 -->
+
+        <span class="fc-gray-cc">|</span>
+
+        <!--        언어 -->
+        <button type="button" class="btn btn-clear">
+          <i class="icon-earth is-20 bg-black"></i>
+        </button>
+        <!--        /언어 -->
+
+        <span class="fc-gray-cc">|</span>
+
+        <!--        프로필 -->
+        <div class="dropdown">
+          <button class="btn btn-clear" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="icon-user is-20 bg-black"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+        <!--        /프로필 -->
+      </div>
+    </header>
+  </div>
+
+  <div class="content-container-wrap">
+    <!--    사이드메뉴 -->
+    <nav class="nav-wrap flex-column">
+      <ul class="nav deps1">
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link single active" data-url="./page1.html">
+            <i class="icon-side-home is-20 deps1-icon-main"></i>
+            <span class="deps1-title">대시보드</span>
+            <i class="icon-arrow-right is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-briefcase is-20 deps1-icon-main"></i>
+            <span class="deps1-title">상품관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="./page2.html">
+                <span class="deps2-title">상품관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link" data-url="./page3.html">
+                <span class="deps2-title">연동상품관리</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-warehouse is-20 deps1-icon-main"></i>
+            <span class="deps1-title">재고관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">재고현황</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">입고요청</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">출고처리현황</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-disk is-20 deps1-icon-main"></i>
+            <span class="deps1-title">주문/배송관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">주문관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">주문배송관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">주문 업로드</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">국내운송장 업로드</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">미출고 주문현황</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">출고체적현황</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">수출신고현황</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-warehouse is-20 deps1-icon-main"></i>
+            <span class="deps1-title">이슈관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">이슈관리</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-calculator is-20 deps1-icon-main"></i>
+            <span class="deps1-title">정산관리</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">정산내역</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">문서발행</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">배송요율표</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-megaphone is-20 deps1-icon-main"></i>
+            <span class="deps1-title">공지/이용안내</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">공지사항</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">1:1 문의</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">이용가이드</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dep1-item w-100">
+          <a href="#" class="deps1-link multiple">
+            <i class="icon-side-gear is-20 deps1-icon-main"></i>
+            <span class="deps1-title">설정</span>
+            <i class="icon-arrow-bottom is-20 bg-gray-91 deps1-icon-arrow"></i>
+          </a>
+          <ul class="deps2">
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">사업자 설정 관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">사용자 관리</span>
+              </a>
+            </li>
+            <li class="deps2-item">
+              <a href="" class="deps2-link">
+                <span class="deps2-title">쇼핑몰 연동 관리</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!--    /사이드메뉴 -->
+
+    <div class="content-container">
+      <!--      사이드메뉴 페이지 컨테이너에 보여줌 -->
+      <div class="iframe-content bg-danger-subtle px-4"></div>
+      <!--      /사이드메뉴 페이지 컨테이너에 보여줌 -->
+
+      <div class="px-4 py-2">
+        <!--      넘쳤을때 딤처리 되는거 -->
+        <div>
+          <h1>넘쳤을때 딤처리</h1>
+          <div class="slider-outer position-relative overflow-hidden">
+            <button class="slider-btn left btn btn-dark position-absolute"
+                    style="left:0; top:0; bottom:0; z-index:2; display:none;">&#60;
+            </button>
+            <div class="slider-inner d-flex" style="transition:transform 0.3s;">
+              <!-- 슬라이드 아이템 여러 개 -->
+              <div class="slide-item p-3 border bg-light">아이템1</div>
+              <div class="slide-item p-3 border bg-light">아이템2</div>
+              <div class="slide-item p-3 border bg-light">아이템3</div>
+              <div class="slide-item p-3 border bg-light">아이템4</div>
+              <div class="slide-item p-3 border bg-light">아이템5</div>
+              <div class="slide-item p-3 border bg-light">아이템6</div>
+              <div class="slide-item p-3 border bg-light">아이템7</div>
+              <div class="slide-item p-3 border bg-light">아이템8</div>
+              <div class="slide-item p-3 border bg-light">아이템9</div>
+              <div class="slide-item p-3 border bg-light">아이템10</div>
+              <div class="slide-item p-3 border bg-light">아이템11</div>
+              <div class="slide-item p-3 border bg-light">아이템12</div>
+              <div class="slide-item p-3 border bg-light">아이템13</div>
+              <div class="slide-item p-3 border bg-light">아이템14</div>
+              <div class="slide-item p-3 border bg-light">아이템15</div>
+              <div class="slide-item p-3 border bg-light">아이템16</div>
+            </div>
+            <button class="slider-btn right btn btn-dark position-absolute" style="right:0; top:0; bottom:0; z-index:2;">&#62;
+            </button>
+            <!-- dim 효과 영역 -->
+            <div class="slider-dim left"></div>
+            <div class="slider-dim right"></div>
+          </div>
+        </div>
+        <!--      /넘쳤을때 딤처리 되는거 -->
+
+        <!--      테이블 테스트 -->
+        <div>
+          <h1>테이블 테스트</h1>
+          <div class="table-container">
+            <div class="my-table-wrap">
+              <table class="table table-hover">
+                <tr>
+                  <th>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" value="">
+                    </div>
+                  </th>
+                  <th>Header1</th>
+                  <th>Header2</th>
+                  <th>Header3</th>
+                  <th>Header4</th>
+                  <th>Header5</th>
+                  <th>Header6</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                  <th>Header7</th>
+                  <th>Header8</th>
+                  <th>Header9</th>
+                  <th>Header10</th>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" value="">
+                    </div>
+                  </td>
+                  <td>Row1</td>
+                  <td>Row2</td>
+                  <td>Row3</td>
+                  <td>Row4</td>
+                  <td>Row5</td>
+                  <td>Row6</td>
+                  <td>Row7</td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                  <td>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top"
+                         data-bs-custom-class="custom-tooltip"
+                         data-bs-title="This top tooltip is themed via CSS variables.This top tooltip is themed via CSS &nbsp;variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.This top tooltip is themed via CSS variables.">
+                      >Row7
+                    </div>
+                  </td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                  <td>Row7</td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                  <td>Row7</td>
+                  <td>Row8</td>
+                  <td>Row9</td>
+                  <td>Row10</td>
+                </tr>
+              </table>
+            </div>
+            <!-- 스크롤 되는 영역 바깥, 경계선에 고정 -->
+            <div class="my-table-fade my-table-fade-left"></div>
+            <div class="my-table-fade my-table-fade-right show"></div>
+          </div>
+
+          <div class="table-container">
+            <div class="my-table-wrap">
+              <table class="table table-hover">
+                <tr>
+                  <th>Header1</th>
+                  <th>Header2</th>
+                  <th>Header3</th>
+                  <th>Header4</th>
+                  <th>Header5</th>
+                  <th>Header6</th>
+                </tr>
+                <tr>
+                  <td>Row1</td>
+                  <td>Row2</td>
+                  <td>Row3</td>
+                  <td>Row4</td>
+                  <td>Row5</td>
+                  <td>Row6</td>
+                </tr>
+              </table>
+            </div>
+            <!-- 스크롤 되는 영역 바깥, 경계선에 고정 -->
+            <div class="my-table-fade my-table-fade-left"></div>
+            <div class="my-table-fade my-table-fade-right show"></div>
+          </div>
+        </div>
+        <!--      /테이블 테스트 -->
+
+        <!--      체크박스, radio, toggle / select custom-->
+        <div>
+          <div class="row">
+            <!--      체크박스 -->
+            <div class="col-6">
+              <h1>checkbox, radio, toggle</h1>
+              <div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio">
+                    Default radio
+                  </label>
+                </div>
+                <!--              <div class="form-check form-switch">-->
+                <!--                <input class="form-check-input" type="checkbox" role="switch">-->
+                <!--                <label class="form-check-label">Default switch checkbox input</label>-->
+                <!--              </div>-->
+                <div class="form-check form-switch ">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                    input</label>
+                </div>
+              </div>
+            </div>
+            <!--      /체크박스 -->
+
+            <!--      데이터피커-->
+            <div class="col-6">
+              <h1>datepicker</h1>
+              <div class="d-flex gap-3">
+                <div class="form-group">
+                  <div class="position-relative">
+                    <!-- @relay: 에러인경우 .form-control 에 .error 추가 -> 빨간 보더로 변경 -->
+                    <input type="text" class="form-control" id="startDate" placeholder="연도.월.일">
+                    <div class="form-group-append">
+                      <button class="btn-clear" type="button">
+                        <i class="icon is-16 icon-calendar bg-black"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="form-control-info__text error" style="display: block;">날짜는 필수 선택항목 입니다</p>
+                </div>
+                <span class="mt-2">~</span>
+                <div class="form-group">
+                  <div class="position-relative">
+                    <!-- @relay: 에러인경우 .form-control 에 .error 추가 -> 빨간 보더로 변경 -->
+                    <input type="text" class="form-control" id="endDate" placeholder="연도.월.일">
+                    <div class="form-group-append">
+                      <button class="btn-clear" type="button">
+                        <i class="icon is-16 icon-calendar bg-black"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="form-control-info__text error" style="display: block;">날짜는 필수 선택항목 입니다</p>
+                </div>
+              </div>
+            </div>
+            <!--      데이터피커-->
+
+            <!--      드롭다운, 다중선택-->
+            <div class="col-6">
+              <h1>select custom</h1>
+              <div>
+                <!-- 단일 선택 -->
+                <div>
+                  <label class="form-label">레이블</label>
+                  <div class="custom-select-box">
+                    <select class="form-select" id="labelSelect">
+                      <option>전체</option>
+                      <option>아이템1</option>
+                      <option>아이템2</option>
+                      <option>아이템3</option>
+                      <option>아이템4</option>
+                      <option>아이템5</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!--              부트스트랩 -->
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+
+                <!-- 멀티 셀렉트 -->
+                <div>
+                  <label class="form-label">상품타입</label>
+                  <div class="multi-select-wrap" tabindex="0">
+                    <div class="multi-select-display" id="multiSelectDisplay">전체</div>
+                    <div class="multi-select-dropdown mt-1 d-none" id="multiSelectDropdown">
+                      <div class="multi-option" data-value="전체">전체 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템1">아이템1 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템2">아이템2 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템3">아이템3 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템4">아이템4 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                      <div class="multi-option" data-value="아이템5">아이템5 <span class="check-mark d-none"><i
+                          class="bi bi-check2"></i></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--      /드롭다운, 다중선택-->
+
+            <!--          인풋 필드-->
+            <div class="col-6">
+              <h1>인풋 필드</h1>
+              <div>
+                <div class="form-group">
+                  <label for="test1" class="form-label">label</label>
+                  <input type="text" class="form-control" placeholder="dd" id="test1">
+                  <div class="form-text fc-danger">1234</div>
+                </div>
+                <div class="form-group">
+                  <label for="" class="form-label">비밀번호 확인</label>
+                  <div class="position-relative">
+                    <!-- @relay: 에러인경우 .form-control 에 .error 추가 -> 빨간 보더로 변경 -->
+                    <input type="password" class="form-control userPw error" name="newPw"
+                           placeholder="동일한 비밀번호 입력">
+                    <div class="form-group-append">
+                      <button class="btn-clear togglePassword" type="button">
+                        <i class="icon bi bi-eye-slash fs-m-18 fs-p-20 fc-999"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="form-control-info__text error" style="display: block;">비밀번호가 일치하지 않습니다</p>
+                </div>
+              </div>
+            </div>
+            <!--          /인풋 필드-->
+
+            <!--            텍스트 아레아 -->
+            <div>
+              <h1>textarea</h1>
+              <div class="form-group">
+                <label for="" class="form-label">label</label>
+                <textarea name="" id="" class="form-control form-text" placeholder="테스트입니다. 텍스트를 입력해 주세요~!">테스트내용</textarea>
+              </div>
+            </div>
+            <!--            /텍스트 아레아 -->
+          </div>
+        </div>
+        <!--      체크박스, radio, toggle / select custom-->
+      </div>
+
+      <!--      component 컴포넌트-->
+      <div class="px-4 py-2">
+        <div class="row">
+          <h1>한글 (프리텐다드)</h1>
+          <p class="mb-3">line-height: <b>150% (1.5)</b> / letter-spacing: <b>-0.025em; (-2.5%)</b></p>
+          <ul class="col-6">
+            <li class="fs-12">12px</li>
+            <li class="fs-14">14px</li>
+            <li class="fs-16">16px</li>
+            <li class="fs-18">18px</li>
+            <li class="fs-20">20px</li>
+            <li class="fs-24">24px</li>
+            <li class="fs-26">26px</li>
+            <li class="fs-32">32px</li>
+          </ul>
+          <ul class="col-6">
+            <li class="fw-normal">400 fw-normal</li>
+            <li class="fw-medium">500 fw-medium</li>
+            <li class="fw-semibold">600 fw-semibold</li>
+            <li class="fw-bold">700 fw-bold</li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <h1>컬러</h1>
+            <ul style="background-color: #111111;">
+              <li class="fc-primary">fc-primary</li>
+              <li class="fc-primary-lite">fc-primary-lite</li>
+              <li class="fc-primary-hover">fc-primary-hover</li>
+              <li class="fc-primary-active">fc-primary-active</li>
+              <li class="fc-danger">fc-danger</li>
+              <li class="fc-danger-lite">fc-danger-lite</li>
+              <li class="fc-warning">fc-warning</li>
+              <li class="fc-warning-lite">fc-warning-lite</li>
+              <li class="fc-success">fc-success</li>
+              <li class="fc-success-lite">fc-success-lite</li>
+              <li class="fc-white">fc-white</li>
+              <li class="fc-gray-f7">fc-gray-f7</li>
+              <li class="fc-gray-f9">fc-gray-f9</li>
+              <li class="fc-gray-e6">fc-gray-e6</li>
+              <li class="fc-gray-cc">fc-gray-cc</li>
+              <li class="fc-gray-a7">fc-gray-a7</li>
+              <li class="fc-gray-91">fc-gray-91</li>
+              <li class="fc-gray-6b">fc-gray-6b</li>
+              <li class="fc-gray-38">fc-gray-38</li>
+              <li class="fc-black">fc-black</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h1>배경</h1>
+            <ul>
+              <li class="bg-primary">bg-primary</li>
+              <li class="bg-primary-lite">bg-primary-lite</li>
+              <li class="bg-primary-hover">bg-primary-hover</li>
+              <li class="bg-primary-active">bg-primary-active</li>
+              <li class="bg-danger">bg-danger</li>
+              <li class="bg-danger-lite">bg-danger-lite</li>
+              <li class="bg-warning">bg-warning</li>
+              <li class="bg-warning-lite">bg-warning-lite</li>
+              <li class="bg-success">bg-success</li>
+              <li class="bg-success-lite">bg-success-lite</li>
+              <li class="bg-white">bg-white</li>
+              <li class="bg-gray-f7">bg-gray-f7</li>
+              <li class="bg-gray-f9">bg-gray-f9</li>
+              <li class="bg-gray-e6">bg-gray-e6</li>
+              <li class="bg-gray-cc">bg-gray-cc</li>
+              <li class="bg-gray-a7">bg-gray-a7</li>
+              <li class="bg-gray-91">bg-gray-91</li>
+              <li class="bg-gray-6b">bg-gray-6b</li>
+              <li class="bg-gray-38">bg-gray-38</li>
+              <li class="bg-black">bg-black</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <!--          버튼-->
+          <div>
+            <h1>button</h1>
+          </div>
+          <!--          /버튼-->
+        </div>
+
+        <div class="row">
+          <!--          다중셀렉트-->
+          <div>
+            <h1>다중셀렉트 SELECT2</h1>
+            <div>
+              <label for="goodsType" class="form-label">상품 타입</label>
+              <select id="goodsType" class="form-select" multiple>
+                <option value="all">전체</option>
+                <option value="normal">일반 상품</option>
+                <option value="gift">사은품</option>
+                <option value="sample">샘플</option>
+                <option value="add">추가구성</option>
+                <option value="set">세트 상품</option>
+              </select>
+            </div>
+          </div>
+          <!--          /다중셀렉트-->
+        </div>
+      </div>
+      <!--      /component 컴포넌트-->
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+  // * 사이드메뉴 열기
+  $(document).ready(function () {
+    $('.menu').on('click', function () {
+      $('.container-wrap').toggleClass('toggle-opened');
+      $('.nav-wrap').toggleClass('opened');
+    });
+  });
+
+
+  // * 사이드메뉴 동작처리
+  $(document).ready(function() {
+    // 기본 .deps2 숨김 처리 (필요시)
+    $('.deps2').hide();
+
+    $('.deps1-link.multiple').click(function(e) {
+      e.preventDefault();
+
+      const $arrowIcon = $(this).find('.deps1-icon-arrow');
+      const $subMenu = $(this).next('.deps2');
+
+      // 토글 하위 메뉴 표시
+      $subMenu.slideToggle(200);
+
+      // 아이콘 토글 클래스
+      if ($arrowIcon.hasClass('icon-arrow-bottom')) {
+        $arrowIcon.removeClass('icon-arrow-bottom').addClass('icon-arrow-top');
+      } else {
+        $arrowIcon.removeClass('icon-arrow-top').addClass('icon-arrow-bottom');
+      }
+    });
+
+    $('.deps2-link').click(function(e) {
+      e.preventDefault();
+
+      // 모든 활성화 초기화
+      $('.deps1-link.active').removeClass('active');
+      $('.deps2-link.active').removeClass('active');
+
+      // 클릭한 deps2-link 활성화
+      $(this).addClass('active');
+
+      // 클릭한 deps2-link의 조상 deps2 바로 이전 형제 deps1-link에 active 추가
+      const $deps2 = $(this).closest('.deps2');
+      const $deps1Link = $deps2.prev('.deps1-link');
+      if ($deps1Link.length) {
+        $deps1Link.addClass('active');
+
+        // 하위 메뉴가 닫혀있으면 열기 & 아이콘 토글
+        if (!$deps2.is(':visible')) {
+          $deps2.slideDown(200);
+          const $arrowIcon = $deps1Link.find('.deps1-icon-arrow');
+          $arrowIcon.removeClass('icon-arrow-bottom').addClass('icon-arrow-top');
+        }
+      }
+    });
+
+    // 만약 deps1-link.single 클릭 시 활성화 상태를 변경하려면 아래 추가 가능
+    $('.deps1-link.single').click(function(e) {
+      e.preventDefault();
+
+      // 기존 활성화 모두 제거
+      $('.deps1-link.active').removeClass('active');
+      $('.deps2-link.active').removeClass('active');
+
+      $(this).addClass('active');
+    });
+  });
+
+
+  // * 사이드메뉴에서 메뉴 클릭했을때 탭 쌓이면서 컨텐츠 화면 전환
+  $(function () {
+    $('.deps1-link').on('click', function (e) {
+      e.preventDefault();
+
+      const menuName = $(this).text().trim();
+      const menuUrl = $(this).data('url');
+      const tabId = 'tab-' + menuName.replace(/\s+/g, '-').toLowerCase();
+
+      const $existingTab = $('#' + tabId);
+      if ($existingTab.length) {
+        $('.header-tab .nav-link').removeClass('active');
+        $existingTab.addClass('active');
+        loadContent($existingTab.data('url'));
+        return;
+      }
+
+      const $newTab = $(`
+      <li class="nav-item">
+        <a class="nav-link active d-flex align-items-center" id="${tabId}" href="#" data-url="${menuUrl}">
+          ${menuName}
+          <button type="button" class="btn-close ms-2" aria-label="Close"></button>
+        </a>
+      </li>
+    `);
+
+      $('.header-tab .nav-link').removeClass('active');
+      $('.header-tab').append($newTab);
+
+      loadContent(menuUrl);
+
+      $newTab.find('.nav-link').on('click', function (e) {
+        e.preventDefault();
+        $('.header-tab .nav-link').removeClass('active');
+        $(this).addClass('active');
+        loadContent($(this).data('url'));
+      });
+
+      $newTab.find('.btn-close').on('click', function (e) {
+        e.stopPropagation();
+        const $tab = $(this).closest('.nav-link');
+        const wasActive = $tab.hasClass('active');
+        const $li = $(this).closest('li');
+        $li.remove();
+
+        if (wasActive) {
+          const $first = $('.header-tab .nav-link').first();
+          if ($first.length) {
+            $first.addClass('active');
+            loadContent($first.data('url'));
+          } else {
+            $('.iframe-content').html(
+                '<div class="p-3 text-muted">화면을 선택해주세요</div>');
+          }
+        }
+      });
+    });
+
+    $('.header-tab .nav-link').on('click', function (e) {
+      e.preventDefault();
+      $('.header-tab .nav-link').removeClass('active');
+      $(this).addClass('active');
+      loadContent($(this).data('url'));
+    });
+
+    // ✅ HTML을 Ajax로 로딩하는 함수
+    function loadContent(url) {
+      if (!url || url === 'undefined') {
+        $('.iframe-content').html('<div class="p-3 text-muted">화면을 선택해주세요</div>');
+        return;
+      }
+
+      $.get(url)
+      .done(function (html) {
+        $('.iframe-content').html(html);
+      })
+      .fail(function () {
+        $('.iframe-content').html(
+            '<div class="p-3 text-danger">화면을 불러오는데 실패했어요😢</div>');
+      });
+    }
+
+    // ✅ 초기 화면 로딩
+    loadContent($('.deps1-link').first().data('url'));
+  });
+
+
+  // * 헤더 스크롤러블 탭메뉴
+  $(function() {
+    let tabIdx = 1;
+
+    function updateArrows() {
+      const $wrap = $('.tab-scroll-wrap');
+      const $ul = $('.tab-list');
+      const scrollLeft = $wrap.scrollLeft();
+      const maxScroll = $wrap[0].scrollWidth - $wrap.width(); // scrollWidth로 변경
+
+      $('.scroll-arrow.left').toggle(scrollLeft > 0);
+      $('.scroll-arrow.right').toggle(scrollLeft < maxScroll - 1 && maxScroll > 0);
+    }
+
+    // 탭 추가 버튼
+    $('#addTabBtn').on('click', function() {
+      const tabTitle = '탭' + tabIdx++;
+      const $li = $(`
+      <li class="nav-item">
+        <a class="nav-link${$('.tab-list .nav-link').length ? '' : ' active'}" href="#">
+          ${tabTitle}<button class="tab-close-btn" title="닫기">&times;</button>
+        </a>
+      </li>
+    `);
+      $('.tab-list').append($li);
+      if($('.tab-list .nav-link.active').length === 0){
+        $li.find('.nav-link').addClass('active');
+      }
+      // requestAnimationFrame 사용해 렌더링 후 updateArrows 호출
+      requestAnimationFrame(updateArrows);
+    });
+
+    // 탭 닫기
+    $('.tab-list').on('click', '.tab-close-btn', function(e){
+      e.stopPropagation();
+      const $tab = $(this).closest('.nav-item');
+      const isActive = $tab.find('.nav-link').hasClass('active');
+      $tab.remove();
+      if(isActive){
+        $('.tab-list .nav-link').removeClass('active').eq(0).addClass('active');
+      }
+      updateArrows();
+    });
+
+    // 탭 클릭시 active
+    $('.tab-list').on('click', '.nav-link', function(e){
+      e.preventDefault();
+      $('.tab-list .nav-link').removeClass('active');
+      $(this).addClass('active');
+    });
+
+    // 스크롤 감지
+    $('.tab-scroll-wrap').on('scroll', updateArrows);
+
+    // 화살표 클릭
+    $('.scroll-arrow.left').on('click', function(){
+      $('.tab-scroll-wrap').animate({scrollLeft: '-=200'}, 200, updateArrows);
+    });
+    $('.scroll-arrow.right').on('click', function(){
+      $('.tab-scroll-wrap').animate({scrollLeft: '+=200'}, 200, updateArrows);
+    });
+
+    $(window).on('resize', updateArrows);
+
+    // 초기 탭 3개 추가
+    $('#addTabBtn').trigger('click').trigger('click').trigger('click');
+  });
+
+
+  // 넘쳤을때 딤처리 되는거
+  $(function () {
+    const $slider = $('.slider-outer');
+    const $inner = $slider.find('.slider-inner');
+    const $slides = $inner.find('.slide-item');
+
+    // viewWidth를 슬라이더 컨테이너 너비로 동적으로 가져오기
+    let viewWidth = $slider.width();
+    let slideWidth = $slides.outerWidth(true);
+    let totalWidth = slideWidth * $slides.length;
+    let scrollPos = 0;
+
+    function updateNav() {
+      if (scrollPos > 0) {
+        $slider.find('.slider-btn.left').show();
+        $slider.find('.slider-dim.left').show();
+      } else {
+        $slider.find('.slider-btn.left').hide();
+        $slider.find('.slider-dim.left').hide();
+      }
+      if (scrollPos < totalWidth - viewWidth) {
+        $slider.find('.slider-btn.right').show();
+        $slider.find('.slider-dim.right').show();
+      } else {
+        $slider.find('.slider-btn.right').hide();
+        $slider.find('.slider-dim.right').hide();
+      }
+    }
+
+    $slider.find('.slider-btn.left').on('click', function () {
+      scrollPos = Math.max(0, scrollPos - viewWidth);
+      $inner.css('transform', 'translateX(-' + scrollPos + 'px)');
+      updateNav();
+    });
+
+    $slider.find('.slider-btn.right').on('click', function () {
+      scrollPos = Math.min(totalWidth - viewWidth, scrollPos + viewWidth);
+      $inner.css('transform', 'translateX(-' + scrollPos + 'px)');
+      updateNav();
+    });
+
+    function resize() {
+      viewWidth = $slider.width();  // 컨테이너 너비 동기화
+      slideWidth = $slides.outerWidth(true);
+      totalWidth = slideWidth * $slides.length;
+      if (scrollPos > totalWidth - viewWidth) {
+        scrollPos = Math.max(0,
+            totalWidth - viewWidth);
+      }
+      $inner.css('transform', 'translateX(-' + scrollPos + 'px)');
+      updateNav();
+    }
+
+    resize();
+
+    // 창 리사이즈 시 자동으로 넓이 재계산
+    $(window).on('resize', resize);
+  });
+
+  // 테이블 딤처리
+  $(function () {
+    $('.table-container').each(function () {
+      const $container = $(this);
+      const $wrap = $container.find('.my-table-wrap');
+      const $fadeLeft = $container.find('.my-table-fade-left');
+      const $fadeRight = $container.find('.my-table-fade-right');
+
+      function updateFade() {
+        const scrollLeft = $wrap.scrollLeft();
+        const scrollWidth = $wrap[0].scrollWidth;
+        const clientWidth = $wrap.width();
+
+        // 스크롤 안 생기는 경우: fade 모두 숨김
+        if (scrollWidth <= clientWidth) {
+          $fadeLeft.removeClass('show');
+          $fadeRight.removeClass('show');
+          return;
+        }
+
+        // 스크롤 생기면 기존 조건대로 fade 처리
+        if (scrollLeft > 0) {
+          $fadeLeft.addClass('show');
+        } else {
+          $fadeLeft.removeClass('show');
+        }
+
+        if (scrollLeft + clientWidth < scrollWidth - 1) {
+          $fadeRight.addClass('show');
+        } else {
+          $fadeRight.removeClass('show');
+        }
+      }
+
+      updateFade();
+      $wrap.on('scroll', updateFade);
+      $(window).on('resize', updateFade);
+    });
+  });
+
+
+  // 다중셀렉트 select2
+  $(document).ready(function() {
+    const $select = $('#goodsType');
+    const allValue = 'all';
+
+    $select.select2({
+      theme: 'bootstrap-5',
+      width: '100%',
+      placeholder: '전체',
+      closeOnSelect: false
+    });
+
+    let isSyncing = false; // 이벤트 중복 방지 플래그
+
+    $select.on('select2:select select2:unselect', function(e) {
+      if (isSyncing) return; // 리커시브 방지
+
+      isSyncing = true;
+      let values = $select.val() || [];
+
+      if (e.params.data.id === allValue) {
+        if (values.includes(allValue)) {
+          // 전체 선택: 모든 옵션 선택
+          const allOptions = $select.find('option').map(function() { return this.value; }).get();
+          $select.val(allOptions).trigger('change');
+        } else {
+          // 전체 해제: 전체 선택 해제
+          $select.val(null).trigger('change');
+        }
+      } else {
+        const optionCount = $select.find('option').length - 1; // 전체 제외 옵션 수
+        const allSelected = (values.length === optionCount);
+
+        if (allSelected && !values.includes(allValue)) {
+          // 모든 개별 옵션 선택 시 '전체' 옵션도 추가
+          values.push(allValue);
+          $select.val(values).trigger('change');
+        }
+        else if (!allSelected && values.includes(allValue)) {
+          // 일부 해제 시 '전체' 옵션 제거
+          values = values.filter(v => v !== allValue);
+          $select.val(values).trigger('change');
+        }
+      }
+      isSyncing = false;
+    });
+  });
+
+
+  // datepicker
+  $(function () {
+    // startDate 데이트피커 초기화
+    const $startInput = $('#startDate');
+    $startInput.datepicker({
+      format: 'yyyy-mm-dd',
+      todayHighlight: true,
+      autoclose: true
+    }).on('show', function () {
+      // 데이트피커가 보일 때 좌우 화살표 변경
+      $('.datepicker .prev').html('<i class="icon is-16 icon-arrow-left bg-black"></i>');
+      $('.datepicker .next').html('<i class="icon is-16 icon-arrow-right bg-black"></i>');
+
+      // 데이트피커가 보일 때 헤더 순서 재배치
+      $('.datepicker thead tr').each(function() {
+        const $tr = $(this);
+        const $prev = $tr.find('.prev').detach();
+        const $switch = $tr.find('.datepicker-switch').detach();
+        const $next = $tr.find('.next').detach();
+        $tr.append($switch).append($prev).append($next);
+      });
+    });
+
+    // endDate 데이트피커 초기화
+    const $endInput = $('#endDate');
+    $endInput.datepicker({
+      format: 'yyyy-mm-dd',
+      todayHighlight: true,
+      autoclose: true
+    }).on('show', function () {
+      // 데이트피커가 보일 때 좌우 화살표 변경
+      $('.datepicker .prev').html('<i class="icon is-16 icon-arrow-left bg-black"></i>');
+      $('.datepicker .next').html('<i class="icon is-16 icon-arrow-right bg-black"></i>');
+
+      // 데이트피커가 보일 때 헤더 순서 재배치
+      $('.datepicker thead tr').each(function() {
+        const $tr = $(this);
+        const $prev = $tr.find('.prev').detach();
+        const $switch = $tr.find('.datepicker-switch').detach();
+        const $next = $tr.find('.next').detach();
+        $tr.append($switch).append($prev).append($next);
+      });
+    });
+
+    // startDate 아이콘 버튼 클릭 시 캘린더 열기
+    $startInput.siblings('.form-group-append').find('button').on('click', function() {
+      $startInput.datepicker('show');
+    });
+
+    // endDate 아이콘 버튼 클릭 시 캘린더 열기
+    $endInput.siblings('.form-group-append').find('button').on('click', function() {
+      $endInput.datepicker('show');
+    });
+  });
+
+
+  // 드롭다운, 다중선택 셀렉트 테스트
+  $(function () {
+// 드롭다운 토글
+    $(".multi-select-wrap").on("click", function (e) {
+      $("#multiSelectDropdown").toggleClass("d-none");
+      e.stopPropagation();
+    });
+
+// 옵션 선택/해제
+    var selected = [];
+
+    $(".multi-option").on("click", function (e) {
+      var val = $(this).data("value");
+      if (val === "전체") {
+        selected = ["전체"];
+        $(".multi-option").removeClass("selected");
+        $(".check-mark").addClass("d-none");
+        $(this).addClass("selected").find(".check-mark").removeClass("d-none");
+      } else {
+        if (selected.includes("전체")) {
+          selected = [];
+          $(".multi-option[data-value='전체']").removeClass("selected").find(
+              ".check-mark").addClass("d-none");
+        }
+        // 토글
+        if (selected.includes(val)) {
+          selected = selected.filter(v => v !== val);
+          $(this).removeClass("selected").find(".check-mark").addClass("d-none");
+        } else {
+          selected.push(val);
+          $(this).addClass("selected").find(".check-mark").removeClass("d-none");
+        }
+      }
+      // "전체" 외에 아무것도 선택 안됐을 때 전체 체크 해제
+      if (selected.length === 0) {
+        selected = ["선택"];
+        $(".multi-option[data-value='전체']").addClass("selected").find(
+            ".check-mark").removeClass("d-none");
+      }
+
+      // 표시영역 업데이트
+      let disp = selected.join(",");
+      $("#multiSelectDisplay").text(
+          disp.length > 25 ? disp.slice(0, 23) + "..." : disp);
+      e.stopPropagation();
+    });
+
+// 외부 클릭 시 닫기
+    $(document).on("click", function () {
+      $("#multiSelectDropdown").addClass("d-none");
+    });
+  });
+
+  // 모든 data-bs-toggle="tooltip" 속성을 가진 요소에 툴팁 활성화
+  $(function () {
+    const tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+  });
+
+</script>
+</html>
