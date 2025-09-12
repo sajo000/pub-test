@@ -64,6 +64,7 @@
   flex: 0 0 auto;
   gap: 1rem;
 }
+
 /* ========================================================================
 * 헤더 스크롤러블 탭메뉴
 * 헤더 중앙에 탭 바. 사이드 메뉴에서 클릭하면 쌓이는 탭으로 페이지 이동 가능함.
@@ -71,6 +72,7 @@
 .header-tab-bar-wrap {
   flex: 1 1 auto;
   overflow: hidden;
+
   .tab-area-container {
     position: relative;
     width: 100%;
@@ -320,7 +322,36 @@
 */
 .content-container {
   width: 100%;
+  min-height: 100vh; // 최소 높이 100%
   padding: 62px 0 0 68px;
   transition: all .1s ease-in-out;
   background-color: inherit;
+}
+
+/* ========================================================================
+* ! 서브페이지 공통 스타일!
+* iframe 으로 불러오는 페이지의 스타일!
+*/
+iframe {
+  height: 100%;
+  //border: 5px dashed deeppink;
+}
+.iframe-content-inner {
+  min-height: 100vh;
+  //border: 5px dashed steelblue;
+}
+.iframe-content-inner {
+  .iframe-page-wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .iframe-page-filter-wrap {
+    flex: 0 0 auto;
+    background: cadetblue;
+  }
+  .iframe-page-content-wrap {
+    flex: 1 1 auto;
+    background: palevioletred;
+  }
 }

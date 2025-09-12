@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dashboard</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+
+  <!-- BOOTSTRAP CSS -->
+<!--  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+<!--  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">-->
+
+  <!-- DHTMLX -->
+  <link rel="stylesheet" href="../../lib/dhtmlx/suite.min.css">
+  <script type="text/javascript" src="../../lib/dhtmlx/suite.min.js"></script>
+
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="../../lib/owl-carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../lib/owl-carousel/assets/owl.theme.default.min.css">
+  <script type="text/javascript" src="../../lib/owl-carousel/owl.carousel.min.js"></script>
+
+  <!-- CUSTOM -->
+  <script type="text/javascript" src="../../layout.js"></script>
+  <script type="text/javascript" src="../../function.js"></script>
+  <link rel="stylesheet" href="../../css/app.css">
+
+</head>
+<body>
+<div class="iframe-content-inner">
+  <div class="iframe-page-wrap" style="min-height: 100vh;">
+    <div class="iframe-page-filter-wrap">
+      <h1>필터 영역</h1>
+      <!-- component container -->
+      <section class="dhx_sample-container">
+        <form id="form" style="height: 100%; margin: 0 10px;"></form>
+        <form id="form-settings" style="margin: 0 10px;"></form>
+      </section>
+    </div>
+    <div class="iframe-page-content-wrap">
+      <div id="grid" style="width: 100%; height: auto;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- dataset -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dataset = [
+      { selected: false, no: "1", productType: "일반상품", productCode: "202402010164-0004" },
+      { selected: false, no: "2", productType: "일반상품", productCode: "202402010164-0004" },
+      { selected: false, no: "3", productType: "일반상품", productCode: "202402010164-0004" },
+      { selected: false, no: "4", productType: "일반상품", productCode: "202402010164-0004" },
+      { selected: false, no: "5", productType: "일반상품", productCode: "1075305275-1085897513|…" },
+      // ... 기타 데이터
+    ];
+
+    const grid = new dhx.Grid("grid", {
+      columns: [
+        {
+          width: 40,
+          id: "selected",                            // 체크박스 컬럼 id
+          header: [{ content: "checkboxSelector" }], // 헤더 전체선택 체크박스 자동 생성
+          editorType: "checkbox"                      // 각 row 체크박스 표시
+        },
+        { width: 50, id: "no", header: [{ text: "NO" }] },
+        { minWidth: 100, id: "productType", header: [{ text: "상품 타입" }] },
+        { minWidth: 150, id: "productCode", header: [{ text: "상품코드" }] }
+        // 기타 컬럼들...
+      ],
+      data: dataset,
+      autoWidth: true,
+      height: 400
+    });
+  });
+
+</script>
+</body>
+</html>

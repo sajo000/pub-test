@@ -16972,9 +16972,36 @@ textarea.form-control-lg {
 */
 .content-container {
   width: 100%;
+  min-height: 100vh;
   padding: 62px 0 0 68px;
   transition: all 0.1s ease-in-out;
   background-color: inherit;
+}
+
+/* ========================================================================
+* ! 서브페이지 공통 스타일!
+* iframe 으로 불러오는 페이지의 스타일!
+*/
+iframe {
+  height: 100%;
+}
+
+.iframe-content-inner {
+  min-height: 100vh;
+}
+
+.iframe-content-inner .iframe-page-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.iframe-content-inner .iframe-page-filter-wrap {
+  flex: 0 0 auto;
+  background: cadetblue;
+}
+.iframe-content-inner .iframe-page-content-wrap {
+  flex: 1 1 auto;
+  background: palevioletred;
 }
 
 /* ========================================================================

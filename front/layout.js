@@ -6,13 +6,12 @@ $(document).ready(function () {
   });
 });
 
-
 // * 사이드메뉴 동작처리
-$(document).ready(function() {
+$(document).ready(function () {
   // 기본 .deps2 숨김 처리 (필요시)
   $('.deps2').hide();
 
-  $('.deps1-link.multiple').click(function(e) {
+  $('.deps1-link.multiple').click(function (e) {
     e.preventDefault();
 
     const $arrowIcon = $(this).find('.deps1-icon-arrow');
@@ -29,7 +28,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.deps2-link').click(function(e) {
+  $('.deps2-link').click(function (e) {
     e.preventDefault();
 
     // 모든 활성화 초기화
@@ -55,7 +54,7 @@ $(document).ready(function() {
   });
 
   // 만약 deps1-link.single 클릭 시 활성화 상태를 변경하려면 아래 추가 가능
-  $('.deps1-link.single').click(function(e) {
+  $('.deps1-link.single').click(function (e) {
     e.preventDefault();
 
     // 기존 활성화 모두 제거
@@ -66,24 +65,48 @@ $(document).ready(function() {
   });
 });
 
-
 // * 사이드메뉴에서 메뉴 클릭했을때 탭 쌓이면서 컨텐츠 화면 전환
-$(function() {
+$(function () {
   const $tabList = $('.tab-list');
   const $iframeContent = $('.iframe-content');
 
-  // 대시보드 탭 클릭 무시
-  $tabList.on('click', '.fixed-tab', function(e) {
-    e.preventDefault();
-  });
+  // 메뉴 ID 별 URL 매핑
+  const urlMap = {
+    '대시보드': 'pages/dashboard/dashboard.html',
+    'dashboard': 'pages/dashboard/dashboard.html',
+    '상품관리': 'pages/product/product-management.html',
+    // 필요한 다른 메뉴도 추가 가능
+  };
 
-  // 탭 추가 함수 (대시보드 바로 뒤에 삽입)
+  function getUrlByTabId(tabId) {
+    return urlMap[tabId] || 'test1.html'; // 기본 URL은 test1.html
+  }
+
+  function initDashboardTab() {
+    let $dashboardTab = $tabList.find('li[data-tab="dashboard"]');
+    if ($dashboardTab.length === 0) {
+      const $li = $(`
+        <li class="nav-item" data-tab="dashboard">
+          <a href="#" class="nav-link fixed-tab active">대시보드</a>
+        </li>
+      `);
+      $tabList.prepend($li);
+    }
+    $tabList.find('.nav-link').removeClass('active');
+    $tabList.find('li[data-tab="dashboard"] .nav-link').addClass('active');
+    $iframeContent.html(`<iframe src="${urlMap['dashboard']}" width="100%" height="700" frameborder="0"></iframe>`);
+  }
+
+  initDashboardTab();
+
   function addOrActivateTab(tabId, title, url) {
     let existingTab = $tabList.find(`li[data-tab="${tabId}"]`);
     if (existingTab.length) {
       $tabList.find('.nav-link').removeClass('active');
       existingTab.find('.nav-link').addClass('active').trigger('click');
-      $iframeContent.html(`<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`);
+      $iframeContent.html(
+          `<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`
+      );
       return;
     }
 
@@ -97,57 +120,101 @@ $(function() {
 
     $tabList.find('.nav-link').removeClass('active');
 
-    // 대시보드 탭 뒤에 삽입 (첫번째 li 뒤)
     $tabList.find('li').eq(0).after($li);
 
-    $iframeContent.html(`<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`);
+    $iframeContent.html(
+        `<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`
+    );
   }
 
-  // 탭 클릭 이벤트 (열기 및 콘텐츠 변경)
-  $tabList.on('click', '.nav-link', function(e) {
+  $tabList.on('click', '.nav-link', function (e) {
     if ($(e.target).hasClass('tab-close-btn')) return;
     e.preventDefault();
     $tabList.find('.nav-link').removeClass('active');
     $(this).addClass('active');
-    const url = "test1.html"; // 실제 url로 변경 가능
+
+    const tabId = $(this).closest('li').data('tab');
+    const url = getUrlByTabId(tabId);
+
     $iframeContent.html(`<iframe src="${url}" width="100%" height="700" frameborder="0"></iframe>`);
+
+    $('.deps1-link.active, .deps2-link.active').removeClass('active');
+
+    if (tabId === '대시보드' || tabId === 'dashboard') {
+      $('.deps1-link.single').each(function () {
+        if ($(this).find('.deps1-title').text().trim() === '대시보드') {
+          $(this).addClass('active');
+        }
+      });
+    } else {
+      $('.deps1-link, .deps2-link').each(function () {
+        const text = $(this).text().trim();
+        if (text === tabId) {
+          $(this).addClass('active');
+
+          if ($(this).hasClass('deps2-link')) {
+            $(this).closest('.deps2').prev('.deps1-link').addClass('active');
+
+            const $subMenu = $(this).closest('.deps2');
+            if (!$subMenu.is(':visible')) {
+              $subMenu.slideDown(200);
+              const $arrowIcon = $subMenu.prev('.deps1-link').find('.deps1-icon-arrow');
+              $arrowIcon.removeClass('icon-arrow-bottom').addClass('icon-arrow-top');
+            }
+          }
+        }
+      });
+    }
   });
 
-  // 탭 닫기 버튼 클릭 시
-  $tabList.on('click', '.tab-close-btn', function(e) {
+  $tabList.on('click', '.tab-close-btn', function (e) {
     e.stopPropagation();
+
     const $li = $(this).closest('li');
     const isActive = $li.find('.nav-link').hasClass('active');
     let $nextTab = $li.next();
+    let $prevTab = $li.prev();
+
     $li.remove();
 
     if (isActive) {
       if ($nextTab.length) {
         $nextTab.find('.nav-link').addClass('active').trigger('click');
+      } else if ($prevTab.length && $prevTab.data('tab') !== 'dashboard') {
+        $prevTab.find('.nav-link').addClass('active').trigger('click');
       } else {
-        let $prevTab = $tabList.find('li').last();
-        if ($prevTab.length) {
-          $prevTab.find('.nav-link').addClass('active').trigger('click');
+        const $dashboardTab = $tabList.find('li[data-tab="dashboard"]');
+        if ($dashboardTab.length) {
+          $dashboardTab.find('.nav-link').addClass('active').trigger('click');
         }
       }
     }
   });
 
-  // 사이드메뉴 클릭 이벤트로 탭 추가
-  $('.deps1-link, .deps2-link').click(function(e) {
+  $('.deps1-link, .deps2-link').click(function (e) {
     e.preventDefault();
 
-    if ($(this).hasClass('multiple')) return; // 대메뉴 무시
-    if ($(this).hasClass('single') && $(this).find('.deps1-title').text().trim() === '대시보드') return;
+    if ($(this).hasClass('multiple') && $(this).next('.deps2').children().length > 0) {
+      return;
+    }
+
+    const isDashboard = $(this).hasClass('single') && $(this).find('.deps1-title').text().trim() === '대시보드';
+
+    if (isDashboard) {
+      initDashboardTab();
+      return;
+    }
 
     const tabId = $(this).text().trim();
     const title = $(this).find('.deps1-title, .deps2-title').text() || tabId;
-    addOrActivateTab(tabId, title, "test1.html");
+    const url = getUrlByTabId(tabId);
+    addOrActivateTab(tabId, title, url);
   });
 });
 
+
 // * 헤더 스크롤러블 탭메뉴
-$(function() {
+$(function () {
   let tabIdx = 1;
 
   function updateArrows() {
@@ -157,11 +224,12 @@ $(function() {
     const maxScroll = $wrap[0].scrollWidth - $wrap.width(); // scrollWidth로 변경
 
     $('.scroll-arrow.left').toggle(scrollLeft > 0);
-    $('.scroll-arrow.right').toggle(scrollLeft < maxScroll - 1 && maxScroll > 0);
+    $('.scroll-arrow.right').toggle(
+        scrollLeft < maxScroll - 1 && maxScroll > 0);
   }
 
   // 탭 추가 버튼
-  $('#addTabBtn').on('click', function() {
+  $('#addTabBtn').on('click', function () {
     const tabTitle = '탭' + tabIdx++;
     const $li = $(`
       <li class="nav-item">
@@ -171,7 +239,7 @@ $(function() {
       </li>
     `);
     $('.tab-list').append($li);
-    if($('.tab-list .nav-link.active').length === 0){
+    if ($('.tab-list .nav-link.active').length === 0) {
       $li.find('.nav-link').addClass('active');
     }
     // requestAnimationFrame 사용해 렌더링 후 updateArrows 호출
@@ -179,19 +247,19 @@ $(function() {
   });
 
   // 탭 닫기
-  $('.tab-list').on('click', '.tab-close-btn', function(e){
+  $('.tab-list').on('click', '.tab-close-btn', function (e) {
     e.stopPropagation();
     const $tab = $(this).closest('.nav-item');
     const isActive = $tab.find('.nav-link').hasClass('active');
     $tab.remove();
-    if(isActive){
+    if (isActive) {
       $('.tab-list .nav-link').removeClass('active').eq(0).addClass('active');
     }
     updateArrows();
   });
 
   // 탭 클릭시 active
-  $('.tab-list').on('click', '.nav-link', function(e){
+  $('.tab-list').on('click', '.nav-link', function (e) {
     e.preventDefault();
     $('.tab-list .nav-link').removeClass('active');
     $(this).addClass('active');
@@ -201,10 +269,10 @@ $(function() {
   $('.tab-scroll-wrap').on('scroll', updateArrows);
 
   // 화살표 클릭
-  $('.scroll-arrow.left').on('click', function(){
+  $('.scroll-arrow.left').on('click', function () {
     $('.tab-scroll-wrap').animate({scrollLeft: '-=200'}, 200, updateArrows);
   });
-  $('.scroll-arrow.right').on('click', function(){
+  $('.scroll-arrow.right').on('click', function () {
     $('.tab-scroll-wrap').animate({scrollLeft: '+=200'}, 200, updateArrows);
   });
 
