@@ -4,13 +4,6 @@
 * ************************************************************************/
 
 /* ========================================================================
- * root 재정의
-*/
-:root {
-  --bs-primary-rgb: 0, 186, 209;
-}
-
-/* ========================================================================
  * reset / 공통 스타일
 */
 *, :before, :after {
@@ -70,6 +63,7 @@ ul,
 ol {
   padding: 0;
   margin: 0;
+  list-style: none;
 
   li {
     list-style: none;
@@ -284,137 +278,8 @@ html, body, * {
 }
 
 /* ========================================================================
- * 넘쳤을때 딤처리 되는거
+ * 다중셀렉트 -> select2
 */
-.slider-outer {
-  background: #222;
-}
-
-.slider-inner {
-  will-change: transform;
-}
-
-.slide-item {
-  min-width: 150px;
-  margin-right: 12px;
-}
-
-.slider-btn {
-  width: 36px;
-  height: 100%;
-  opacity: 0.7;
-  font-size: 26px;
-}
-
-.slider-dim {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 36px;
-  z-index: 1;
-  pointer-events: none;
-  display: none;
-}
-
-.slider-dim.left {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
-}
-
-.slider-dim.right {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
-}
-
-
-// 테이블 딤처리
-.table-container {
-  position: relative; /* fade가 기준 삼을 컨테이너 */
-  //width: 500px;        /* wrap width */
-  border: 1px solid #ddd;
-}
-
-.my-table-wrap {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.my-table-wrap table {
-  //min-width: 1200px;   /* 래퍼보다 넓어서 스크롤 발생 */
-  border-collapse: collapse;
-}
-
-.my-table-wrap th,
-.my-table-wrap td {
-  border: 1px solid #ccc;
-  padding: 8px 12px;
-  text-align: center;
-}
-
-
-/* fade 공통 */
-.my-table-fade {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 40px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .3s;
-  z-index: 2; /* 반드시 테이블 위 */
-}
-
-/* 래퍼 경계선에 붙도록 배경 그라데이션 */
-.my-table-fade-left {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, .5), rgba(255, 255, 255, 0));
-}
-
-.my-table-fade-right {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, .5), rgba(255, 255, 255, 0));
-}
-
-.my-table-fade.show {
-  opacity: 1;
-}
-
-// 툴팁 테스트
-.tooltip {
-  --bs-tooltip-zindex: 1080;
-  --bs-tooltip-max-width: 800px;
-  --bs-tooltip-padding-x: 0.5rem;
-  --bs-tooltip-padding-y: 0.25rem;
-  --bs-tooltip-margin: ;
-  --bs-tooltip-font-size: 0.875rem;
-  --bs-tooltip-color: var(--bs-body-bg);
-  --bs-tooltip-bg: var(--bs-emphasis-color);
-  --bs-tooltip-border-radius: var(--bs-border-radius);
-  --bs-tooltip-opacity: 0.9;
-  --bs-tooltip-arrow-width: 0.8rem;
-  --bs-tooltip-arrow-height: 0.4rem;
-  z-index: var(--bs-tooltip-zindex);
-  display: block;
-  margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
-  text-align: start;
-  text-decoration: none;
-  text-shadow: none;
-  text-transform: none;
-  letter-spacing: normal;
-  word-break: normal;
-  white-space: normal;
-  word-spacing: normal;
-  line-break: auto;
-  font-size: var(--bs-tooltip-font-size);
-  word-wrap: break-word;
-}
-
-// 다중셀렉트 select2
 /* 드롭다운에서 선택된 항목에 배경색과 체크아이콘 */
 .select2-container--bootstrap5 .select2-results__option[aria-selected=true] {
   background-color: #e5f5fa;
