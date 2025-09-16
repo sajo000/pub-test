@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dashboard</title>
+  <title>상품관리</title>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -23,6 +23,7 @@
 
 
   <style>
+
   </style>
 </head>
 <body>
@@ -30,7 +31,21 @@
   <div class="iframe-page-wrap" style="min-height: 100vh;">
     <div class="iframe-page-filter-wrap">
       <div class="iframe-title--main">
-        <h1>대시보드</h1>
+        <h1>상품 관리</h1>
+        <div class="d-flex gap-3 ms-auto">
+        <button class="btn btn-m btn-outline-primary d-flex align-items-center gap-6">
+          <i class="icon is-16 icon-plus bg-primary"></i>
+          <span>상품 개별 등록</span>
+        </button>
+          <button class="btn btn-m btn-outline-primary d-flex align-items-center gap-6">
+            <i class="icon is-16 icon-barcode bg-primary"></i>
+            <span>상품 바코드 업로드</span>
+          </button>
+          <button class="btn btn-m btn-outline-primary d-flex align-items-center gap-6">
+            <i class="icon is-16 icon-upload bg-primary"></i>
+            <span>엑셀 대량 업로드</span>
+          </button>
+        </div>
       </div>
       <!-- component container -->
       <section class="dhx_sample-container">
@@ -39,64 +54,6 @@
       </section>
     </div>
     <div class="iframe-page-content-wrap">
-
-      <!-- 컴포넌트 -->
-      <div>
-        <!-- 아이콘 -->
-        <section class="my-4">
-          <h1 class="mb-20">ICON</h1>
-          <div class="d-flex gap-3">
-            <i class="icon is-20 icon-side-menu bg-black"></i>
-            <i class="icon is-20 icon-side-home bg-black"></i>
-            <i class="icon is-20 icon-side-briefcase bg-black"></i>
-            <i class="icon is-20 icon-side-warehouse bg-black"></i>
-            <i class="icon is-20 icon-side-disk bg-black"></i>
-            <i class="icon is-20 icon-side-document bg-black"></i>
-            <i class="icon is-20 icon-side-calculator bg-black"></i>
-            <i class="icon is-20 icon-side-megaphone bg-black"></i>
-            <i class="icon is-20 icon-side-gear bg-black"></i>
-            <i class="icon is-20 icon-arrow-left bg-black"></i>
-            <i class="icon is-20 icon-arrow-top bg-black"></i>
-            <i class="icon is-20 icon-arrow-right bg-black"></i>
-            <i class="icon is-20 icon-arrow-bottom bg-black"></i>
-            <i class="icon is-20 icon-bell bg-black"></i>
-            <i class="icon is-20 icon-earth bg-black"></i>
-            <i class="icon is-20 icon-user bg-black"></i>
-            <i class="icon is-20 icon-calendar bg-black"></i>
-            <i class="icon is-20 icon-upload bg-black"></i>
-            <i class="icon is-20 icon-download bg-black"></i>
-            <i class="icon is-20 icon-search bg-black"></i>
-            <i class="icon is-20 icon-eye-slash bg-black"></i>
-            <i class="icon is-20 icon-eye bg-black"></i>
-            <i class="icon is-20 icon-sign-out bg-black"></i>
-            <i class="icon is-20 icon-delete bg-black"></i>
-            <i class="icon is-20 icon-info-circle bg-black"></i>
-            <i class="icon is-20 icon-help-circle bg-black"></i>
-            <i class="icon is-20 icon-open-in-new bg-black"></i>
-            <i class="icon is-20 icon-pencil bg-black"></i>
-            <i class="icon is-20 icon-print bg-black"></i>
-            <i class="icon is-20 icon-add-box bg-black"></i>
-            <i class="icon is-20 icon-remove-box bg-black"></i>
-            <i class="icon is-20 icon-divide bg-black"></i>
-            <i class="icon is-20 icon-monitor-download bg-black"></i>
-            <i class="icon is-20 icon-barcode bg-black"></i>
-            <i class="icon is-20 icon-excel bg-black"></i>
-            <i class="icon is-20 icon-arrow-bottom-line bg-black"></i>
-            <i class="icon is-20 icon-arrow-top-line bg-black"></i>
-            <i class="icon is-20 icon-arrow-sort bg-black"></i>
-            <i class="icon is-20 icon-caret-down bg-black"></i>
-            <i class="icon is-20 icon-caret-up bg-black"></i>
-            <i class="icon is-20 icon-check bg-black"></i>
-            <i class="icon is-20 icon-close bg-black"></i>
-            <i class="icon is-20 icon-plus bg-black"></i>
-            <i class="icon is-20 icon-arrow-double-left bg-black"></i>
-            <i class="icon is-20 icon-arrow-double-right bg-black"></i>
-          </div>
-        </section>
-        <!-- /아이콘 -->
-      </div>
-      <!-- /컴포넌트 -->
-
       <div id="grid" style="width: 100%; height: auto;"></div>
     </div>
   </div>

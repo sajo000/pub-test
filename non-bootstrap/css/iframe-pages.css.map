@@ -1,1 +1,0 @@
-{"version":3,"sources":["_dashboard.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE","sourcesContent":["body {\n  border: 5px dashed blue;\n}\n\n.iframe-content {\n  height: 100%;\n}"],"file":"iframe-pages.css"}

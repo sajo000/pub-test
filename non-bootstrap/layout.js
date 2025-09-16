@@ -1,6 +1,6 @@
 // * 사이드메뉴 열기
 $(document).ready(function () {
-  $('.menu').on('click', function () {
+  $('.btn-header-menu').on('click', function () {
     $('.container-wrap').toggleClass('toggle-opened');
     $('.nav-wrap').toggleClass('opened');
   });
@@ -75,6 +75,7 @@ $(function () {
     '대시보드': 'pages/dashboard/dashboard.html',
     'dashboard': 'pages/dashboard/dashboard.html',
     '상품관리': 'pages/product/product-management.html',
+    '연동상품관리': 'pages/product/linked-products.html.html',
     // 필요한 다른 메뉴도 추가 가능
   };
 
@@ -210,74 +211,4 @@ $(function () {
     const url = getUrlByTabId(tabId);
     addOrActivateTab(tabId, title, url);
   });
-});
-
-
-// * 헤더 스크롤러블 탭메뉴
-$(function () {
-  let tabIdx = 1;
-
-  function updateArrows() {
-    const $wrap = $('.tab-scroll-wrap');
-    const $ul = $('.tab-list');
-    const scrollLeft = $wrap.scrollLeft();
-    const maxScroll = $wrap[0].scrollWidth - $wrap.width(); // scrollWidth로 변경
-
-    $('.scroll-arrow.left').toggle(scrollLeft > 0);
-    $('.scroll-arrow.right').toggle(
-        scrollLeft < maxScroll - 1 && maxScroll > 0);
-  }
-
-  // 탭 추가 버튼
-  $('#addTabBtn').on('click', function () {
-    const tabTitle = '탭' + tabIdx++;
-    const $li = $(`
-      <li class="nav-item">
-        <a class="nav-link${$('.tab-list .nav-link').length ? '' : ' active'}" href="#">
-          ${tabTitle}<button class="tab-close-btn" title="닫기">&times;</button>
-        </a>
-      </li>
-    `);
-    $('.tab-list').append($li);
-    if ($('.tab-list .nav-link.active').length === 0) {
-      $li.find('.nav-link').addClass('active');
-    }
-    // requestAnimationFrame 사용해 렌더링 후 updateArrows 호출
-    requestAnimationFrame(updateArrows);
-  });
-
-  // 탭 닫기
-  $('.tab-list').on('click', '.tab-close-btn', function (e) {
-    e.stopPropagation();
-    const $tab = $(this).closest('.nav-item');
-    const isActive = $tab.find('.nav-link').hasClass('active');
-    $tab.remove();
-    if (isActive) {
-      $('.tab-list .nav-link').removeClass('active').eq(0).addClass('active');
-    }
-    updateArrows();
-  });
-
-  // 탭 클릭시 active
-  $('.tab-list').on('click', '.nav-link', function (e) {
-    e.preventDefault();
-    $('.tab-list .nav-link').removeClass('active');
-    $(this).addClass('active');
-  });
-
-  // 스크롤 감지
-  $('.tab-scroll-wrap').on('scroll', updateArrows);
-
-  // 화살표 클릭
-  $('.scroll-arrow.left').on('click', function () {
-    $('.tab-scroll-wrap').animate({scrollLeft: '-=200'}, 200, updateArrows);
-  });
-  $('.scroll-arrow.right').on('click', function () {
-    $('.tab-scroll-wrap').animate({scrollLeft: '+=200'}, 200, updateArrows);
-  });
-
-  $(window).on('resize', updateArrows);
-
-  // 초기 탭 3개 추가
-  $('#addTabBtn').trigger('click').trigger('click').trigger('click');
 });

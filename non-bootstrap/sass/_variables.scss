@@ -1,10 +1,7 @@
-// row padding 디폴트값 수정
-// $grid-gutter-width: 2rem;
-// row padding 디폴트값 수정
-
 // 폰트 패밀리 지정
 $font-family: Pretendard, sans-serif;
 // 폰트 패밀리 지정
+
 
 // 색상 변수 지정
 $primary: #00BAD1;
@@ -30,15 +27,16 @@ $gray-91: #919191;
 $gray-6b: #6b6b6b;
 $gray-38: #383838;
 $black: #000000;
-
 // 색상 변수 지정
+
 
 // 박스 섀도우
 $custom-shadow: 0px 16px 44px 0px rgba(0, 0, 0, 0.07); // 피그마에서 이름 -> shadow1
 $custom-shadow2: 0px 3px 10px 0px rgba(0, 0, 0, 0.16); // 피그마에서 이름 -> shadow2
 // 박스 섀도우
 
-// 마진, 패딩 간격 정의
+
+// 마진, 패딩, 갭 간격 정의
 $spacer: 1rem !default;
 
 $spacers: (
@@ -59,9 +57,101 @@ $spacers: (
     56: 3.5rem,
     60: 3.75rem,
     80: 5rem,
-    160: 10rem
+    160: 10rem,
+    auto: auto
 );
-// 마진, 패딩 간격 정의
+
+// 1. 방향별 CSS 속성 매핑
+$margin-direction-map: (
+    "m": "margin",
+    "mt": "margin-top",
+    "me": "margin-right",
+    "mb": "margin-bottom",
+    "ms": "margin-left",
+    "mx": ("margin-left", "margin-right"),
+    "my": ("margin-top", "margin-bottom")
+);
+
+$padding-direction-map: (
+    "p": "padding",
+    "pt": "padding-top",
+    "pe": "padding-right",
+    "pb": "padding-bottom",
+    "ps": "padding-left",
+    "px": ("padding-left", "padding-right"),
+    "py": ("padding-top", "padding-bottom")
+);
+
+$gap-direction-map: (
+    "gap": "gap",
+    "row-gap": "row-gap",
+    "column-gap": "column-gap"
+);
+
+// 2. 여백 믹스인 (margin, padding 공통)
+@mixin generate-spacing-utilities($property-map, $type) {
+  @each $class-prefix, $props in $property-map {
+    @each $key, $value in $spacers {
+      $class-name: "#{$class-prefix}-#{$key}";
+
+      @if $value == auto {
+        // auto 값일 때 CSS 속성에 “auto” 문자 그대로 넣기
+        @if type-of($props) == "list" {
+          .#{$class-name} {
+            @each $prop in $props {
+              #{$prop}: auto !important;
+            }
+          }
+        }
+        @else {
+          .#{$class-name} {
+            #{$props}: auto !important;
+          }
+        }
+      }
+      @else {
+        @if type-of($props) == "list" {
+          .#{$class-name} {
+            @each $prop in $props {
+              #{$prop}: $value !important;
+            }
+          }
+        }
+        @else {
+          .#{$class-name} {
+            #{$props}: $value !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 3. gap 유틸리티 믹스인 (반응형 옵션 무시, 심플 버전)
+@mixin generate-gap-utilities($property-map) {
+  @each $class-prefix, $prop in $property-map {
+    @each $key, $value in $spacers {
+      $class-name: "#{$class-prefix}-#{$key}";
+
+      @if $value == auto {
+        .#{$class-name} {
+          #{$prop}: auto !important;
+        }
+      }
+      @else {
+        .#{$class-name} {
+          #{$prop}: $value !important;
+        }
+      }
+    }
+  }
+}
+
+@include generate-spacing-utilities($margin-direction-map, "margin");
+@include generate-spacing-utilities($padding-direction-map, "padding");
+@include generate-gap-utilities($gap-direction-map);
+// 마진, 패딩, 갭 간격 정의
+
 
 // border-radius 정의
 $border-radius-4: 0.25rem; // 4px
@@ -72,15 +162,17 @@ $border-radius-pill: 50rem; // 알약 모양
 $border-radius-circle: 50%; // 원형
 // border-radius 정의
 
+
 // container max-width 정의
 $container-max-widths: (
     sm: 540px,
     md: 720px,
     lg: 960px,
     xl: 1248px,
-   xxl: 1400px
+    xxl: 1400px
 );
 // container max-width 정의
+
 
 // breakpoint 정의
 // 1. breakpoint 맵 선언
@@ -129,6 +221,128 @@ $grid-breakpoints: (
 }
 // breakpoint 정의
 
+
+// 플렉스 관련 유틸리티 클래스 맵
+$flex-utilities: (
+    flex: (
+        property: flex,
+        values: (fill: 1 1 auto)
+    ),
+    "flex-direction": (
+        property: flex-direction,
+        class: flex,
+        values: (row, column, row-reverse, column-reverse)
+    ),
+    "flex-grow": (
+        property: flex-grow,
+        class: flex,
+        values: (
+            grow-0: 0,
+            grow-1: 1,
+        )
+    ),
+    "flex-shrink": (
+        property: flex-shrink,
+        class: flex,
+        values: (
+            shrink-0: 0,
+            shrink-1: 1,
+        )
+    ),
+    "flex-wrap": (
+        property: flex-wrap,
+        class: flex,
+        values: (wrap, nowrap, wrap-reverse)
+    ),
+    "justify-content": (
+        property: justify-content,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            between: space-between,
+            around: space-around,
+            evenly: space-evenly,
+        )
+    ),
+    "align-items": (
+        property: align-items,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            baseline: baseline,
+            stretch: stretch,
+        )
+    ),
+    "align-content": (
+        property: align-content,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            between: space-between,
+            around: space-around,
+            stretch: stretch,
+        )
+    ),
+    "align-self": (
+        property: align-self,
+        values: (
+            auto: auto,
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            baseline: baseline,
+            stretch: stretch,
+        )
+    ),
+    order: (
+        property: order,
+        values: (
+            first: -1,
+            0: 0,
+            1: 1,
+            2: 2,
+            3: 3,
+            4: 4,
+            5: 5,
+            last: 6,
+        )
+    ),
+);
+
+// 기본 플렉스 display 클래스만
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+// 플렉스 유틸리티 클래스 생성 믹스인
+@mixin generate-flex-utils($utils) {
+  @each $name, $data in $utils {
+    $property: map-get($data, property);
+    $values: map-get($data, values);
+    $base-class: if(map-has-key($data, class), map-get($data, class), $name);
+
+    @each $key, $value in $values {
+      $class-suffix: if(type-of($key) == "string", $key, $value);
+
+      .#{$base-class}-#{$class-suffix} {
+        #{$property}: $value !important;
+      }
+    }
+  }
+}
+
+// 호출
+@include generate-flex-utils($flex-utilities);
+
+
+
 // 폰트사이즈 생성
 $custom-font-size: 1rem !default;
 
@@ -150,12 +364,14 @@ $custom-font-size: (
 }
 // 폰트사이즈 생성
 
+
 // 폰트웨이트 생성
 $font-weight-normal: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 // 폰트웨이트 생성
+
 
 // 아이콘 사이즈 생성
 $custom-icon-size: 20px !default;

@@ -41,6 +41,11 @@ body {
   width: 242px;
 }
 
+.btn-header-menu {
+  border: 0;
+  background-color: transparent;
+}
+
 .container-wrap .logo-wrap {
   display: none;
 }
@@ -74,7 +79,9 @@ body {
 */
 .header-tab-bar-wrap {
   flex: 1 1 auto;
+  align-content: flex-end;
   overflow: hidden;
+  border: 2px dashed mediumseagreen;
 
   .tab-area-container {
     position: relative;
@@ -172,7 +179,7 @@ body {
 }
 
 /* ========================================================================
-* 네비
+* 사이드메뉴
 */
 .nav-wrap {
   overflow-x: hidden;
@@ -207,7 +214,7 @@ body {
 
 .deps1 {
   border: 2px dashed lightpink;
-  padding-right: 16px;
+  padding-right: 24px;
 }
 
 .deps1-link {
@@ -336,9 +343,13 @@ body {
 * ! 서브페이지 공통 스타일!
 * iframe 으로 불러오는 페이지의 스타일!
 */
-iframe,
+iframe {
+  height: 100%;
+}
+
 .iframe-content {
   height: 100%;
+  padding: 40px;
 }
 
 .iframe-content-inner {
@@ -363,14 +374,6 @@ iframe,
   }
 }
 
-// * iframe 서브페이지 메인 타이틀
-.iframe-title--main {
-  h1 {
-    color: $primary;
-    font-size: map-get($custom-font-size, 26);
-    font-weight: $font-weight-bold;
-  }
-}
 
 .text-truncate-multi {
 overflow: hidden;

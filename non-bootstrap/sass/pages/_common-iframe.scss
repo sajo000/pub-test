@@ -1,0 +1,14 @@
+/* ========================================================================
+* iframe 메인 타이틀
+*/
+.iframe-title--main {
+  display: flex;
+  align-items: center;
+  margin-bottom: map-get($spacers, 40);
+
+  h1 {
+    color: $black;
+    font-size: map-get($custom-font-size, 26);
+    font-weight: $font-weight-bold;
+  }
+}

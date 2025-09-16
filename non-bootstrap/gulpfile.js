@@ -12,7 +12,7 @@ function buildLayout() {
 }
 
 function buildIframePages() {
-  return gulp.src('sass/pages/iframe-pages.scss')
+  return gulp.src('sass/pages/app-iframe.scss')
   .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
   .pipe(sourcemaps.write('.'))
