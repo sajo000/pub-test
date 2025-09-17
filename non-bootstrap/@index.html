@@ -57,12 +57,12 @@
 
       <div class="header-tab-bar-wrap">
         <!-- 헤더 스크롤러블 탭메뉴 -->
-        <div class="tab-area-container">
+        <div class="header-tab-bar-container">
           <button class="scroll-arrow left">
             <i class="bi bi-chevron-left"></i>
           </button>
           <div class="tab-scroll-wrap">
-            <ul class="nav nav-tabs tab-list">
+            <ul class="nav nav-tabs header-tab-bar-ul">
               <!-- 탭 항목이 동적으로 들어갑니다. -->
             </ul>
           </div>
@@ -880,7 +880,7 @@
 
     function updateArrows() {
       const $wrap = $('.tab-scroll-wrap');
-      const $ul = $('.tab-list');
+      const $ul = $('.header-tab-bar-ul');
       const scrollLeft = $wrap.scrollLeft();
       const maxScroll = $wrap[0].scrollWidth - $wrap.width(); // scrollWidth로 변경
 
@@ -893,13 +893,13 @@
       const tabTitle = '탭' + tabIdx++;
       const $li = $(`
       <li class="nav-item">
-        <a class="nav-link${$('.tab-list .nav-link').length ? '' : ' active'}" href="#">
+        <a class="nav-link${$('.header-tab-bar-ul .nav-link').length ? '' : ' active'}" href="#">
           ${tabTitle}<button class="tab-close-btn" title="닫기">&times;</button>
         </a>
       </li>
     `);
-      $('.tab-list').append($li);
-      if($('.tab-list .nav-link.active').length === 0){
+      $('.header-tab-bar-ul').append($li);
+      if($('.header-tab-bar-ul .nav-link.active').length === 0){
         $li.find('.nav-link').addClass('active');
       }
       // requestAnimationFrame 사용해 렌더링 후 updateArrows 호출
@@ -907,21 +907,21 @@
     });
 
     // 탭 닫기
-    $('.tab-list').on('click', '.tab-close-btn', function(e){
+    $('.header-tab-bar-ul').on('click', '.tab-close-btn', function(e){
       e.stopPropagation();
       const $tab = $(this).closest('.nav-item');
       const isActive = $tab.find('.nav-link').hasClass('active');
       $tab.remove();
       if(isActive){
-        $('.tab-list .nav-link').removeClass('active').eq(0).addClass('active');
+        $('.header-tab-bar-ul .nav-link').removeClass('active').eq(0).addClass('active');
       }
       updateArrows();
     });
 
     // 탭 클릭시 active
-    $('.tab-list').on('click', '.nav-link', function(e){
+    $('.header-tab-bar-ul').on('click', '.nav-link', function(e){
       e.preventDefault();
-      $('.tab-list .nav-link').removeClass('active');
+      $('.header-tab-bar-ul .nav-link').removeClass('active');
       $(this).addClass('active');
     });
 

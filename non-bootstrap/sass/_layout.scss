@@ -1,6 +1,3 @@
-body {
-  background: #6610f2;
-}
 /* ========================================================================
 * 헤더
 */
@@ -15,7 +12,7 @@ body {
   header {
     z-index: 900;
     background-color: #fff;
-    border-bottom: 1px solid $gray-f0;
+    //border-bottom: 1px solid $gray-f0;
     width: 100%;
     height: 62px;
     display: flex;
@@ -81,85 +78,94 @@ body {
   flex: 1 1 auto;
   align-content: flex-end;
   overflow: hidden;
-  border: 2px dashed mediumseagreen;
 
-  .tab-area-container {
+  .header-tab-bar-container {
     position: relative;
     width: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     align-content: end;
-  }
 
-  .tab-scroll-wrap {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     scrollbar-width: none; /* 파이어폭스 */
+
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
-  .tab-scroll-wrap::-webkit-scrollbar {
-    display: none;
+  .header-tab-bar-ul {
+    display: flex;
+    gap: 8px;
+    padding-left: 40px;
+    min-width: 100%;
+    white-space: nowrap;
+    border-bottom: 1px solid $gray-f0;
+    position: relative;
   }
 
   /* 크롬 */
-  .nav-tabs .nav-item {
+  .header-tab-bar-container .nav-tabs .nav-item {
     display: inline-block;
+    padding: 6px 16px 5px;
+    border-radius: 6px 6px 0 0;
+    background: $gray-f7;
+    border-bottom: 1px solid $gray-f7;
+
+    &.active {
+      border-bottom: 3px solid $primary;
+      background-color: $primary-lite2;
+      color: $primary;
+      position: relative;
+      margin-bottom: -1px;
+    }
   }
 
   .nav-tabs .nav-link {
     display: inline-flex;
     align-items: center;
-
-    &.active {
-      background: red;
-    }
   }
 
-  .tab-close-btn {
-    margin-left: 8px;
-    font-weight: bold;
-    color: #888;
-    background: none;
-    border: none;
+  .tab-close-btn { // 헤더 탭 타이틀 옆에 닫기 버튼
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    font-size: 0;
+    background-color: $gray-a7; // 비활성화 컬러
+    opacity: 1;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3.8925 3.8925C3.97708 3.8077 4.07755 3.74043 4.18817 3.69453C4.29879 3.64863 4.41738 3.625 4.53714 3.625C4.65691 3.625 4.7755 3.64863 4.88611 3.69453C4.99673 3.74043 5.09721 3.8077 5.18179 3.8925L10.0002 8.71277L14.8187 3.8925C14.9033 3.80784 15.0038 3.74069 15.1145 3.69487C15.2251 3.64906 15.3436 3.62548 15.4633 3.62548C15.5831 3.62548 15.7016 3.64906 15.8122 3.69487C15.9228 3.74069 16.0233 3.80784 16.108 3.8925C16.1926 3.97715 16.2598 4.07765 16.3056 4.18826C16.3514 4.29887 16.375 4.41742 16.375 4.53714C16.375 4.65686 16.3514 4.77541 16.3056 4.88602C16.2598 4.99663 16.1926 5.09713 16.108 5.18179L11.2877 10.0002L16.108 14.8187C16.1926 14.9033 16.2598 15.0038 16.3056 15.1145C16.3514 15.2251 16.375 15.3436 16.375 15.4633C16.375 15.5831 16.3514 15.7016 16.3056 15.8122C16.2598 15.9228 16.1926 16.0233 16.108 16.108C16.0233 16.1926 15.9228 16.2598 15.8122 16.3056C15.7016 16.3514 15.5831 16.375 15.4633 16.375C15.3436 16.375 15.2251 16.3514 15.1145 16.3056C15.0038 16.2598 14.9033 16.1926 14.8187 16.108L10.0002 11.2877L5.18179 16.108C5.09713 16.1926 4.99663 16.2598 4.88602 16.3056C4.77541 16.3514 4.65686 16.375 4.53714 16.375C4.41742 16.375 4.29887 16.3514 4.18826 16.3056C4.07765 16.2598 3.97715 16.1926 3.8925 16.108C3.80784 16.0233 3.74069 15.9228 3.69487 15.8122C3.64906 15.7016 3.62548 15.5831 3.62548 15.4633C3.62548 15.3436 3.64906 15.2251 3.69487 15.1145C3.74069 15.0038 3.80784 14.9033 3.8925 14.8187L8.71277 10.0002L3.8925 5.18179C3.8077 5.09721 3.74043 4.99673 3.69453 4.88611C3.64863 4.7755 3.625 4.65691 3.625 4.53714C3.625 4.41738 3.64863 4.29879 3.69453 4.18817C3.74043 4.07755 3.8077 3.97708 3.8925 3.8925Z' fill='black'/%3E%3C/svg%3E");
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3.8925 3.8925C3.97708 3.8077 4.07755 3.74043 4.18817 3.69453C4.29879 3.64863 4.41738 3.625 4.53714 3.625C4.65691 3.625 4.7755 3.64863 4.88611 3.69453C4.99673 3.74043 5.09721 3.8077 5.18179 3.8925L10.0002 8.71277L14.8187 3.8925C14.9033 3.80784 15.0038 3.74069 15.1145 3.69487C15.2251 3.64906 15.3436 3.62548 15.4633 3.62548C15.5831 3.62548 15.7016 3.64906 15.8122 3.69487C15.9228 3.74069 16.0233 3.80784 16.108 3.8925C16.1926 3.97715 16.2598 4.07765 16.3056 4.18826C16.3514 4.29887 16.375 4.41742 16.375 4.53714C16.375 4.65686 16.3514 4.77541 16.3056 4.88602C16.2598 4.99663 16.1926 5.09713 16.108 5.18179L11.2877 10.0002L16.108 14.8187C16.1926 14.9033 16.2598 15.0038 16.3056 15.1145C16.3514 15.2251 16.375 15.3436 16.375 15.4633C16.375 15.5831 16.3514 15.7016 16.3056 15.8122C16.2598 15.9228 16.1926 16.0233 16.108 16.108C16.0233 16.1926 15.9228 16.2598 15.8122 16.3056C15.7016 16.3514 15.5831 16.375 15.4633 16.375C15.3436 16.375 15.2251 16.3514 15.1145 16.3056C15.0038 16.2598 14.9033 16.1926 14.8187 16.108L10.0002 11.2877L5.18179 16.108C5.09713 16.1926 4.99663 16.2598 4.88602 16.3056C4.77541 16.3514 4.65686 16.375 4.53714 16.375C4.41742 16.375 4.29887 16.3514 4.18826 16.3056C4.07765 16.2598 3.97715 16.1926 3.8925 16.108C3.80784 16.0233 3.74069 15.9228 3.69487 15.8122C3.64906 15.7016 3.62548 15.5831 3.62548 15.4633C3.62548 15.3436 3.64906 15.2251 3.69487 15.1145C3.74069 15.0038 3.80784 14.9033 3.8925 14.8187L8.71277 10.0002L3.8925 5.18179C3.8077 5.09721 3.74043 4.99673 3.69453 4.88611C3.64863 4.7755 3.625 4.65691 3.625 4.53714C3.625 4.41738 3.64863 4.29879 3.69453 4.18817C3.74043 4.07755 3.8077 3.97708 3.8925 3.8925Z' fill='black'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
     cursor: pointer;
   }
 
-  .scroll-arrow {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 32px;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 10;
-    /* ... */
+  .nav-item.active .tab-close-btn { // 헤더 탭 타이틀 옆에 닫기 버튼
+    background-color: $primary; // 활성화 컬러
   }
 
-  .scroll-arrow.left {
-    left: 0;
-  }
-
-  .scroll-arrow.right {
+  // * 헤더 탭 이전, 다음 버튼
+  .header-tab-bar-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: sticky;
     right: 0;
-  }
-
-
-  .scroll-arrow:hover {
-    background: rgba(200, 220, 255, 0.7);
-  }
-
-  .tab-list {
-    display: inline-block;
-    min-width: 100%;
-    white-space: nowrap;
-  }
-
-  .tab-scroll-wrap {
-    overflow-x: auto;
-    white-space: nowrap;
+    background-color: $white;
+    padding-left: 8px;
+    .scroll-arrow {
+      padding: 4px;
+      border: 1px solid $gray-e6;
+      border-radius: 2px;
+      background: $white;
+      box-shadow: none;
+    }
   }
 }
 
@@ -171,7 +177,6 @@ body {
   width: 100vw;
   min-width: 1280px;
   display: flex;
-  background-color: rgb(231 224 250 / 50%);
 }
 
 .container-wrap.toggle-opened .content-container {
@@ -376,12 +381,12 @@ iframe {
 
 
 .text-truncate-multi {
-overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 2;       /* 필수 -webkit- 프리픽스 */
--webkit-box-orient: vertical; /* 필수 */
-height: 3em;                 /* 2줄 높이에 맞춰 조정 */
-  display: -webkit-box;                /* 박스 레이아웃으로 변경 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 필수 -webkit- 프리픽스 */
+  -webkit-box-orient: vertical; /* 필수 */
+  height: 3em; /* 2줄 높이에 맞춰 조정 */
+  display: -webkit-box; /* 박스 레이아웃으로 변경 */
   -webkit-box-orient: vertical;
 }

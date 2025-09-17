@@ -1615,10 +1615,6 @@
   height: 3rem !important;
 }
 
-body {
-  background: #6610f2;
-}
-
 /* ========================================================================
 * 헤더
 */
@@ -1633,7 +1629,6 @@ body {
 .header-wrap header {
   z-index: 900;
   background-color: #fff;
-  border-bottom: 1px solid #f0f0f0;
   width: 100%;
   height: 62px;
   display: flex;
@@ -1697,74 +1692,85 @@ body {
   flex: 1 1 auto;
   align-content: flex-end;
   overflow: hidden;
-  border: 2px dashed mediumseagreen;
 }
-.header-tab-bar-wrap .tab-area-container {
+.header-tab-bar-wrap .header-tab-bar-container {
   position: relative;
   width: 100%;
-  padding-left: 40px;
-  padding-right: 40px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   align-content: end;
-}
-.header-tab-bar-wrap .tab-scroll-wrap {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
   scrollbar-width: none; /* 파이어폭스 */
 }
-.header-tab-bar-wrap .tab-scroll-wrap::-webkit-scrollbar {
+.header-tab-bar-wrap .header-tab-bar-container::-webkit-scrollbar {
   display: none;
+}
+.header-tab-bar-wrap .header-tab-bar-ul {
+  display: flex;
+  gap: 8px;
+  padding-left: 40px;
+  min-width: 100%;
+  white-space: nowrap;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
 }
 .header-tab-bar-wrap {
   /* 크롬 */
 }
-.header-tab-bar-wrap .nav-tabs .nav-item {
+.header-tab-bar-wrap .header-tab-bar-container .nav-tabs .nav-item {
   display: inline-block;
+  padding: 6px 16px 5px;
+  border-radius: 6px 6px 0 0;
+  background: #f7f7f7;
+  border-bottom: 1px solid #f7f7f7;
+}
+.header-tab-bar-wrap .header-tab-bar-container .nav-tabs .nav-item.active {
+  border-bottom: 3px solid #00BAD1;
+  background-color: #EFFDFF;
+  color: #00BAD1;
+  position: relative;
+  margin-bottom: -1px;
 }
 .header-tab-bar-wrap .nav-tabs .nav-link {
   display: inline-flex;
   align-items: center;
 }
-.header-tab-bar-wrap .nav-tabs .nav-link.active {
-  background: red;
-}
 .header-tab-bar-wrap .tab-close-btn {
-  margin-left: 8px;
-  font-weight: bold;
-  color: #888;
-  background: none;
-  border: none;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  font-size: 0;
+  background-color: #a7a7a7;
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3.8925 3.8925C3.97708 3.8077 4.07755 3.74043 4.18817 3.69453C4.29879 3.64863 4.41738 3.625 4.53714 3.625C4.65691 3.625 4.7755 3.64863 4.88611 3.69453C4.99673 3.74043 5.09721 3.8077 5.18179 3.8925L10.0002 8.71277L14.8187 3.8925C14.9033 3.80784 15.0038 3.74069 15.1145 3.69487C15.2251 3.64906 15.3436 3.62548 15.4633 3.62548C15.5831 3.62548 15.7016 3.64906 15.8122 3.69487C15.9228 3.74069 16.0233 3.80784 16.108 3.8925C16.1926 3.97715 16.2598 4.07765 16.3056 4.18826C16.3514 4.29887 16.375 4.41742 16.375 4.53714C16.375 4.65686 16.3514 4.77541 16.3056 4.88602C16.2598 4.99663 16.1926 5.09713 16.108 5.18179L11.2877 10.0002L16.108 14.8187C16.1926 14.9033 16.2598 15.0038 16.3056 15.1145C16.3514 15.2251 16.375 15.3436 16.375 15.4633C16.375 15.5831 16.3514 15.7016 16.3056 15.8122C16.2598 15.9228 16.1926 16.0233 16.108 16.108C16.0233 16.1926 15.9228 16.2598 15.8122 16.3056C15.7016 16.3514 15.5831 16.375 15.4633 16.375C15.3436 16.375 15.2251 16.3514 15.1145 16.3056C15.0038 16.2598 14.9033 16.1926 14.8187 16.108L10.0002 11.2877L5.18179 16.108C5.09713 16.1926 4.99663 16.2598 4.88602 16.3056C4.77541 16.3514 4.65686 16.375 4.53714 16.375C4.41742 16.375 4.29887 16.3514 4.18826 16.3056C4.07765 16.2598 3.97715 16.1926 3.8925 16.108C3.80784 16.0233 3.74069 15.9228 3.69487 15.8122C3.64906 15.7016 3.62548 15.5831 3.62548 15.4633C3.62548 15.3436 3.64906 15.2251 3.69487 15.1145C3.74069 15.0038 3.80784 14.9033 3.8925 14.8187L8.71277 10.0002L3.8925 5.18179C3.8077 5.09721 3.74043 4.99673 3.69453 4.88611C3.64863 4.7755 3.625 4.65691 3.625 4.53714C3.625 4.41738 3.64863 4.29879 3.69453 4.18817C3.74043 4.07755 3.8077 3.97708 3.8925 3.8925Z' fill='black'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3.8925 3.8925C3.97708 3.8077 4.07755 3.74043 4.18817 3.69453C4.29879 3.64863 4.41738 3.625 4.53714 3.625C4.65691 3.625 4.7755 3.64863 4.88611 3.69453C4.99673 3.74043 5.09721 3.8077 5.18179 3.8925L10.0002 8.71277L14.8187 3.8925C14.9033 3.80784 15.0038 3.74069 15.1145 3.69487C15.2251 3.64906 15.3436 3.62548 15.4633 3.62548C15.5831 3.62548 15.7016 3.64906 15.8122 3.69487C15.9228 3.74069 16.0233 3.80784 16.108 3.8925C16.1926 3.97715 16.2598 4.07765 16.3056 4.18826C16.3514 4.29887 16.375 4.41742 16.375 4.53714C16.375 4.65686 16.3514 4.77541 16.3056 4.88602C16.2598 4.99663 16.1926 5.09713 16.108 5.18179L11.2877 10.0002L16.108 14.8187C16.1926 14.9033 16.2598 15.0038 16.3056 15.1145C16.3514 15.2251 16.375 15.3436 16.375 15.4633C16.375 15.5831 16.3514 15.7016 16.3056 15.8122C16.2598 15.9228 16.1926 16.0233 16.108 16.108C16.0233 16.1926 15.9228 16.2598 15.8122 16.3056C15.7016 16.3514 15.5831 16.375 15.4633 16.375C15.3436 16.375 15.2251 16.3514 15.1145 16.3056C15.0038 16.2598 14.9033 16.1926 14.8187 16.108L10.0002 11.2877L5.18179 16.108C5.09713 16.1926 4.99663 16.2598 4.88602 16.3056C4.77541 16.3514 4.65686 16.375 4.53714 16.375C4.41742 16.375 4.29887 16.3514 4.18826 16.3056C4.07765 16.2598 3.97715 16.1926 3.8925 16.108C3.80784 16.0233 3.74069 15.9228 3.69487 15.8122C3.64906 15.7016 3.62548 15.5831 3.62548 15.4633C3.62548 15.3436 3.64906 15.2251 3.69487 15.1145C3.74069 15.0038 3.80784 14.9033 3.8925 14.8187L8.71277 10.0002L3.8925 5.18179C3.8077 5.09721 3.74043 4.99673 3.69453 4.88611C3.64863 4.7755 3.625 4.65691 3.625 4.53714C3.625 4.41738 3.64863 4.29879 3.69453 4.18817C3.74043 4.07755 3.8077 3.97708 3.8925 3.8925Z' fill='black'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
   cursor: pointer;
 }
-.header-tab-bar-wrap .scroll-arrow {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 32px;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 10;
-  /* ... */
+.header-tab-bar-wrap .nav-item.active .tab-close-btn {
+  background-color: #00BAD1;
 }
-.header-tab-bar-wrap .scroll-arrow.left {
-  left: 0;
-}
-.header-tab-bar-wrap .scroll-arrow.right {
+.header-tab-bar-wrap .header-tab-bar-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: sticky;
   right: 0;
+  background-color: #ffffff;
+  padding-left: 8px;
 }
-.header-tab-bar-wrap .scroll-arrow:hover {
-  background: rgba(200, 220, 255, 0.7);
-}
-.header-tab-bar-wrap .tab-list {
-  display: inline-block;
-  min-width: 100%;
-  white-space: nowrap;
-}
-.header-tab-bar-wrap .tab-scroll-wrap {
-  overflow-x: auto;
-  white-space: nowrap;
+.header-tab-bar-wrap .header-tab-bar-control .scroll-arrow {
+  padding: 4px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: none;
 }
 
 /* ========================================================================
@@ -1774,7 +1780,6 @@ body {
   width: 100vw;
   min-width: 1280px;
   display: flex;
-  background-color: rgba(231, 224, 250, 0.5);
 }
 
 .container-wrap.toggle-opened .content-container {
@@ -1990,7 +1995,6 @@ body {
 
 body {
   color: #000000;
-  background: #f4f7fa;
   font-family: Pretendard, sans-serif;
   font-weight: 400;
   position: relative;
@@ -2143,15 +2147,6 @@ html, body, * {
 }
 
 /* ========================================================================
- * icon 아이콘
-*/
-.icon-hover:hover {
-  text-decoration: none;
-  opacity: 0.3;
-  transition: all 0.25s ease;
-}
-
-/* ========================================================================
  * 말줄임표 2줄
 */
 .text-truncate-multi {
@@ -2177,6 +2172,35 @@ html, body, * {
 
 .box-shadow-none {
   box-shadow: unset !important;
+}
+
+/* ========================================================================
+ * dhx 툴팁 스타일 오버라이드
+*/
+.dhx_tooltip {
+  z-index: 1000;
+  border-radius: 0.25rem;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4px 8px;
+  box-shadow: none;
+}
+.dhx_tooltip:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: 100%; /* 삼각형을 툴팁 윗쪽에 위치시킴 */
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #000000;
+}
+.dhx_tooltip .dhx_tooltip__text {
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 /* ========================================================================
@@ -2276,19 +2300,28 @@ html, body, * {
   letter-spacing: -0.35px;
 }
 .btn:hover {
-  color: #ffffff;
-  background-color: #00A4B8;
-  border-color: #00A4B8;
+  color: #ffffff !important;
+  background-color: #00A4B8 !important;
+  border-color: #00A4B8 !important;
+}
+.btn:hover .icon {
+  background-color: #ffffff !important;
 }
 .btn:active {
-  color: #ffffff;
-  background-color: #0095A7;
-  border-color: #0095A7;
+  color: #ffffff !important;
+  background-color: #0095A7 !important;
+  border-color: #0095A7 !important;
+}
+.btn:active .icon {
+  background-color: #ffffff !important;
 }
 .btn:disabled, .btn.disabled {
-  background-color: #e6e6e6;
-  border-color: #cccccc;
-  color: #919191;
+  background-color: #e6e6e6 !important;
+  border-color: #cccccc !important;
+  color: #919191 !important;
+}
+.btn:disabled .icon, .btn.disabled .icon {
+  background-color: #e6e6e6 !important;
 }
 
 .btn-primary {
@@ -2494,6 +2527,26 @@ html, body, * {
   mask-size: contain;
   -webkit-mask-size: contain;
   transform: rotate(-90deg);
+}
+
+.icon-arrow-left-bold {
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M10.4717 12.9717C10.7321 12.7114 10.7321 12.2893 10.4717 12.0289L6.94313 8.50033L10.4717 4.97173C10.7321 4.71138 10.7321 4.28927 10.4717 4.02892C10.2114 3.76857 9.78927 3.76857 9.52892 4.02892L5.52892 8.02892C5.26857 8.28927 5.26857 8.71138 5.52892 8.97173L9.52892 12.9717C9.78927 13.2321 10.2114 13.2321 10.4717 12.9717Z' fill='black'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M10.4717 12.9717C10.7321 12.7114 10.7321 12.2893 10.4717 12.0289L6.94313 8.50033L10.4717 4.97173C10.7321 4.71138 10.7321 4.28927 10.4717 4.02892C10.2114 3.76857 9.78927 3.76857 9.52892 4.02892L5.52892 8.02892C5.26857 8.28927 5.26857 8.71138 5.52892 8.97173L9.52892 12.9717C9.78927 13.2321 10.2114 13.2321 10.4717 12.9717Z' fill='black'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
+.icon-arrow-right-bold {
+  opacity: 1;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M5.52827 12.9717C5.26792 12.7114 5.26792 12.2893 5.52827 12.0289L9.05687 8.50033L5.52827 4.97173C5.26792 4.71138 5.26792 4.28927 5.52827 4.02892C5.78862 3.76857 6.21073 3.76857 6.47108 4.02892L10.4711 8.02892C10.7314 8.28927 10.7314 8.71138 10.4711 8.97173L6.47108 12.9717C6.21073 13.2321 5.78862 13.2321 5.52827 12.9717Z' fill='black'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M5.52827 12.9717C5.26792 12.7114 5.26792 12.2893 5.52827 12.0289L9.05687 8.50033L5.52827 4.97173C5.26792 4.71138 5.26792 4.28927 5.52827 4.02892C5.78862 3.76857 6.21073 3.76857 6.47108 4.02892L10.4711 8.02892C10.7314 8.28927 10.7314 8.71138 10.4711 8.97173L6.47108 12.9717C6.21073 13.2321 5.78862 13.2321 5.52827 12.9717Z' fill='black'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
 }
 
 .icon-bell {

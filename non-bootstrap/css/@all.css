@@ -636,7 +636,7 @@ html, body, * {
   overflow: hidden;
   /* 크롬 */
 }
-.header-tab-bar-wrap .tab-area-container {
+.header-tab-bar-wrap .header-tab-bar-container {
   position: relative;
   width: 100%;
   padding-left: 40px;
@@ -691,7 +691,7 @@ html, body, * {
 .header-tab-bar-wrap .scroll-arrow:hover {
   background: rgba(200, 220, 255, 0.7);
 }
-.header-tab-bar-wrap .tab-list {
+.header-tab-bar-wrap .header-tab-bar-ul {
   display: inline-block;
   min-width: 100%;
   white-space: nowrap;

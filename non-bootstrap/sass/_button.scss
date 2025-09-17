@@ -11,22 +11,31 @@
   letter-spacing: -0.35px;
 
   &:hover {
-    color: $white;
-    background-color: #00A4B8;
-    border-color: #00A4B8;
+    color: $white !important;
+    background-color: #00A4B8 !important;
+    border-color: #00A4B8 !important;
+    .icon {
+      background-color: $white !important;
+    }
   }
 
   &:active {
-    color: $white;
-    background-color: #0095A7;
-    border-color: #0095A7;
+    color: $white !important;
+    background-color: #0095A7 !important;
+    border-color: #0095A7 !important;
+    .icon {
+      background-color: $white !important;
+    }
   }
 
   &:disabled,
   &.disabled {
-    background-color: $gray-e6;
-    border-color: $gray-cc;
-    color: $gray-91;
+    background-color: $gray-e6 !important;
+    border-color: $gray-cc !important;
+    color: $gray-91 !important;
+    .icon {
+      background-color: $gray-e6 !important;
+    }
   }
 }
 

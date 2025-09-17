@@ -23,7 +23,6 @@ body {
 
 body {
   color: $black;
-  background: #f4f7fa;
   font-family: $font-family;
   font-weight: 400;
   position: relative;
@@ -185,16 +184,6 @@ html, body, * {
 }
 
 /* ========================================================================
- * icon 아이콘
-*/
-// * icon hover 색상
-.icon-hover:hover {
-  text-decoration: none;
-  opacity: 0.3;
-  transition: all 0.25s ease;
-}
-
-/* ========================================================================
  * 말줄임표 2줄
 */
 .text-truncate-multi {
@@ -221,6 +210,55 @@ html, body, * {
 .box-shadow-none {
   box-shadow: unset !important;
 }
+
+
+/* ========================================================================
+ * dhx 툴팁 스타일 오버라이드
+*/
+.dhx_tooltip {
+  z-index: 1000;
+  border-radius: $border-radius-4;
+  background-color: $black;
+  color: $white;
+  padding: 4px 8px;
+  box-shadow: none;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;  /* 삼각형을 툴팁 윗쪽에 위치시킴 */
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid $black;
+  }
+
+  .dhx_tooltip__text {
+    font-size: map-get($custom-font-size, 12);
+    font-weight: $font-weight-medium;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ========================================================================
  * pagination 페이지네이션 재정의
