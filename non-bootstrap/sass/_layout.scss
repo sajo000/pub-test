@@ -74,6 +74,7 @@
 * 헤더 스크롤러블 탭메뉴
 * 헤더 중앙에 탭 바. 사이드 메뉴에서 클릭하면 쌓이는 탭으로 페이지 이동 가능함.
 */
+
 .header-tab-bar-wrap {
   flex: 1 1 auto;
   align-content: flex-end;
@@ -95,6 +96,18 @@
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  // * dhx tabbar custom style
+  .custom {
+    // 이전, 다음 버튼
+    .arrow-left {
+      border: 2px dashed deeppink !important;
+    }
+
+    .arrow-right {
+      border: 2px dashed pink !important;
     }
   }
 
