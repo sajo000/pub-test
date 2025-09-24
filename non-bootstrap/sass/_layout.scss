@@ -75,13 +75,14 @@
 * 헤더 중앙에 탭 바. 사이드 메뉴에서 클릭하면 쌓이는 탭으로 페이지 이동 가능함.
 */
 .header-tab-bar-wrap {
+  display: flex;
   flex: 1 1 auto;
   align-content: flex-end;
   overflow: hidden;
 
   .header-tab-bar-container {
     position: relative;
-    width: 100%;
+    //width: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;

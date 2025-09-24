@@ -38,20 +38,20 @@
         <div class="header-tab-bar-container">
           <ul class="nav nav-tabs header-tab-bar-ul">
             <!-- 탭 항목이 동적으로 들어갑니다. -->
-            <Li class="header-tab-bar-control">
-              <button class="btn scroll-arrow left dhx_tooltip-rect" onmouseover="headerScrollArrowLeft(this)">
-                <i class="icon is-16 icon-arrow-left-bold bg-black"></i>
-              </button>
-
-              <button class="btn scroll-arrow right dhx_tooltip-rect" onmouseover="headerScrollArrowRight(this)">
-                <i class="icon is-16 icon-arrow-right-bold bg-black"></i>
-              </button>
-
-              <button class="btn scroll-arrow close dhx_tooltip-rect" onmouseover="headerScrollAllclose(this)">
-                <i class="icon is-16 icon-close bg-black"></i>
-              </button>
-            </Li>
           </ul>
+        </div>
+        <div class="header-tab-bar-control">
+          <button class="btn scroll-arrow left dhx_tooltip-rect" onmouseover="headerScrollArrowLeft(this)">
+            <i class="icon is-16 icon-arrow-left-bold bg-black"></i>
+          </button>
+
+          <button class="btn scroll-arrow right dhx_tooltip-rect" onmouseover="headerScrollArrowRight(this)">
+            <i class="icon is-16 icon-arrow-right-bold bg-black"></i>
+          </button>
+
+          <button class="btn scroll-arrow close dhx_tooltip-rect" onmouseover="headerScrollAllclose(this)">
+            <i class="icon is-16 icon-close bg-black"></i>
+          </button>
         </div>
         <!-- /헤더 스크롤러블 탭메뉴 -->
       </div>
@@ -284,15 +284,15 @@
 <script>
   // 헤더 탭 메뉴 좌, 우, 닫기 버튼 툴팁
   function headerScrollArrowLeft(node) {
-    dhx.tooltip("왼쪽 스크롤", { node: node });
+    dhx.tooltip("왼쪽 스크롤", {node: node});
   }
 
   function headerScrollArrowRight(node) {
-    dhx.tooltip("오른쪽 스크롤", { node: node });
+    dhx.tooltip("오른쪽 스크롤", {node: node});
   }
 
   function headerScrollAllclose(node) {
-    dhx.tooltip("전체탭 닫기", { node: node });
+    dhx.tooltip("전체탭 닫기", {node: node});
   }
 
 
