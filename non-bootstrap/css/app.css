@@ -1708,12 +1708,6 @@
 .header-tab-bar-wrap .header-tab-bar-container::-webkit-scrollbar {
   display: none;
 }
-.header-tab-bar-wrap .custom .arrow-left {
-  border: 2px dashed deeppink !important;
-}
-.header-tab-bar-wrap .custom .arrow-right {
-  border: 2px dashed pink !important;
-}
 .header-tab-bar-wrap .header-tab-bar-ul {
   display: flex;
   gap: 8px;
