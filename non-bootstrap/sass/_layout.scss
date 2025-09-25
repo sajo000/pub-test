@@ -87,12 +87,10 @@
     display: flex;
     align-items: center;
     align-content: end;
-
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     scrollbar-width: none; /* 파이어폭스 */
-
 
     &::-webkit-scrollbar {
       display: none;

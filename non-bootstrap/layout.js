@@ -198,3 +198,230 @@ $(document).ready(function () {
     addOrActivateTab(tabId, title, getUrlByTabId(tabId));
   });
 });
+
+// * 헤더 탭 메뉴 좌, 우, 닫기 버튼 툴팁
+function headerScrollArrowLeft(node) {
+  dhx.tooltip("왼쪽 스크롤", {node: node});
+}
+
+function headerScrollArrowRight(node) {
+  dhx.tooltip("오른쪽 스크롤", {node: node});
+}
+
+function headerScrollAllclose(node) {
+  dhx.tooltip("전체탭 닫기", {node: node});
+}
+
+// * 헤더 탭 메뉴 이전, 다음, 전체 닫기 버튼
+$(document).ready(function () {
+  const $tabList = $('.header-tab-bar-ul');
+  if ($tabList.length === 0) {
+    console.error('탭 ul (.header-tab-bar-ul) 요소를 찾을 수 없습니다.');
+    return;
+  }
+  const $iframeContent = $('.iframe-content');
+  const $btnPrev = $('.scroll-arrow.left');
+  const $btnNext = $('.scroll-arrow.right');
+  const $btnCloseAll = $('.scroll-arrow.close');
+  const container = $('.header-tab-bar-container')[0];
+
+
+  const urlMap = {
+    '대시보드': 'pages/dashboard/dashboard.html',
+    'dashboard': 'pages/dashboard/dashboard.html',
+    '상품관리': 'pages/product/product-management.html',
+    '재고관리': 'pages/inventory/stock-management.html',
+    '연동상품관리': 'pages/product/linked-products.html.html',
+  };
+
+  const iframeTpl = (url) => `<iframe src="${url}" width="100%" height="700"></iframe>`;
+
+  function getUrlByTabId(tabId) {
+    return urlMap[tabId] || 'test1.html';
+  }
+
+  function setActiveTab($li, url) {
+    $tabList.find('.nav-item').removeClass('active');
+    $li.addClass('active');
+    $iframeContent.html(iframeTpl(url));
+    updateTabControls();
+  }
+
+  function showOrHideCloseBtn(){
+    // 대시보드 탭은 닫기 버튼 제거
+    $tabList.find('li[data-tab="dashboard"] .tab-close-btn').remove();
+    $tabList.find('.tab-close-btn').show();
+  }
+
+  // 전체 닫기 버튼 및 이전/다음 버튼 상태 제어 함수
+  function updateTabControls() {
+    const $tabs = $tabList.find('li.nav-item');
+    const $dashboardTab = $tabs.filter('[data-tab="dashboard"]');
+    const activeTabs = $tabs.filter('.active');
+    const tabCount = $tabs.length;
+
+    // 1. 대시보드 탭만 활성화면 모두 숨김
+    const onlyDashboardActive = (tabCount === 1 && activeTabs.is($dashboardTab));
+    if(onlyDashboardActive) {
+      $btnPrev.hide();
+      $btnNext.hide();
+      $btnCloseAll.hide();
+      showOrHideCloseBtn();
+      return;
+    }
+
+    // 2. 탭이 하나라도 추가되면 전체닫기 버튼 노출
+    if(tabCount > 0) {
+      $btnCloseAll.show();
+    } else {
+      $btnCloseAll.hide();
+    }
+
+    // 3. ul 스크롤 값 구하기
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+
+    // 4. ul 너비보다 탭 너비가 크면 스크롤 가능
+    if(scrollWidth > clientWidth) {
+      if(scrollLeft === 0) {
+        // 4-1 왼쪽 끝에서 오른쪽 이동만 가능
+        $btnPrev.hide();
+        $btnNext.show();
+      } else if(scrollLeft + clientWidth < scrollWidth) {
+        // 4-2 양쪽 이동 가능
+        $btnPrev.show();
+        $btnNext.show();
+      } else {
+        // 4-3 오른쪽 끝에서 왼쪽 이동만 가능
+        $btnPrev.show();
+        $btnNext.hide();
+      }
+    } else {
+      // 스크롤 불필요
+      $btnPrev.hide();
+      $btnNext.hide();
+    }
+    showOrHideCloseBtn();
+  }
+
+  // 5. 전체 닫기 버튼 클릭 시 대시보드를 제외한 모든 탭 닫기
+  function onHeaderScrollAllCloseClick() {
+    $tabList.find('li.nav-item').not('[data-tab="dashboard"]').remove();
+    const $dashboardTab = $tabList.find('li[data-tab="dashboard"]');
+    if($dashboardTab.length) {
+      setActiveTab($dashboardTab, getUrlByTabId('dashboard'));
+    }
+    updateTabControls();
+  }
+
+  // 좌우 스크롤 버튼 클릭 시 탭 ul 스크롤 이동 (예: 100px 씩)
+  function onHeaderScrollArrowLeftClick() {
+    // $tabList[0].scrollBy({left: -100, behavior: 'smooth'});
+    container.scrollBy({ left: -150, behavior: 'smooth' });
+    // 콜백으로 updateTabControls 호출해도 됨
+  }
+
+  function onHeaderScrollArrowRightClick() {
+    // $tabList[0].scrollBy({left: 100, behavior: 'smooth'});
+    container.scrollBy({ left: 150, behavior: 'smooth' });
+    // 콜백으로 updateTabControls 호출해도 됨
+  }
+
+  // 초기 대시보드 탭 생성 및 활성화
+  function initDashboardTab() {
+    let $dashboard = $tabList.find('li[data-tab="dashboard"]');
+    if(!$dashboard.length) {
+      const $li = $(`
+        <li class="nav-item active" data-tab="dashboard">
+          <a href="#" class="nav-link fixed-tab">대시보드</a>
+        </li>
+      `);
+      $tabList.prepend($li);
+      $dashboard = $li;
+    }
+    setActiveTab($dashboard, urlMap['dashboard']);
+  }
+  initDashboardTab();
+
+  // 추가된 기존 addOrActivateTab 함수 (버튼 숨김 노출 갱신 포함)
+  function addOrActivateTab(tabId, title, url) {
+    let $existing = $tabList.find(`li[data-tab="${tabId}"]`);
+    if($existing.length) {
+      setActiveTab($existing, url);
+      return;
+    }
+    const $li = $(`
+      <li class="nav-item active" data-tab="${tabId}">
+        <a href="#" class="nav-link">${title}
+          <button type="button" class="tab-close-btn" style="display:none;">&times;</button>
+        </a>
+      </li>
+    `);
+    $tabList.find('li').eq(0).after($li);
+    setActiveTab($li, url);
+  }
+
+  // 탭 클릭 시 활성화 처리
+  $tabList.on('click', '.nav-item', function(e) {
+    if($(e.target).hasClass('tab-close-btn')) return;
+    e.preventDefault();
+    const $li = $(this);
+    const tabId = $li.data('tab');
+    setActiveTab($li, getUrlByTabId(tabId));
+  });
+
+  // 닫기 버튼 클릭 시 해당 탭 제거 및 포커스 이동 처리
+  $tabList.on('click', '.tab-close-btn', function(e) {
+    e.stopPropagation();
+    const $li = $(this).closest('li');
+    const isActive = $li.hasClass('active');
+    let $toActivate;
+
+    if(isActive) {
+      $toActivate = $li.nextAll('li.nav-item').first();
+      if(!$toActivate.length) {
+        $toActivate = $li.prevAll('li.nav-item:not([data-tab="dashboard"])').first();
+      }
+    }
+    $li.remove();
+
+    if(isActive) {
+      if($toActivate && $toActivate.length) {
+        $toActivate.trigger('click');
+      } else {
+        $tabList.find('li[data-tab="dashboard"]').trigger('click');
+      }
+    } else {
+      updateTabControls();
+    }
+  });
+
+  // 메뉴 클릭해서 탭 생성 or 활성화
+  $('.deps1-link, .deps2-link').click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    if($this.hasClass('multiple') && $this.next('.deps2').children().length > 0) {
+      return;
+    }
+    const isDashboard = $this.hasClass('single') && $this.find('.deps1-title').text().trim() === '대시보드';
+    if(isDashboard) {
+      initDashboardTab();
+      return;
+    }
+    const tabId = $this.text().trim();
+    const title = $this.find('.deps1-title, .deps2-title').text() || tabId;
+    addOrActivateTab(tabId, title, getUrlByTabId(tabId));
+  });
+
+  // 버튼 이벤트 연결
+  $btnPrev.on('click', onHeaderScrollArrowLeftClick);
+  $btnNext.on('click', onHeaderScrollArrowRightClick);
+  $btnCloseAll.on('click', onHeaderScrollAllCloseClick);
+
+  // ul 스크롤 시 버튼 상태 업데이트
+  $tabList.on('scroll', updateTabControls);
+
+  // 초기 버튼 상태 갱신
+  updateTabControls();
+});
