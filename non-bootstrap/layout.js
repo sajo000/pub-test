@@ -225,7 +225,6 @@ $(document).ready(function () {
   const $btnCloseAll = $('.scroll-arrow.close');
   const container = $('.header-tab-bar-container')[0];
 
-
   const urlMap = {
     '대시보드': 'pages/dashboard/dashboard.html',
     'dashboard': 'pages/dashboard/dashboard.html',
@@ -255,57 +254,53 @@ $(document).ready(function () {
 
   // 전체 닫기 버튼 및 이전/다음 버튼 상태 제어 함수
   function updateTabControls() {
+    if (!container) return;
+
+    // 로그로 체크용
+    console.log('scrollLeft:', container.scrollLeft);
+    console.log('scrollWidth:', container.scrollWidth);
+    console.log('clientWidth:', container.clientWidth);
+
     const $tabs = $tabList.find('li.nav-item');
     const $dashboardTab = $tabs.filter('[data-tab="dashboard"]');
     const activeTabs = $tabs.filter('.active');
     const tabCount = $tabs.length;
 
-    // 1. 대시보드 탭만 활성화면 모두 숨김
+    // 대시보드만 있으면 전체 버튼 숨김
     const onlyDashboardActive = (tabCount === 1 && activeTabs.is($dashboardTab));
-    if(onlyDashboardActive) {
+    if (onlyDashboardActive) {
       $btnPrev.hide();
       $btnNext.hide();
       $btnCloseAll.hide();
       showOrHideCloseBtn();
       return;
     }
+    // 탭 추가 시 전체 닫기 버튼 노출
+    $btnCloseAll.toggle(tabCount > 0);
 
-    // 2. 탭이 하나라도 추가되면 전체닫기 버튼 노출
-    if(tabCount > 0) {
-      $btnCloseAll.show();
-    } else {
-      $btnCloseAll.hide();
-    }
-
-    // 3. ul 스크롤 값 구하기
     const scrollLeft = container.scrollLeft;
     const scrollWidth = container.scrollWidth;
     const clientWidth = container.clientWidth;
 
-    // 4. ul 너비보다 탭 너비가 크면 스크롤 가능
-    if(scrollWidth > clientWidth) {
-      if(scrollLeft === 0) {
-        // 4-1 왼쪽 끝에서 오른쪽 이동만 가능
+    if (scrollWidth > clientWidth) {
+      if (scrollLeft === 0) {
         $btnPrev.hide();
         $btnNext.show();
-      } else if(scrollLeft + clientWidth < scrollWidth) {
-        // 4-2 양쪽 이동 가능
-        $btnPrev.show();
-        $btnNext.show();
-      } else {
-        // 4-3 오른쪽 끝에서 왼쪽 이동만 가능
+      } else if (scrollLeft + clientWidth >= scrollWidth - 1) {
         $btnPrev.show();
         $btnNext.hide();
+      } else {
+        $btnPrev.show();
+        $btnNext.show();
       }
     } else {
-      // 스크롤 불필요
       $btnPrev.hide();
       $btnNext.hide();
     }
     showOrHideCloseBtn();
   }
 
-  // 5. 전체 닫기 버튼 클릭 시 대시보드를 제외한 모든 탭 닫기
+  // 전체 닫기 버튼 클릭 시 대시보드를 제외한 모든 탭 닫기
   function onHeaderScrollAllCloseClick() {
     $tabList.find('li.nav-item').not('[data-tab="dashboard"]').remove();
     const $dashboardTab = $tabList.find('li[data-tab="dashboard"]');
@@ -315,17 +310,15 @@ $(document).ready(function () {
     updateTabControls();
   }
 
-  // 좌우 스크롤 버튼 클릭 시 탭 ul 스크롤 이동 (예: 100px 씩)
+  // 좌우 스크롤 버튼 클릭 시 container 스크롤 이동 (100px씩)
   function onHeaderScrollArrowLeftClick() {
-    // $tabList[0].scrollBy({left: -100, behavior: 'smooth'});
     container.scrollBy({ left: -150, behavior: 'smooth' });
-    // 콜백으로 updateTabControls 호출해도 됨
+    setTimeout(updateTabControls, 300);
   }
 
   function onHeaderScrollArrowRightClick() {
-    // $tabList[0].scrollBy({left: 100, behavior: 'smooth'});
     container.scrollBy({ left: 150, behavior: 'smooth' });
-    // 콜백으로 updateTabControls 호출해도 됨
+    setTimeout(updateTabControls, 300);
   }
 
   // 초기 대시보드 탭 생성 및 활성화
@@ -344,7 +337,7 @@ $(document).ready(function () {
   }
   initDashboardTab();
 
-  // 추가된 기존 addOrActivateTab 함수 (버튼 숨김 노출 갱신 포함)
+  // 탭 추가 또는 활성화
   function addOrActivateTab(tabId, title, url) {
     let $existing = $tabList.find(`li[data-tab="${tabId}"]`);
     if($existing.length) {
@@ -362,7 +355,7 @@ $(document).ready(function () {
     setActiveTab($li, url);
   }
 
-  // 탭 클릭 시 활성화 처리
+  // 탭 클릭 활성화 처리
   $tabList.on('click', '.nav-item', function(e) {
     if($(e.target).hasClass('tab-close-btn')) return;
     e.preventDefault();
@@ -371,7 +364,7 @@ $(document).ready(function () {
     setActiveTab($li, getUrlByTabId(tabId));
   });
 
-  // 닫기 버튼 클릭 시 해당 탭 제거 및 포커스 이동 처리
+  // 닫기 버튼 클릭 시 탭 삭제 및 새 탭 활성화
   $tabList.on('click', '.tab-close-btn', function(e) {
     e.stopPropagation();
     const $li = $(this).closest('li');
@@ -397,7 +390,7 @@ $(document).ready(function () {
     }
   });
 
-  // 메뉴 클릭해서 탭 생성 or 활성화
+  // 메뉴 클릭 시 탭 생성 또는 활성화
   $('.deps1-link, .deps2-link').click(function(e) {
     e.preventDefault();
     const $this = $(this);
@@ -419,9 +412,10 @@ $(document).ready(function () {
   $btnNext.on('click', onHeaderScrollArrowRightClick);
   $btnCloseAll.on('click', onHeaderScrollAllCloseClick);
 
-  // ul 스크롤 시 버튼 상태 업데이트
-  $tabList.on('scroll', updateTabControls);
+  // container 스크롤 시 버튼 상태 업데이트
+  $('.header-tab-bar-container').on('scroll', updateTabControls);
 
   // 초기 버튼 상태 갱신
   updateTabControls();
 });
+
