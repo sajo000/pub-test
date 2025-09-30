@@ -183,6 +183,7 @@ html, body, * {
   }
 }
 
+
 /* ========================================================================
  * 말줄임표 2줄
 */
@@ -263,25 +264,38 @@ html, body, * {
 /* ========================================================================
  * pagination 페이지네이션 재정의
 */
-.pagination {
-  justify-content: center;
-  gap: 1rem;
-}
-
-.page-link {
-  width: 32px;
-  height: 32px;
+#pagination-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 100px;
-  font-size: map-get($custom-font-size, 12);
-  font-weight: 500;
-}
+  gap: 8px;
 
-.page-link:focus {
-  box-shadow: none;
+  .arrow-button {
+    height: 36px;
+    width: 36px;
+    background-color: white;
+    border: 0;
+
+    &.active {
+      background-color: $gray-6b;
+    }
+  }
+
+  .page-button {
+    height: 36px;
+    min-width: 36px;
+    align-content: center;
+    background-color: white;
+    border: 1px solid $gray-e6;
+    border-radius: $border-radius-8;
+    padding: 8px;
+    font-weight: $font-weight-medium;
+
+    &.active {
+      border-color: $primary;
+      color: $primary;
+      background-color: $primary-lite2;
+      font-weight: $font-weight-bold;
+    }
+  }
 }
 
 /* ========================================================================

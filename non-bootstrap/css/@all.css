@@ -875,7 +875,7 @@ iframe {
   display: flex;
   flex-direction: column;
 }
-.iframe-content-inner .iframe-page-filter-wrap {
+.iframe-content-inner .iframe-page-top-section {
   flex: 0 0 auto;
   background: cadetblue;
 }
@@ -884,7 +884,7 @@ iframe {
   background: palevioletred;
 }
 
-.iframe-title--main h1, .iframe-title--main .h1 {
+.iframe-title-wrap h1, .iframe-title-wrap .h1 {
   color: #00BAD1;
   font-size: 1.625rem;
   font-weight: 700;

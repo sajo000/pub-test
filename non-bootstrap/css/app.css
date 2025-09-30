@@ -1609,6 +1609,12 @@
   height: 2rem !important;
 }
 
+.is-36 {
+  display: flex;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+}
+
 .is-48 {
   display: flex;
   width: 3rem !important;
@@ -1700,7 +1706,6 @@
   display: flex;
   align-items: center;
   align-content: end;
-  overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
   scrollbar-width: none; /* 파이어폭스 */
@@ -1935,6 +1940,7 @@
 */
 iframe {
   height: 100%;
+  border: 0;
 }
 
 .iframe-content {
@@ -1951,24 +1957,14 @@ iframe {
   display: flex;
   flex-direction: column;
 }
-.iframe-content-inner .iframe-page-filter-wrap {
+.iframe-content-inner .iframe-page-top-section {
   flex: 0 0 auto;
   background: cadetblue;
 }
 .iframe-content-inner .iframe-page-content-wrap {
+  width: 100%;
   flex: 1 1 auto;
   background: palevioletred;
-}
-
-.text-truncate-multi {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 필수 -webkit- 프리픽스 */
-  -webkit-box-orient: vertical; /* 필수 */
-  height: 3em; /* 2줄 높이에 맞춰 조정 */
-  display: -webkit-box; /* 박스 레이아웃으로 변경 */
-  -webkit-box-orient: vertical;
 }
 
 /* ************************************************************************
@@ -2206,25 +2202,34 @@ html, body, * {
 /* ========================================================================
  * pagination 페이지네이션 재정의
 */
-.pagination {
-  justify-content: center;
-  gap: 1rem;
-}
-
-.page-link {
-  width: 32px;
-  height: 32px;
+#pagination-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 100px;
-  font-size: 0.75rem;
+  gap: 8px;
+}
+#pagination-container .arrow-button {
+  height: 36px;
+  width: 36px;
+  background-color: white;
+  border: 0;
+}
+#pagination-container .arrow-button.active {
+  background-color: #6b6b6b;
+}
+#pagination-container .page-button {
+  height: 36px;
+  min-width: 36px;
+  align-content: center;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.5rem;
+  padding: 8px;
   font-weight: 500;
 }
-
-.page-link:focus {
-  box-shadow: none;
+#pagination-container .page-button.active {
+  border-color: #00BAD1;
+  color: #00BAD1;
+  background-color: #EFFDFF;
+  font-weight: 700;
 }
 
 /* ========================================================================
@@ -3068,227 +3073,22 @@ http://scripts.sil.org/OFL
 }
 
 /* ========================================================================
-* input
+ * font-weight
 */
-.form-group {
-  margin-bottom: 20px;
+.fw-normal {
+  font-weight: 400;
 }
 
-.form-group-append {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  padding-right: 1rem;
-}
-
-.form-label {
-  margin-bottom: 6px;
+.fw-medium {
   font-weight: 500;
-  font-size: 0.875rem;
 }
 
-.form-control,
-.form-select {
-  height: 46px;
-  padding: 8px 1rem;
-  border: 1px solid #6b6b6b;
-  font-size: 0.875rem;
-  border-radius: var(--bs-border-radius-sm);
-}
-.form-control::placeholder,
-.form-select::placeholder {
-  color: blue;
-}
-.form-control:hover,
-.form-select:hover {
-  border-color: #00BAD1;
-}
-.form-control:disabled, .form-control.disabled,
-.form-select:disabled,
-.form-select.disabled {
-  background-color: #e6e6e6;
-  border-color: #cccccc;
-  color: #919191;
-}
-.form-control.success,
-.form-select.success {
-  border-color: #01A235;
-}
-.form-control.warning,
-.form-select.warning {
-  border-color: #FF8000;
-}
-.form-control.error,
-.form-select.error {
-  border-color: #FF4263;
-}
-.form-control:focus,
-.form-select:focus {
-  border-color: #00BAD1;
-  box-shadow: none;
-}
-
-.form-control-info__text {
-  margin-top: 2px;
-  font-size: 0.75rem;
-}
-.form-control-info__text.success {
-  color: #01A235;
-}
-.form-control-info__text.warning {
-  color: #FF8000;
-}
-.form-control-info__text.error {
-  color: #FF4263;
-}
-
-/* ========================================================================
-* textarea
-*/
-textarea.form-control {
-  min-height: calc(1.5em + 0.75rem + var(--bs-border-width) * 2 + 20px);
-}
-
-/* ========================================================================
-* 인풋 체크박스
-*/
-.form-check-input {
-  width: 20px;
-  height: 20px;
-}
-.form-check-input:focus {
-  border-color: #00BAD1;
-  box-shadow: none;
-}
-.form-check-input:checked {
-  background-color: #00BAD1;
-  border-color: #00BAD1;
-}
-
-.form-check-label {
-  font-size: 14px;
-}
-
-.form-check {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding-left: 28px;
-  min-height: unset;
-  margin-bottom: 0;
-}
-.form-check .form-check-input {
-  margin-left: -28px;
-  margin-top: 0;
-}
-.form-check .form-check-label {
-  line-height: 1;
-}
-
-.form-switch .form-check-input {
-  --bs-form-check-bg: #e0e0e0;
-  height: 24px;
-  margin-right: 8px;
-}
-.form-switch .form-check-input:focus {
-  border-color: transparent;
-  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-}
-
-/* ========================================================================
-* 검색 인풋 search
-* .form-search 안에 input 과 search icon button 나란히 있어야함!
-* 검색 인풋만 PC에서 높이 56px, 둥글기 10px, 버튼 top: 3px 인 점 참고.
-*/
-.form-search {
-  position: relative;
-  flex: 1;
-}
-.form-search .form-control {
-  padding-right: 20px;
-  background-color: #f7f7f7;
-  border-color: #f7f7f7;
-}
-@media (min-width: 992px) {
-  .form-search .form-control {
-    height: 56px;
-    border-radius: 10px;
-  }
-}
-.form-search .form-control:hover {
-  border-color: #00BAD1;
-}
-.form-search .btn {
-  position: absolute;
-  right: 16px;
-  top: 0;
-}
-@media (min-width: 992px) {
-  .form-search .btn {
-    top: 3px;
-  }
-}
-
-/* ========================================================================
- * 테스트으으으으
- */
-.multi-select-wrap {
-  border: 1.5px solid #28cbe5;
-  border-radius: 8px;
-  background: #fff;
-  position: relative;
-  min-height: 44px;
-  cursor: pointer;
-  padding: 8px 12px;
-}
-
-.multi-select-display {
-  min-height: 26px;
-  color: #39b2cf;
+.fw-semibold {
   font-weight: 600;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
-.multi-select-dropdown {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 110%;
-  background: #fff;
-  z-index: 20;
-  box-shadow: 0 3px 12px rgba(60, 55, 88, 0.12);
-}
-
-.multi-option {
-  padding: 10px 15px;
-  color: #39b2cf;
-  cursor: pointer;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.multi-option:hover, .multi-option.selected {
-  background: #f0fbfd;
-}
-
-.check-mark {
-  color: #00baca;
-  font-size: 15px;
-}
-
-.form-select {
-  --bs-form-select-bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7' viewBox='0 0 8 7' fill='none'%3E%3Cpath d='M4.51901 5.84531L7.82796 2.06375C8.21847 1.61736 7.9011 0.919138 7.30844 0.919138L0.690533 0.919138C0.557896 0.919024 0.428037 0.957144 0.316507 1.02893C0.204978 1.10072 0.116507 1.20314 0.0616874 1.32392C0.00686781 1.4447 -0.0119768 1.57872 0.00741186 1.70993C0.0268005 1.84114 0.0835995 1.96399 0.171007 2.06375L3.47996 5.84462C3.54472 5.91873 3.62458 5.97812 3.71419 6.01882C3.80379 6.05951 3.90107 6.08057 3.99949 6.08057C4.0979 6.08057 4.19518 6.05951 4.28478 6.01882C4.37439 5.97812 4.45425 5.91942 4.51901 5.84531Z' fill='%23919191'/%3E%3C/svg%3E");
-  background-size: 8px 7px;
-  background-position: right 21px center;
-  padding: 8px 16px;
+.fw-bold {
+  font-weight: 700;
 }
 
 .modal-custom {

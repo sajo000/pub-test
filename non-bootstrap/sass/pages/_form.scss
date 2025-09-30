@@ -1,9 +1,67 @@
 /* ========================================================================
 * input
 */
-
 .form-group {
-  margin-bottom: 20px;
+  .dhx_form {
+    padding: 0 !important;
+  }
+
+  .dhx_form-group {
+    margin-bottom: 0;
+  }
+
+  .dhx_label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: map-get($custom-font-size, 14);
+  }
+
+  .dhx_combobox-input-box {
+    width: 236px;
+    //height: 46px;
+    //padding: 8px 1rem;
+    background-color: white;
+    border: 1px solid $gray-e6;
+    font-size: map-get($custom-font-size, 14);
+    border-radius: $border-radius-6;
+    box-shadow: none;
+
+    &::placeholder {
+      color: blue;
+    }
+
+    &:hover {
+      border-color: $primary;
+    }
+
+    &:disabled,
+    &.disabled {
+      background-color: $gray-e6;
+      border-color: $gray-cc;
+      color: $gray-91;
+    }
+
+    &.success {
+      border-color: $success;
+    }
+
+    &.warning {
+      border-color: $warning;
+    }
+
+    &.error {
+      border-color: $danger;
+    }
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: none;
+    }
+
+    .dhx_combobox {
+      margin-bottom: 0;
+    }
+  }
 }
 
 // * form-group input 안에 아이콘 있는 경우 button 감싸고 있는 div
@@ -14,53 +72,6 @@
   right: 0;
   transform: translateY(-50%);
   padding-right: 1rem;
-}
-
-.form-label {
-  margin-bottom: 6px;
-  font-weight: 500;
-  font-size: map-get($custom-font-size, 14);
-}
-
-.form-control,
-.form-select {
-  height: 46px;
-  padding: 8px 1rem;
-  border: 1px solid $gray-6b;
-  font-size: map-get($custom-font-size, 14);
-  border-radius: var(--bs-border-radius-sm);
-
-  &::placeholder {
-    color: blue;
-  }
-
-  &:hover {
-    border-color: $primary;
-  }
-
-  &:disabled,
-  &.disabled {
-    background-color: $gray-e6;
-    border-color: $gray-cc;
-    color: $gray-91;
-  }
-
-  &.success {
-    border-color: $success;
-  }
-
-  &.warning {
-    border-color: $warning;
-  }
-
-  &.error {
-    border-color: $danger;
-  }
-
-  &:focus {
-    border-color: $primary;
-    box-shadow: none;
-  }
 }
 
 // 헬퍼 문구

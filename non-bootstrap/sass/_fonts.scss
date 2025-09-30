@@ -163,3 +163,22 @@ http://scripts.sil.org/OFL
 .bg-black {
 	background-color: $black;
 }
+
+/* ========================================================================
+ * font-weight
+*/
+.fw-normal {
+	font-weight: $font-weight-normal;
+}
+
+.fw-medium {
+	font-weight: $font-weight-medium;
+}
+
+.fw-semibold {
+	font-weight: $font-weight-semibold;
+}
+
+.fw-bold {
+	font-weight: $font-weight-bold;
+}

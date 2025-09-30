@@ -87,7 +87,7 @@
     display: flex;
     align-items: center;
     align-content: end;
-    overflow-x: auto;
+    //overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     scrollbar-width: none; /* 파이어폭스 */
@@ -349,6 +349,7 @@
 */
 iframe {
   height: 100%;
+  border: 0;
 }
 
 .iframe-content {
@@ -367,25 +368,26 @@ iframe {
     flex-direction: column;
   }
 
-  .iframe-page-filter-wrap {
+  .iframe-page-top-section {
     flex: 0 0 auto;
     background: cadetblue;
   }
 
   .iframe-page-content-wrap {
+    width: 100%;
+    //max-width: 100%;
     flex: 1 1 auto;
     background: palevioletred;
   }
 }
 
-
-.text-truncate-multi {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 필수 -webkit- 프리픽스 */
-  -webkit-box-orient: vertical; /* 필수 */
-  height: 3em; /* 2줄 높이에 맞춰 조정 */
-  display: -webkit-box; /* 박스 레이아웃으로 변경 */
-  -webkit-box-orient: vertical;
-}
+//.text-truncate-multi {
+//  overflow: hidden;
+//  text-overflow: ellipsis;
+//  display: -webkit-box;
+//  -webkit-line-clamp: 2; /* 필수 -webkit- 프리픽스 */
+//  -webkit-box-orient: vertical; /* 필수 */
+//  height: 3em; /* 2줄 높이에 맞춰 조정 */
+//  display: -webkit-box; /* 박스 레이아웃으로 변경 */
+//  -webkit-box-orient: vertical;
+//}

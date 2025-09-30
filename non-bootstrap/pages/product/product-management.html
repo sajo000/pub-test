@@ -29,14 +29,15 @@
 <body>
 <div class="iframe-content-inner">
   <div class="iframe-page-wrap" style="min-height: 100vh;">
-    <div class="iframe-page-filter-wrap">
-      <div class="iframe-title--main">
+    <div class="iframe-page-top-section">
+
+      <div class="iframe-title-wrap">
         <h1>상품 관리</h1>
         <div class="d-flex gap-3 ms-auto">
-        <button class="btn btn-m btn-outline-primary d-flex align-items-center gap-6">
-          <i class="icon is-16 icon-plus bg-primary"></i>
-          <span>상품 개별 등록</span>
-        </button>
+          <button class="btn btn-m btn-outline-primary d-flex align-items-center gap-6">
+            <i class="icon is-16 icon-plus bg-primary"></i>
+            <span>상품 개별 등록</span>
+          </button>
           <button class="btn btn-m btn-outline-primary d-flex align-items-center gap-6">
             <i class="icon is-16 icon-barcode bg-primary"></i>
             <span>상품 바코드 업로드</span>
@@ -47,24 +48,73 @@
           </button>
         </div>
       </div>
-      <!-- component container -->
-      <section class="dhx_sample-container">
-        <form id="form" style="height: 100%; margin: 0 10px;"></form>
-        <form id="form-settings" style="margin: 0 10px;"></form>
-      </section>
+
+      <div class="iframe-filter-wrap">
+        <div class="d-flex">
+          <div id="test" class="form-group"></div>
+        </div>
+      </div>
+
     </div>
-    <div class="iframe-page-content-wrap">
-      <div id="grid" style="width: 100%; height: auto;"></div>
+
+    <hr class="divider my-32">
+
+    <div class="d-flex mb-3">
+      <div class="d-flex gap-3">
+        <button class="btn btn-m btn-outline-gray d-flex align-items-center">
+          <span>상품 허들 동기화</span>
+        </button>
+
+        <button class="btn btn-m btn-outline-gray d-flex align-items-center">
+          <span>쇼핑몰 상품 연동</span>
+        </button>
+      </div>
+
+      <div class="d-flex gap-3 ms-auto">
+        <button class="btn btn-m btn-outline-gray d-flex align-items-center gap-6">
+          <i class="icon is-16 icon-delete bg-danger"></i>
+          <span class="fc-danger">삭제</span>
+        </button>
+
+        <button class="btn btn-m btn-outline-black d-flex align-items-center gap-6">
+          <i class="icon is-16 icon-excel bg-gray-38"></i>
+          <span class="fc-black">쇼핑몰 상품 연동</span>
+        </button>
+      </div>
     </div>
+
+    <div>
+      <div class="iframe-page-content-wrap">
+        <div id="grid" style="width: 100%; height: auto;"></div>
+      </div>
+
+      <div class="mt-4">
+        <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="fs-16 fw-semibold fc-gray-6b me-4">총 <span class="fc-primary">NN</span>건</div>
+            <div>
+              <div id="test1" class="form-group"></div>
+            </div>
+          </div>
+
+          <div class="ms-auto">
+            <div id="pagination-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
 
 <script>
   // dataset
-  const dataset = [
+  let dataset;
+  dataset = [
     {
-      // selected: false,
+      id: 1,
+      inStock: false,
       no: "1",
       productType: "일반상품",
       productCode: "202402010164-0004",
@@ -75,7 +125,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 2,
+      inStock: false,
       no: "2",
       productType: "일반상품",
       productCode: "202402010164-0004",
@@ -86,7 +137,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 3,
+      inStock: false,
       no: "3",
       productType: "일반상품",
       productCode: "202402010164-0004",
@@ -97,7 +149,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 4,
+      inStock: false,
       no: "4",
       productType: "일반상품",
       productCode: "202402010164-0004",
@@ -108,7 +161,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 5,
+      inStock: false,
       no: "5",
       productType: "일반상품",
       productCode: "1075305275-1085897513|1075304982|0002|000302|0001075305275-1085897513|1075304982|0002|000302|0003",
@@ -119,7 +173,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 6,
+      inStock: false,
       no: "6",
       productType: "일반상품",
       productCode: "18577-B11695",
@@ -130,7 +185,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 7,
+      inStock: false,
       no: "7",
       productType: "일반상품",
       productCode: "18577-C11695",
@@ -141,7 +197,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 8,
+      inStock: false,
       no: "8",
       productType: "일반상품",
       productCode: "18572",
@@ -152,7 +209,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 9,
+      inStock: false,
       no: "9",
       productType: "일반상품",
       productCode: "1088781746-1234",
@@ -163,7 +221,8 @@
       regDate: "2024-07-12 17:33:50"
     },
     {
-      // selected: false,
+      id: 10,
+      inStock: false,
       no: "10",
       productType: "일반상품",
       productCode: "18574",
@@ -183,16 +242,16 @@
         {
           id: "inStock",
           type: "boolean",
-          maxWidth: 62,
           width: 62,
+          maxWidth: 62,
           header: [
             {
               text: `
-                        <label class="dhx_checkbox dhx_cell-editor__checkbox ">
-                            <input type="checkbox" class="dhx_checkbox__input dhx_checkbox--check-all">
-                            <span class="dhx_checkbox__visual-input "></span>
-                        </label>
-                    `,
+                  <label class="dhx_checkbox dhx_cell-editor__checkbox ">
+                    <input type="checkbox" class="dhx_checkbox__input dhx_checkbox--check-all">
+                    <span class="dhx_checkbox__visual-input "></span>
+                  </label>
+              `,
               htmlEnable: true,
             }
           ],
@@ -200,51 +259,82 @@
         },
         {
           width: 62,
+          minWidth: 62,
+          maxWidth: 62,
           id: "detail",
           header: [{text: "상세"}],
           htmlEnable: true,
           template: (value, row, col, rowIdx) =>
               `<button class="btn-detail" data-rowid="\${row.id || rowIdx}">
                 <span class="icon"></span>
-              </button>`
+              </button>`,
+          sortable: false
         },
-        {width: 65, id: "no", header: [{text: "NO"}], sortable: true},
-        {minWidth: 95, id: "productType", header: [{text: "상품 타입"}]},
-        {maxWidth: 230, id: "productCode", header: [{text: "상품코드"}]},
+        {
+          // width: 65,
+          id: "no",
+          header: [{text: "NO"}],
+          sortable: true
+        }
+        ,
+        {
+          // minWidth: 95,
+          id: "productType",
+          header: [{text: "상품 타입"}]
+        },
+        {
+          width: 230,
+          maxWidth: 230,
+          id: "productCode",
+          htmlEnable: true,
+          header: [{text: "상품코드"}],
+          template: value => `<div class="multiline">${value || ""}</div>`,
+        },
         // { maxWidth: 860, id: "productName", header: [{ text: "상품명" }] },
         {
+          width: 860,
           maxWidth: 860,
-          autoWidth: false,
+          // autoWidth: false,
           id: "productName",
           header: [{text: "상품명"}],
           htmlEnable: true,
           template: (value, row) =>
-              `<div class="div-wrap text-truncate-multi" data-rowid="${row.id || ''}">
+              `<div class="multiline" data-rowid="${row.id || ''}">
                 ${value || ""}
               </div>`
         },
-        {minWidth: 92, autoWidth: false, id: "amount", header: [{text: "상품가액"}]},
-        {minWidth: 101, autoWidth: false, id: "hsCode", header: [{text: "HS 코드"}]},
-        {minWidth: 107, autoWidth: false, id: "registrant", header: [{text: "최초 등록자"}]},
-        {minWidth: 118, autoWidth: false, id: "regDate", header: [{text: "최초 등록일시"}]}
+        {
+          // minWidth: 92,
+          // autoWidth: false,
+          id: "amount",
+          header: [{text: "상품가액"}]
+        },
+        {
+          // minWidth: 101,
+          // autoWidth: false,
+          id: "hsCode",
+          header: [{text: "HS 코드"}]
+        },
+        {
+          // minWidth: 107,
+          // autoWidth: false,
+          id: "registrant",
+          header: [{text: "최초 등록자"}]
+        },
+        {
+          // minWidth: 118,
+          // autoWidth: false,
+          id: "regDate",
+          header: [{text: "최초 등록일시"}]
+        }
       ],
       data: dataset,
-      autoWidth: false,
-      minWidth: 1280,
+      autoWidth: true,
+      // maxWidth: 1100,
       height: 620,
+      rowHeight: 62,
       editable: true,
       adjust: true,
-      eventHandlers: {
-        onclick: {
-          "dhx_checkbox--check-all": function (event, data) {
-            grid.data.forEach(row => {
-              grid.data.update(row.id, {
-                [data.col.id]: event.target.checked,
-              });
-            });
-          }
-        },
-      }
     };
 
     function createGrid() {
@@ -254,15 +344,138 @@
       grid = new dhx.Grid("grid", config);
     }
 
-    let selector = document.querySelectorAll("[name=editable]");
-    for (let index = 0; index < selector.length; index++) {
-      selector[index].addEventListener("change", function (e) {
-        config.editable = (e.target.id === "true");
-        createGrid();
-      });
-    }
-
     createGrid();
+
+    // select box
+    const form = new dhx.Form("test", {
+      rows: [
+        {
+          type: "combo",
+          readOnly: true,
+          name: "product-type",
+          label: "상품 타입",
+          labelPosition: "top",
+          labelWidth: "236px",
+          css: "555555",  // 여기에 클래스명 지정
+          data: [
+            {id: "123", value: "123"},
+            {id: "email", value: "email"},
+            {id: "integer", value: "integer"},
+            {id: "numeric", value: "numeric"},
+            {id: "alphanumeric", value: "alphanumeric"},
+            {id: "IPv4", value: "IPv4"}
+          ]
+        }
+      ]
+    });
+
+    // test1
+    const form1 = new dhx.Form("test1", {
+      rows: [
+        {
+          type: "combo",
+          readOnly: true,
+          name: "page",
+          value: "10",  // 여기서 기본 선택값 지정 (id 값)
+          // label: "상품 타입",
+          // labelPosition: "top",
+          // labelWidth: "236px",
+          // css: "555555",  // 여기에 클래스명 지정
+          data: [
+            {id: "10", value: "10개씩 보기"},
+            {id: "30", value: "30개씩 보기"},
+            {id: "50", value: "50개씩 보기"},
+            {id: "100", value: "100개씩 보기"}
+          ]
+        }
+      ]
+    });
+
+    // 페이지네이션
+    $(document).ready(function() {
+      const totalPages = 123; // 전체 페이지 수
+      const pageGroupSize = 5; // 한 번에 보여질 페이지 버튼 개수
+
+      const $container = $("#pagination-container");
+
+      function renderPagination(currentPage) {
+        $container.empty();
+
+        const isFirstPage = currentPage === 1;
+        const isLastPage = currentPage === totalPages;
+
+        const groupStart = Math.floor((currentPage - 1) / pageGroupSize) * pageGroupSize + 1;
+        let groupEnd = groupStart + pageGroupSize - 1;
+        if (groupEnd > totalPages) {
+          groupEnd = totalPages;
+        }
+
+        // 처음, 이전 버튼
+        $container.append(createButton("<<", function() { renderPagination(1); }, !isFirstPage, false, true, currentPage, totalPages));
+        $container.append(createButton("<", function() { renderPagination(currentPage - 1); }, !isFirstPage, false, true, currentPage, totalPages));
+
+        // 페이지 번호 버튼들
+        for (let i = groupStart; i <= groupEnd; i++) {
+          $container.append(createButton(i, function() { renderPagination(i); }, true, currentPage === i));
+        }
+
+        // 다음, 마지막 버튼
+        $container.append(createButton(">", function() { renderPagination(currentPage + 1); }, !isLastPage, false, true, currentPage, totalPages));
+        $container.append(createButton(">>", function() { renderPagination(totalPages); }, !isLastPage, false, true, currentPage, totalPages));
+      }
+
+      // 버튼 생성 함수
+      function createButton(text, onClick, enabled = true, isActive = false, isArrow = false, currentPage = 1, totalPages = 1) {
+        const $btn = $("<button>").prop("disabled", !enabled);
+
+        if (isArrow) {
+          const $icon = $("<i>");
+
+          let baseClass = "icon is-20 ";
+
+          if (text === "<<") {
+            baseClass += "icon-arrow-double-left bg-gray-6b";
+          } else if (text === "<") {
+            baseClass += "icon-arrow-left bg-gray-6b";
+          } else if (text === ">") {
+            baseClass += "icon-arrow-right bg-gray-6b";
+          } else if (text === ">>") {
+            baseClass += "icon-arrow-double-right bg-gray-6b";
+          }
+
+          if ((text === "<<" || text === "<") && currentPage === 1) {
+            baseClass = baseClass.replace("bg-gray-6b", "bg-gray-cc");
+          }
+
+          if ((text === ">" || text === ">>") && currentPage === totalPages) {
+            baseClass = baseClass.replace("bg-gray-6b", "bg-gray-cc");
+          }
+
+          $icon.addClass(baseClass);
+          $btn.append($icon);
+        } else {
+          $btn.text(text);
+        }
+
+        if (isActive) {
+          $btn.addClass("active");
+        }
+        if (isArrow) {
+          $btn.addClass("arrow-button");
+        } else {
+          $btn.addClass("page-button");
+        }
+
+        $btn.on("click", function() {
+          if (enabled) onClick();
+        });
+
+        return $btn;
+      }
+
+      // 초기 렌더링 호출
+      renderPagination(1);
+    });
 
   });
 </script>

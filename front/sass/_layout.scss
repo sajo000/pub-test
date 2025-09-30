@@ -350,7 +350,7 @@ iframe {
     flex-direction: column;
   }
 
-  .iframe-page-filter-wrap {
+  .iframe-page-top-section {
     flex: 0 0 auto;
     background: cadetblue;
   }
@@ -362,7 +362,7 @@ iframe {
 }
 
 // * iframe 서브페이지 메인 타이틀
-.iframe-title--main {
+.iframe-title-wrap {
   h1 {
     color: $primary;
     font-size: map-get($custom-font-size, 26);
