@@ -50,9 +50,11 @@
       </div>
 
       <div class="iframe-filter-wrap">
-        <div class="d-flex">
-          <div id="test" class="form-group"></div>
-        </div>
+        <div id="productType" class="form-group"></div>
+        <div id="productCode" class="form-group"></div>
+        <div id="productName" class="form-group"></div>
+        <div id="shopCdYn" class="form-group"></div>
+        <div id="shopCdYn2" class="form-group"></div>
       </div>
 
     </div>
@@ -78,7 +80,7 @@
 
         <button class="btn btn-m btn-outline-black d-flex align-items-center gap-6">
           <i class="icon is-16 icon-excel bg-gray-38"></i>
-          <span class="fc-black">쇼핑몰 상품 연동</span>
+          <span class="fc-black">엑셀 다운로드</span>
         </button>
       </div>
     </div>
@@ -93,7 +95,7 @@
           <div class="d-flex align-items-center">
             <div class="fs-16 fw-semibold fc-gray-6b me-4">총 <span class="fc-primary">NN</span>건</div>
             <div>
-              <div id="test1" class="form-group"></div>
+              <div id="itemsPerPage" class="form-group"></div>
             </div>
           </div>
 
@@ -109,132 +111,132 @@
 
 
 <script>
-  // dataset
-  let dataset;
-  dataset = [
-    {
-      id: 1,
-      inStock: false,
-      no: "1",
-      productType: "일반상품",
-      productCode: "202402010164-0004",
-      productName: "마르디메크르디 플라워 맨투맨",
-      amount: "68.5",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 2,
-      inStock: false,
-      no: "2",
-      productType: "일반상품",
-      productCode: "202402010164-0004",
-      productName: "LG 프라엘 더마세라",
-      amount: "1547.2",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 3,
-      inStock: false,
-      no: "3",
-      productType: "일반상품",
-      productCode: "202402010164-0004",
-      productName: "오쿡 두 손더 라지 블랙",
-      amount: "463.27",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 4,
-      inStock: false,
-      no: "4",
-      productType: "일반상품",
-      productCode: "202402010164-0004",
-      productName: "엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG +",
-      amount: "74.4",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 5,
-      inStock: false,
-      no: "5",
-      productType: "일반상품",
-      productCode: "1075305275-1085897513|1075304982|0002|000302|0001075305275-1085897513|1075304982|0002|000302|0003",
-      productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:PORCELAIN]",
-      amount: "39.4",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 6,
-      inStock: false,
-      no: "6",
-      productType: "일반상품",
-      productCode: "18577-B11695",
-      productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:VANILLA]",
-      amount: "39.4",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 7,
-      inStock: false,
-      no: "7",
-      productType: "일반상품",
-      productCode: "18577-C11695",
-      productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:BEIGE]",
-      amount: "39.4",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 8,
-      inStock: false,
-      no: "8",
-      productType: "일반상품",
-      productCode: "18572",
-      productName: "마르디메크르디 플라워 맨투맨",
-      amount: "261.8",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 9,
-      inStock: false,
-      no: "9",
-      productType: "일반상품",
-      productCode: "1088781746-1234",
-      productName: "메디큐브 김희선 윤곽 에이저밸 에스테틱 2종 세트",
-      amount: "486.54",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    },
-    {
-      id: 10,
-      inStock: false,
-      no: "10",
-      productType: "일반상품",
-      productCode: "18574",
-      productName: "에스프레소 토크 블렌딩 원두 500g 에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g",
-      amount: "15.9",
-      hsCode: "6211499000",
-      registrant: "msyoon",
-      regDate: "2024-07-12 17:33:50"
-    }
-  ];
-
   document.addEventListener("DOMContentLoaded", function () {
+
+    // dataset
+    let dataset;
+    dataset = [
+      {
+        id: 1,
+        inStock: false,
+        no: "1",
+        productType: "일반상품",
+        productCode: "202402010164-0004",
+        productName: "마르디메크르디 플라워 맨투맨",
+        amount: "68.5",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 2,
+        inStock: false,
+        no: "2",
+        productType: "일반상품",
+        productCode: "202402010164-0004",
+        productName: "LG 프라엘 더마세라",
+        amount: "1547.2",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 3,
+        inStock: false,
+        no: "3",
+        productType: "일반상품",
+        productCode: "202402010164-0004",
+        productName: "오쿡 두 손더 라지 블랙",
+        amount: "463.27",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 4,
+        inStock: false,
+        no: "4",
+        productType: "일반상품",
+        productCode: "202402010164-0004",
+        productName: "엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG + 피어 챔프컵 (12oz / 355ml) 엘가미노 블렌드 다크로스트 1KG +",
+        amount: "74.4",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 5,
+        inStock: false,
+        no: "5",
+        productType: "일반상품",
+        productCode: "1075305275-1085897513|1075304982|0002|000302|0001075305275-1085897513|1075304982|0002|000302|0003",
+        productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:PORCELAIN]",
+        amount: "39.4",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 6,
+        inStock: false,
+        no: "6",
+        productType: "일반상품",
+        productCode: "18577-B11695",
+        productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:VANILLA]",
+        amount: "39.4",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 7,
+        inStock: false,
+        no: "7",
+        productType: "일반상품",
+        productCode: "18577-C11695",
+        productName: "헤라 뉴 크리미 커버 컨실러 7.5g[Colors:BEIGE]",
+        amount: "39.4",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 8,
+        inStock: false,
+        no: "8",
+        productType: "일반상품",
+        productCode: "18572",
+        productName: "마르디메크르디 플라워 맨투맨",
+        amount: "261.8",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 9,
+        inStock: false,
+        no: "9",
+        productType: "일반상품",
+        productCode: "1088781746-1234",
+        productName: "메디큐브 김희선 윤곽 에이저밸 에스테틱 2종 세트",
+        amount: "486.54",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 10,
+        inStock: false,
+        no: "10",
+        productType: "일반상품",
+        productCode: "18574",
+        productName: "에스프레소 토크 블렌딩 원두 500g 에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g",
+        amount: "15.9",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
+      }
+    ];
 
     let grid;
     let config = {
@@ -346,8 +348,10 @@
 
     createGrid();
 
-    // select box
-    const form = new dhx.Form("test", {
+    // combobox 상품 타입
+    const productType = new dhx.Form("productType", {
+      css: "iframe-filter-container",
+      // itemHeight: 42,
       rows: [
         {
           type: "combo",
@@ -356,31 +360,77 @@
           label: "상품 타입",
           labelPosition: "top",
           labelWidth: "236px",
-          css: "555555",  // 여기에 클래스명 지정
+          itemHeight: 42, // 옵션 높이
+          value: "1", // 여기서 기본 선택값 지정 (id 값)
+          css: "me-4",  // 여기에 클래스명 지정,
           data: [
-            {id: "123", value: "123"},
-            {id: "email", value: "email"},
-            {id: "integer", value: "integer"},
-            {id: "numeric", value: "numeric"},
-            {id: "alphanumeric", value: "alphanumeric"},
-            {id: "IPv4", value: "IPv4"}
+            {id: "1", value: "선택"},
+            {id: "2", value: "일반상품"},
+            {id: "3", value: "사은품"},
+            {id: "4", value: "샘플"},
+            {id: "5", value: "추가구성"},
+            {id: "6", value: "세트상품"},
+            {id: "7", value: "사입상품"},
+            {id: "8", value: "외주상품"}
           ]
+        },
+        {
+          type: "input",
+          name: "product-code",
+          label: "상품 코드",
+          labelPosition: "top",
+          labelWidth: "236px",
+          css: "me-4",  // 여기에 클래스명 지정,
+          placeholder: "상품 코드를 입력해주세요"
+        },
+        {
+          type: "combo",
+          readOnly: true,
+          name: "shopCdYn",
+          label: "쇼핑몰 코드 사용유무",
+          labelPosition: "top",
+          labelWidth: "236px",
+          itemHeight: 42, // 옵션 높이
+          value: "1", // 여기서 기본 선택값 지정 (id 값)
+          css: "me-4",  // 여기에 클래스명 지정,
+          data: [
+            {id: "1", value: "선택"},
+            {id: "2", value: "사용"},
+            {id: "3", value: "미사용"}
+          ]
+        },
+        {
+          type: "input",
+          name: "shopCdYn2",
+          label: "쇼핑몰 코드 사용유무..",
+          labelPosition: "top",
+          labelWidth: "236px",
+          css: "me-4",  // 여기에 클래스명 지정,
+          placeholder: "선택"
+        },
+        {
+          type: "button",
+          text: "검색",
+          size: "medium", // 작은 크기: "small", 기본:"medium", 큰크기: "large"
+          // 클릭 이벤트 핸들러
+          action: () => {
+            const values = form.getValue();
+            console.log("검색어:", values.searchText);
+            // 여기에 검색 실행 코드 작성
+          }
         }
       ]
     });
 
-    // test1
-    const form1 = new dhx.Form("test1", {
+    // combobox NN개씩 보기
+    const itemsPerPage = new dhx.Form("itemsPerPage", {
       rows: [
         {
           type: "combo",
           readOnly: true,
-          name: "page",
+          name: "itemsPerPage",
+          itemHeight: 42, // 옵션 높이
           value: "10",  // 여기서 기본 선택값 지정 (id 값)
-          // label: "상품 타입",
-          // labelPosition: "top",
-          // labelWidth: "236px",
-          // css: "555555",  // 여기에 클래스명 지정
           data: [
             {id: "10", value: "10개씩 보기"},
             {id: "30", value: "30개씩 보기"},
@@ -392,7 +442,7 @@
     });
 
     // 페이지네이션
-    $(document).ready(function() {
+    $(document).ready(function () {
       const totalPages = 123; // 전체 페이지 수
       const pageGroupSize = 5; // 한 번에 보여질 페이지 버튼 개수
 
@@ -411,17 +461,27 @@
         }
 
         // 처음, 이전 버튼
-        $container.append(createButton("<<", function() { renderPagination(1); }, !isFirstPage, false, true, currentPage, totalPages));
-        $container.append(createButton("<", function() { renderPagination(currentPage - 1); }, !isFirstPage, false, true, currentPage, totalPages));
+        $container.append(createButton("<<", function () {
+          renderPagination(1);
+        }, !isFirstPage, false, true, currentPage, totalPages));
+        $container.append(createButton("<", function () {
+          renderPagination(currentPage - 1);
+        }, !isFirstPage, false, true, currentPage, totalPages));
 
         // 페이지 번호 버튼들
         for (let i = groupStart; i <= groupEnd; i++) {
-          $container.append(createButton(i, function() { renderPagination(i); }, true, currentPage === i));
+          $container.append(createButton(i, function () {
+            renderPagination(i);
+          }, true, currentPage === i));
         }
 
         // 다음, 마지막 버튼
-        $container.append(createButton(">", function() { renderPagination(currentPage + 1); }, !isLastPage, false, true, currentPage, totalPages));
-        $container.append(createButton(">>", function() { renderPagination(totalPages); }, !isLastPage, false, true, currentPage, totalPages));
+        $container.append(createButton(">", function () {
+          renderPagination(currentPage + 1);
+        }, !isLastPage, false, true, currentPage, totalPages));
+        $container.append(createButton(">>", function () {
+          renderPagination(totalPages);
+        }, !isLastPage, false, true, currentPage, totalPages));
       }
 
       // 버튼 생성 함수
@@ -466,8 +526,10 @@
           $btn.addClass("page-button");
         }
 
-        $btn.on("click", function() {
-          if (enabled) onClick();
+        $btn.on("click", function () {
+          if (enabled) {
+            onClick();
+          }
         });
 
         return $btn;
@@ -476,7 +538,6 @@
       // 초기 렌더링 호출
       renderPagination(1);
     });
-
   });
 </script>
 </body>

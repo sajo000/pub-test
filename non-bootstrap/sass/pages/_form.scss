@@ -16,10 +16,12 @@
     font-size: map-get($custom-font-size, 14);
   }
 
+  /* ========================================================================
+  * combobox 콤보박스
+  */
   .dhx_combobox-input-box {
     width: 236px;
-    //height: 46px;
-    //padding: 8px 1rem;
+    height: 42px;
     background-color: white;
     border: 1px solid $gray-e6;
     font-size: map-get($custom-font-size, 14);
@@ -62,8 +64,62 @@
       margin-bottom: 0;
     }
   }
+
+/* ========================================================================
+* combobox options 콤보박스 옵션
+*/
+  .dhx_combobox-input {
+    color: black;
+  }
+
+  .dhx_combobox-input-list {
+    height: 100%;
+    padding-left: 16px;
+    border: 0;
+  }
+
+  .dhx_combobox-input__icon {
+    right: 16px;
+  }
 }
 
+.dhx_combobox-options {
+  border: 1px solid $gray-e6;
+  border-radius: $border-radius-6;
+  box-shadow: none;
+}
+
+.dhx_list-item {
+  color: black;
+  border-bottom: 0;
+  padding: 8px 16px;
+
+  &:hover {
+    background-color: $gray-f7;
+  }
+
+  &:active {
+    background-color: $primary-hover;
+    color: white;
+  }
+}
+
+
+// 선택된 옵션
+.dhx_list-item--focus.dhx_list-item--selected {
+  color: $primary;
+  background-color: white;
+  box-shadow: none;
+
+  &:hover {
+    background-color: $gray-f7;
+  }
+}
+
+
+/* ========================================================================
+* ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+*/
 // * form-group input 안에 아이콘 있는 경우 button 감싸고 있는 div
 .form-group-append {
   display: flex;
@@ -99,6 +155,7 @@
 textarea.form-control {
   min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2) + 20px);
 }
+
 /* ========================================================================
 * 인풋 체크박스
 */
@@ -198,10 +255,6 @@ textarea.form-control {
 /* ========================================================================
  * 테스트으으으으
  */
-//.form-switch .form-check-input {
-//  // input 스위치 왼쪽으로 꺼져있을때 스위치 버튼 색상 지정.
-//  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
-//}
 
 // 드롭다운, 다중선택 셀렉트 테스트
 .multi-select-wrap {
