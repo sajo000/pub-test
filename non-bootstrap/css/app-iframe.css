@@ -2541,9 +2541,8 @@ body {
  * 구분선 divider
 */
 hr.divider {
-  height: 1px;
-  background-color: #e6e6e6;
-  border: 0;
+  border: none;
+  border-top: 1px solid #e6e6e6;
 }
 
 /* ========================================================================

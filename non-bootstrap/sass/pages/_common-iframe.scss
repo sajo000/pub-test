@@ -50,11 +50,9 @@ body {
  * 구분선 divider
 */
 hr.divider {
-  height: 1px;
-  background-color: $gray-e6;
-  border: 0;
+  border: none;
+  border-top: 1px solid $gray-e6;
 }
-
 
 /* ========================================================================
  * 테이블 정렬 아이콘 커스텀

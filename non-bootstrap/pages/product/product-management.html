@@ -73,39 +73,36 @@
       </div>
 
       <div class="d-flex gap-3 ms-auto">
-        <button class="btn btn-m btn-outline-gray d-flex align-items-center gap-6">
+        <button class="btn btn-m btn-outline-gray d-flex align-items-center gap-6 fc-danger">
           <i class="icon is-16 icon-delete bg-danger"></i>
-          <span class="fc-danger">삭제</span>
+          <span>삭제</span>
         </button>
 
-        <button class="btn btn-m btn-outline-black d-flex align-items-center gap-6">
+        <button class="btn btn-m btn-outline-black d-flex align-items-center gap-6 fc-black">
           <i class="icon is-16 icon-excel bg-gray-38"></i>
-          <span class="fc-black">엑셀 다운로드</span>
+          <span>엑셀 다운로드</span>
         </button>
       </div>
     </div>
 
-    <div style="height: 100%; border: 2px solid red;">
-      <div class="iframe-page-content-wrap" style="height: 100%;  border: 2px dashed orange;">
-        <div id="grid" style="width: 100%; height: 100%;"></div>
-      </div>
+    <div class="iframe-page-content-wrap" style="height: 100%; border: 2px dashed orange;">
+      <div id="grid" style="width: 100%; height: 100%;"></div>
+    </div>
 
-      <div class="mt-4 mb-40">
+    <div class="mt-4 mb-40">
+      <div class="d-flex align-items-center">
         <div class="d-flex align-items-center">
-          <div class="d-flex align-items-center">
-            <div class="fs-16 fw-semibold fc-gray-6b me-4">총 <span class="fc-primary">NN</span>건</div>
-            <div>
-              <div id="itemsPerPage" class="form-group"></div>
-            </div>
+          <div class="fs-16 fw-semibold fc-gray-6b me-4">총 <span class="fc-primary">NN</span>건</div>
+          <div>
+            <div id="itemsPerPage" class="form-group"></div>
           </div>
+        </div>
 
-          <div class="ms-auto">
-            <div id="pagination-container"></div>
-          </div>
+        <div class="ms-auto">
+          <div id="pagination-container"></div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
