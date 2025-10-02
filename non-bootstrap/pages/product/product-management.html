@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="iframe-content-inner">
-  <div class="iframe-page-wrap" style="min-height: 100vh;">
+  <div class="iframe-page-wrap" style="height: 100%;">
     <div class="iframe-page-top-section">
 
       <div class="iframe-title-wrap">
@@ -85,12 +85,12 @@
       </div>
     </div>
 
-    <div>
-      <div class="iframe-page-content-wrap">
-        <div id="grid" style="width: 100%; height: auto;"></div>
+    <div style="height: 100%; border: 2px solid red;">
+      <div class="iframe-page-content-wrap" style="height: 100%;  border: 2px dashed orange;">
+        <div id="grid" style="width: 100%; height: 100%;"></div>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-4 mb-40">
         <div class="d-flex align-items-center">
           <div class="d-flex align-items-center">
             <div class="fs-16 fw-semibold fc-gray-6b me-4">총 <span class="fc-primary">NN</span>건</div>
@@ -249,7 +249,7 @@
           header: [
             {
               text: `
-                  <label class="dhx_checkbox dhx_cell-editor__checkbox ">
+                  <label class="dhx_checkbox dhx_cell-editor__checkbox">
                     <input type="checkbox" class="dhx_checkbox__input dhx_checkbox--check-all">
                     <span class="dhx_checkbox__visual-input "></span>
                   </label>
@@ -267,7 +267,7 @@
           header: [{text: "상세"}],
           htmlEnable: true,
           template: (value, row, col, rowIdx) =>
-              `<button class="btn-detail" data-rowid="\${row.id || rowIdx}">
+              `<button class="btn-detail" data-rowid="${row.id || rowIdx}">
                 <span class="icon"></span>
               </button>`,
           sortable: false
@@ -333,10 +333,12 @@
       data: dataset,
       autoWidth: true,
       // maxWidth: 1100,
-      height: 620,
-      rowHeight: 62,
+      // height: 620,
+      // rowHeight: 62,
       editable: true,
       adjust: true,
+      selection: true,
+      autoHeight: true
     };
 
     function createGrid() {

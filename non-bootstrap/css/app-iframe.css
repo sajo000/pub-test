@@ -1636,9 +1636,8 @@
 
 html,
 body {
-  min-width: unset;
   width: unset;
-  height: unset;
+  height: 100%;
   background-color: transparent;
   overflow-x: hidden;
 }
@@ -1794,6 +1793,13 @@ html, body, * {
     margin-left: -16px !important;
     margin-right: -16px !important;
   }
+}
+
+/* ========================================================================
+ * 높이 100%
+*/
+.h-100 {
+  height: 100%;
 }
 
 /* ========================================================================
@@ -2487,6 +2493,11 @@ textarea.form-control {
 /* ========================================================================
 * iframe
 */
+html,
+body {
+  height: 100%;
+}
+
 .iframe-content {
   height: 100%;
 }
