@@ -85,11 +85,12 @@
       </div>
     </div>
 
-    <div class="iframe-page-content-wrap" style="height: 100%; border: 2px dashed orange;">
+    <div class="iframe-page-content-wrap" style="height: 100%;">
       <div id="grid" style="width: 100%; height: 100%;"></div>
     </div>
 
-    <div class="mt-4 mb-40">
+    <!-- nn개씩 보기, 페이지네이션 -->
+    <div class="mt-4">
       <div class="d-flex align-items-center">
         <div class="d-flex align-items-center">
           <div class="fs-16 fw-semibold fc-gray-6b me-4">총 <span class="fc-primary">NN</span>건</div>
@@ -103,6 +104,7 @@
         </div>
       </div>
     </div>
+    <!-- /nn개씩 보기, 페이지네이션 -->
   </div>
 </div>
 
@@ -232,6 +234,18 @@
         hsCode: "6211499000",
         registrant: "msyoon",
         regDate: "2024-07-12 17:33:50"
+      },
+      {
+        id: 11,
+        inStock: false,
+        no: "11",
+        productType: "일반상품",
+        productCode: "18574",
+        productName: "에스프레소 토크 블렌딩 원두 500g 에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g에스프레소 토크 블렌딩 원두 500g",
+        amount: "15.9",
+        hsCode: "6211499000",
+        registrant: "msyoon",
+        regDate: "2024-07-12 17:33:50"
       }
     ];
 
@@ -329,9 +343,9 @@
       ],
       data: dataset,
       autoWidth: true,
-      // maxWidth: 1100,
-      // height: 620,
-      // rowHeight: 62,
+      rowHeight: 62,
+      headerRowHeight: 62,
+      footerRowHeight: 62,
       editable: true,
       adjust: true,
       selection: true,
@@ -440,6 +454,31 @@
       ]
     });
 
+    // 사용자가 시각적으로 클릭하는 span.dhx_checkbox__visual-input에 클릭 이벤트 바인딩
+    $(document).on('click', '.dhx_checkbox__visual-input', function () {
+      // 클릭된 span과 형제 관계인 숨겨진 체크박스 input 요소를 찾음
+      var $input = $(this).siblings('input.dhx_checkbox__input');
+      if ($input.length) {
+        // 체크박스의 checked 상태를 반전시킴 (체크되었다면 해제, 해제되었다면 체크)
+        $input.prop('checked', !$input.prop('checked'));
+        // 변경된 checked 상태를 반영하기 위해 강제로 change 이벤트를 트리거
+        $input.trigger('change');
+      }
+    });
+
+    // 체크박스 input 요소의 checked 상태 변화 감지 이벤트 바인딩
+    $(document).on('change', '.dhx_checkbox__input[type=checkbox]', function () {
+      // 변화가 발생한 체크박스가 속한 최상위 행 div.dhx_grid-row를 찾음
+      var $row = $(this).closest('div.dhx_grid-row');
+      if (this.checked) {
+        // 체크되었으면 배경색 클래스 추가
+        $row.addClass('bg-primary-lite');
+      } else {
+        // 체크 해제되었으면 배경색 클래스 제거
+        $row.removeClass('bg-primary-lite');
+      }
+    });
+
     // 페이지네이션
     $(document).ready(function () {
       const totalPages = 123; // 전체 페이지 수
@@ -537,6 +576,7 @@
       // 초기 렌더링 호출
       renderPagination(1);
     });
+
   });
 </script>
 </body>

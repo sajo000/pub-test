@@ -2177,6 +2177,26 @@ http://scripts.sil.org/OFL
   background-color: #f0f0f0;
 }
 
+.dhx_grid-footer-cell, .dhx_grid-header-cell {
+  color: #000000;
+  padding: 10px 12px;
+}
+
+.dhx_grid-cell {
+  color: #000000;
+  padding: 10px 12px;
+}
+
+.dhx_widget, .dhx_widget * {
+  -webkit-tap-highlight-color: unset;
+}
+
+.dhx_grid .dhx_grid-data tbody tr td:first-child,
+.dhx_grid .dhx_grid-data tbody tr td:last-child {
+  border-left: none !important;
+  border-right: none !important;
+}
+
 /* ========================================================================
  * 테이블 상세 아이콘
 */
@@ -2195,7 +2215,7 @@ http://scripts.sil.org/OFL
 }
 
 .btn-detail:hover {
-  background: #d1e7ff;
+  background: #f0f0f0;
 }
 
 .btn-detail .icon {
@@ -2533,8 +2553,6 @@ body {
 */
 .multiline {
   white-space: normal !important;
-  word-break: break-word;
-  overflow-wrap: break-word;
 }
 
 /* ========================================================================

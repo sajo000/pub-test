@@ -5,6 +5,27 @@
   background-color: $gray-f0;
 }
 
+.dhx_grid-footer-cell, .dhx_grid-header-cell {
+  color: $black;
+  padding: 10px 12px;
+}
+
+.dhx_grid-cell {
+  color: $black;
+  padding: 10px 12px;
+}
+
+.dhx_widget, .dhx_widget * {
+  -webkit-tap-highlight-color: unset;
+}
+
+.dhx_grid .dhx_grid-data tbody tr td:first-child,
+.dhx_grid .dhx_grid-data tbody tr td:last-child {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+
 /* ========================================================================
  * 테이블 상세 아이콘
 */
@@ -23,7 +44,7 @@
 }
 
 .btn-detail:hover {
-  background: #d1e7ff;
+  background: $gray-f0;
 }
 
 .btn-detail .icon {

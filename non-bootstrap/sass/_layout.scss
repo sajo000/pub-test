@@ -363,21 +363,21 @@ iframe {
 
 .iframe-content-inner {
   .iframe-page-wrap {
-    //height: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    //display: flex;
+    //flex-direction: column;
   }
 
   .iframe-page-top-section {
-    flex: 0 0 auto;
+    //flex: 0 0 auto;
     background: cadetblue;
   }
 
   .iframe-page-content-wrap {
     width: 100%;
-    //max-width: 100%;
-    flex: 1 1 auto;
-    background: palevioletred;
+    //height: 100%;
+    //flex: 1 1 auto;
+    border: 2px dashed palevioletred;
   }
 }
 

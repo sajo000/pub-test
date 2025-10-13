@@ -1953,17 +1953,14 @@ iframe {
 }
 
 .iframe-content-inner .iframe-page-wrap {
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 }
 .iframe-content-inner .iframe-page-top-section {
-  flex: 0 0 auto;
   background: cadetblue;
 }
 .iframe-content-inner .iframe-page-content-wrap {
   width: 100%;
-  flex: 1 1 auto;
-  background: palevioletred;
+  border: 2px dashed palevioletred;
 }
 
 /* ************************************************************************
